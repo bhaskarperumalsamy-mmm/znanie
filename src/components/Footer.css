@@ -1,0 +1,299 @@
+.landmark-footer {
+    background: #020617;
+    color: #ffffff;
+    padding: 32px 0;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ── Clear Background ── */
+.landmark-glow {
+    display: none;
+}
+
+.landmark-footer .container {
+    position: relative;
+    z-index: 5;
+}
+
+.landmark-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 0;
+    padding-bottom: 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Brand Identification Pillar ── */
+.landmark-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.landmark-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.landmark-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+.landmark-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.landmark-prefix {
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: #d4a03a;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 4px;
+}
+
+.landmark-title {
+    font-size: 3.2rem;
+    font-weight: 850;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin: 0;
+    color: #d4a03a !important;
+}
+
+.landmark-manifesto {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    max-width: 480px;
+    font-weight: 500;
+}
+
+.landmark-social {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 950;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #7B1A2C;
+    border-color: #7B1A2C;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(123, 26, 44, 0.3);
+}
+
+/* ── Navigational Ledger ── */
+.landmark-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.landmark-label {
+    font-size: 0.75rem;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #d4a03a;
+    background: transparent !important;
+    opacity: 1;
+}
+
+.landmark-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.landmark-menu a {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 600;
+}
+
+.menu-num {
+    font-size: 0.65rem;
+    font-family: monospace;
+    color: #7B1A2C;
+    font-weight: 900;
+    background: rgba(123, 26, 44, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.landmark-menu a:hover {
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+/* ── Contact Hub Cards ── */
+.landmark-hubs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hub-unit {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.hub-city {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0;
+}
+
+.hub-role {
+    font-size: 0.75rem;
+    font-weight: 750;
+    color: #d4a03a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hub-secure {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.secure-label {
+    font-size: 0.65rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #d4a03a;
+}
+
+.secure-val {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #94a3b8;
+    letter-spacing: 0;
+}
+
+/* ── Protocol Strip ── */
+.landmark-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.landmark-sep {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #7B1A2C, transparent);
+    opacity: 0.4;
+}
+
+.landmark-protocol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.landmark-copyright {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.gold-text {
+    color: #d4a03a;
+    opacity: 0.6;
+}
+
+.landmark-legal {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.landmark-legal a {
+    font-size: 0.8rem;
+    font-weight: 850;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+    opacity: 0.5;
+}
+
+.landmark-legal a:hover {
+    color: #d4a03a;
+    opacity: 1;
+}
+
+.legal-sep {
+    color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Responsive Architecture ── */
+@media (max-width: 1200px) {
+    .landmark-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .landmark-footer {
+        padding: 120px 0 60px;
+    }
+
+    .landmark-grid {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .landmark-title {
+        font-size: 2.2rem;
+    }
+
+    .landmark-protocol {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+}

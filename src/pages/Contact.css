@@ -1,0 +1,345 @@
+.contact-page {
+    padding-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Atmosphere Orbs */
+.contact-page::before {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: var(--gradient-primary);
+    filter: blur(150px);
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.contact-main {
+    padding: 160px 0;
+    background: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+.contact-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.ch-card {
+    background: #ffffff;
+    border: 1px solid var(--gray-100);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 4px;
+    /* More institutional feel */
+    overflow: hidden;
+    min-height: 450px;
+}
+
+.ch-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary);
+    box-shadow: 0 40px 80px rgba(179, 40, 45, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(179, 40, 45, 0.02) 100%);
+}
+
+/* Header Section */
+.ch-card-header {
+    padding: 40px 40px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ch-index-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.ch-index-num {
+    font-family: var(--font-main);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 0.25em;
+    opacity: 0.4;
+}
+
+.ch-index-line {
+    width: 2px;
+    height: 30px;
+    background: rgba(179, 40, 45, 0.1);
+    transition: height 0.4s ease, background 0.4s ease;
+}
+
+.ch-card:hover .ch-index-line {
+    height: 50px;
+    background: var(--primary);
+}
+
+.ch-icon-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 4px;
+    padding: 8px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+    transition: all 0.5s ease;
+}
+
+.ch-avatar-new {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    filter: grayscale(1) opacity(0.5);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ch-card:hover .ch-icon-wrap {
+    background: #ffffff;
+    border-color: var(--secondary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: rotate(3deg);
+}
+
+.ch-card:hover .ch-avatar-new {
+    filter: grayscale(0) opacity(1);
+}
+
+/* Body Section */
+.ch-card-body {
+    padding: 0 40px 40px;
+    flex-grow: 1;
+}
+
+.ch-card-title-new {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    line-height: 1.2;
+}
+
+.ch-details-new {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ch-detail-text-new {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.3s ease;
+}
+
+.ch-detail-bullet {
+    color: var(--primary);
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.ch-card:hover .ch-detail-text-new {
+    color: var(--text-main);
+}
+
+.ch-card:hover .ch-detail-bullet {
+    opacity: 1;
+}
+
+/* Footer Section */
+.ch-card-footer {
+    padding: 25px 40px;
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ch-footer-accent {
+    width: 10px;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.4s ease;
+}
+
+.ch-card:hover .ch-footer-accent {
+    width: 30px;
+}
+
+.ch-footer-label {
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.3;
+}
+
+.ch-card:hover .ch-footer-label {
+    opacity: 0.8;
+}
+
+/* Strategic Watermark */
+.ch-card::after {
+    content: 'STRATEGIC';
+    position: absolute;
+    bottom: 20px;
+    right: -10px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary);
+    opacity: 0.03;
+    transform: rotate(-90deg);
+    pointer-events: none;
+    transition: all 0.6s ease;
+}
+
+.ch-card:hover::after {
+    opacity: 0.08;
+    right: 0px;
+}
+
+.ch-card::before {
+    display: none;
+}
+
+.ch-card-top,
+.ch-avatar,
+.ch-index,
+.ch-title,
+.ch-line,
+.ch-details,
+.ch-detail-item {
+    display: none;
+    /* Cleanup for safety */
+}
+
+/* ── Location Matrix Section ── */
+.contact-map-section {
+    padding: 120px 0;
+    background: var(--bg-light, #f9f9f9);
+}
+
+.map-frame-sovereign {
+    position: relative;
+    border-radius: 4px;
+    overflow: visible;
+    background: #ffffff;
+    padding: 12px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--gray-100);
+}
+
+.map-frame-inner {
+    border-radius: 2px;
+    overflow: hidden;
+    height: 600px;
+    filter: grayscale(0.2) contrast(1.1);
+    transition: filter 0.5s ease;
+}
+
+.map-frame-sovereign:hover .map-frame-inner {
+    filter: grayscale(0) contrast(1);
+}
+
+.map-badge {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: #ffffff;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+    border: 1px solid var(--gray-100);
+}
+
+.map-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(179, 40, 45, 0.1);
+    animation: mapPulse 2s infinite;
+}
+
+.map-badge-text {
+    font-family: var(--font-main);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@keyframes mapPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-bento-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ch-card {
+        padding: 30px;
+    }
+
+    .ch-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .map-frame-inner {
+        height: 400px;
+    }
+
+    .map-badge {
+        bottom: 20px;
+        left: 20px;
+        padding: 10px 15px;
+    }
+}

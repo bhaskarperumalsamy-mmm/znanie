@@ -1,0 +1,1506 @@
+/* =================================================================
+   HOME PAGE — UNIFIED REDESIGN
+   Font: Inter, Weight: 400, Color: #000, Accents: Red + Yellow
+   ================================================================= */
+
+/* ── Global Section Reset ── */
+.home {
+    font-weight: 400;
+}
+
+.home section {
+    font-weight: 400;
+}
+
+/* ── Consistent Heading System ── */
+.section-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-crimson);
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
+}
+
+.section-title span {
+    color: var(--accent-crimson);
+}
+
+.section-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 640px;
+}
+
+/* =================================================================
+   1. BRIDGING INDIA & RUSSIA — Clean Pillars
+   ================================================================= */
+.bi-pillars-vault {
+    background: var(--white) !important;
+    padding: 100px 0 !important;
+    color: var(--text-dark) !important;
+}
+
+.bv-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.bv-eyebrow {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    color: var(--accent-crimson) !important;
+}
+
+.bv-title {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1.2 !important;
+}
+
+.bv-title-gold {
+    color: var(--accent-crimson) !important;
+    -webkit-text-stroke: 0 !important;
+    font-style: normal !important;
+    font-size: inherit !important;
+}
+
+.bv-lead {
+    font-weight: 400 !important;
+    color: var(--text-light) !important;
+    font-size: 1.05rem !important;
+}
+
+/* Stacking Cards */
+.bv-stack-card {
+    background: #f9f9f9 !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    height: 420px !important;
+}
+
+.bv-card-visual img {
+    filter: brightness(0.9) grayscale(0%) !important;
+}
+
+.bv-stack-card:hover .bv-card-visual img {
+    filter: brightness(1) grayscale(0%) !important;
+}
+
+.bv-visual-overlay {
+    background: linear-gradient(to right, transparent, rgba(249, 249, 249, 0.95)) !important;
+}
+
+.bv-stack-card:nth-child(even) .bv-visual-overlay {
+    background: linear-gradient(to left, transparent, rgba(249, 249, 249, 0.95)) !important;
+}
+
+.bv-card-content {
+    padding: 50px !important;
+}
+
+.bv-num {
+    color: rgba(0, 0, 0, 0.04) !important;
+    font-size: 4rem !important;
+    font-weight: 700 !important;
+}
+
+.bv-category {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: var(--accent-crimson) !important;
+    letter-spacing: 3px !important;
+}
+
+.bv-card-title {
+    font-size: 2rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    letter-spacing: -0.3px !important;
+}
+
+.bv-card-desc {
+    font-weight: 400 !important;
+    color: var(--text-light) !important;
+    font-size: 1rem !important;
+}
+
+.bv-card-accents {
+    font-weight: 400 !important;
+    color: #888888 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 1px !important;
+}
+
+.bv-dot {
+    background: #D4A017 !important;
+}
+
+/* Anthem Footer */
+.bv-anthem-footer {
+    border-top: 1px solid #e5e5e5 !important;
+}
+
+.bv-anthem-label {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    font-size: 0.75rem !important;
+}
+
+.bv-anthem-footer h2 {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+}
+
+.bv-anthem-gold {
+    color: var(--accent-crimson) !important;
+    font-style: normal !important;
+}
+
+.bv-anthem-line {
+    background: #D4A017 !important;
+}
+
+.bv-anthem-footer p {
+    color: var(--text-light) !important;
+    font-weight: 400 !important;
+}
+
+/* =================================================================
+   2. HOMELANDING — Partnership, Pillars, Why Russia, Course, Ripple
+   ================================================================= */
+
+/* Partnership Intro */
+.pl-monolith-intro {
+    background: #020617 !important;
+}
+
+.pl-m-visual {
+    display: block !important;
+}
+
+.pl-m-eyebrow {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+}
+
+.pl-m-title {
+    color: var(--white) !important;
+}
+
+.pl-m-title-heavy {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--white) !important;
+    text-transform: none !important;
+    letter-spacing: -0.5px !important;
+}
+
+.pl-m-title-light {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--white) !important;
+    text-transform: none !important;
+    letter-spacing: -0.5px !important;
+    font-style: normal !important;
+}
+
+.pl-m-accent {
+    color: var(--accent-crimson) !important;
+    font-weight: 400 !important;
+}
+
+.pl-m-lead {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 400 !important;
+}
+
+.pl-m-thesis {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--white) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.pl-m-thesis span {
+    color: var(--white) !important;
+    font-weight: 400 !important;
+}
+
+.v5-highlight-alt {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+}
+
+/* Pillars Section */
+.ptp-precision-section {
+    background: #f9f9f9 !important;
+}
+
+.ptp-pr-eyebrow {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+}
+
+.ptp-pr-dot {
+    background: var(--accent-crimson) !important;
+}
+
+.ptp-pr-title {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+}
+
+.ptp-pr-accent {
+    color: var(--accent-crimson) !important;
+}
+
+.ptp-pr-num {
+    color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.ptp-pr-kicker {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+}
+
+.ptp-pr-item-title {
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+}
+
+.ptp-pr-item-text {
+    color: var(--text-light) !important;
+    font-weight: 400 !important;
+}
+
+.ptp-pr-stat-val {
+    color: var(--text-dark) !important;
+    font-weight: 400 !important;
+}
+
+.ptp-pr-stat-lbl {
+    color: #888888 !important;
+}
+
+/* Why Russia Section */
+.section-why-russia-new {
+    background: var(--white) !important;
+}
+
+.wr-monument-header,
+.wr-diptych-anchor {
+    color: var(--text-dark) !important;
+}
+
+.wr-m-eyebrow,
+.wr-d-eyebrow {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+}
+
+.wr-m-title,
+.wr-d-heading {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    text-transform: none !important;
+    text-shadow: none !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1.2 !important;
+}
+
+.wr-m-serif,
+.wr-d-gold {
+    color: var(--accent-crimson) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    -webkit-text-stroke: 0 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+.wr-d-stats {
+    border-top: 1px solid #e5e5e5 !important;
+}
+
+.wr-d-stat strong {
+    color: var(--text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 1.8rem !important;
+}
+
+.wr-d-stat span {
+    color: #888888 !important;
+}
+
+.wr-diptych-content {
+    background: var(--white) !important;
+}
+
+.wr-slab-num {
+    color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.wr-slab-title {
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    text-transform: none !important;
+}
+
+.wr-slab-text {
+    color: var(--text-light) !important;
+    font-weight: 400 !important;
+}
+
+/* Russian Language Course */
+.section-russian-course {
+    background: #f9f9f9 !important;
+}
+
+.rc-badge {
+    background: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+}
+
+.rc-title {
+    font-size: 2.5rem !important;
+    font-weight: 400 !important;
+}
+
+.rc-tagline {
+    font-weight: 400 !important;
+}
+
+.rc-stat-num {
+    color: var(--text-dark) !important;
+    font-weight: 400 !important;
+    font-size: 2.2rem !important;
+}
+
+.rc-stat-lbl {
+    color: var(--accent-crimson) !important;
+    font-weight: 600 !important;
+}
+
+.rc-card h3 {
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    font-size: 1.2rem !important;
+}
+
+.rc-card p {
+    color: var(--text-light) !important;
+    font-weight: 400 !important;
+}
+
+.rc-levels-title {
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+}
+
+.rc-chip-code {
+    font-weight: 600 !important;
+}
+
+.rc-chip-name {
+    font-weight: 600 !important;
+}
+
+.v5-emphasis {
+    color: var(--accent-crimson) !important;
+}
+
+/* Ripple Effect */
+/* =================================================================
+   RIPPLE EFFECT — LIGHT REDESIGN (MINIMALIST MONOLITH)
+   ================================================================= */
+/* =================================================================
+   RIPPLE EFFECT — THE SOVEREIGN MONOGRAPH (EDITORIAL INTER)
+   ================================================================= */
+/* =================================================================
+   RIPPLE EFFECT — THE SOVEREIGN PILLAR (ARCHITECTURAL IMPACT)
+   ================================================================= */
+/* =================================================================
+   GLOBAL IMPACT — THE STRATEGIC BILATERAL LEDGER
+   ================================================================= */
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL IMPACT — THE RESONANCE — Monument Editorial
+   ═══════════════════════════════════════════════════════════════ */
+
+.rn-monument {
+    background: #ffffff;
+    padding: 180px 0 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+}
+
+/* ── Watermark Background ── */
+.rn-watermark {
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28vw;
+    font-weight: 900;
+    color: #f8fafc;
+    line-height: 1;
+    letter-spacing: -4vw;
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ── Header Area ── */
+.rn-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 80px;
+    margin-bottom: 120px;
+    position: relative;
+    z-index: 2;
+}
+
+.rn-header-left {
+    flex: 1;
+}
+
+.rn-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rn-pulse {
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: rn-pulse-anim 2s infinite;
+}
+
+@keyframes rn-pulse-anim {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 0.5;
+    }
+}
+
+.rn-title {
+    font-size: clamp(3rem, 6vw, 5rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.04em !important;
+    margin-top: 20px !important;
+}
+
+.rn-title-italic {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 400;
+}
+
+.rn-header-right {
+    flex: 1;
+    max-width: 500px;
+    padding-bottom: 16px;
+}
+
+.rn-lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.rn-header-line {
+    width: 100%;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+/* ── Pillars Grid ── */
+.rn-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 160px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Base Slab Card */
+.rn-slab {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.rn-slab:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 40px 80px -20px rgba(123, 26, 44, 0.15),
+        0 0 0 1px rgba(123, 26, 44, 0.05);
+    border-color: transparent;
+    z-index: 2;
+}
+
+/* Watermark Number inside card */
+.rn-slab-watermark {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 15rem;
+    font-weight: 900;
+    color: #f8fafc;
+    line-height: 1;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -10px;
+    transition: color 0.5s ease;
+}
+
+.rn-slab:hover .rn-slab-watermark {
+    color: rgba(123, 26, 44, 0.03);
+}
+
+/* Top Section */
+.rn-slab-tag {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    margin-bottom: 40px;
+}
+
+.rn-slab-stat {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.rn-slab-num {
+    font-family: Georgia, serif;
+    font-size: 5.5rem;
+    line-height: 0.8;
+    color: var(--text-dark);
+    letter-spacing: -2px;
+}
+
+.rn-slab-unit {
+    font-size: 2rem;
+    color: var(--text-muted);
+    line-height: 1;
+    margin-left: 2px;
+    margin-bottom: 4px;
+}
+
+.rn-slab-metric {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+/* Bottom Section */
+.rn-slab-bottom {
+    margin-top: 60px;
+}
+
+.rn-slab-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+}
+
+.rn-slab-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+.rn-slab-bar {
+    width: 100%;
+    height: 3px;
+    background: #f1f5f9;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.rn-slab-fill {
+    height: 100%;
+    background: var(--primary);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.rn-slab:hover .rn-slab-fill {
+    transform: scaleX(1);
+}
+
+/* ── Dark Central Featured Slab ── */
+.rn-slab-dark {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-20px);
+}
+
+.rn-slab-dark:hover {
+    transform: translateY(-28px);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+}
+
+.rn-slab-dark .rn-slab-watermark {
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.rn-slab-dark:hover .rn-slab-watermark {
+    color: rgba(255, 255, 255, 0.08);
+}
+
+.rn-slab-dark .rn-slab-tag {
+    color: var(--secondary);
+}
+
+.rn-slab-dark .rn-slab-num {
+    color: #ffffff;
+}
+
+.rn-slab-dark .rn-slab-unit {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.rn-slab-dark .rn-slab-metric {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.rn-slab-dark .rn-slab-title {
+    color: #ffffff !important;
+}
+
+.rn-slab-dark .rn-slab-desc {
+    color: #ffffff !important;
+}
+
+.rn-slab-dark .rn-slab-bar {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.rn-slab-dark .rn-slab-fill {
+    background: var(--secondary);
+}
+
+/* ── Dark Footer Strip ── */
+.rn-footer {
+    background: #020617;
+    color: #ffffff;
+    padding: 60px 0;
+}
+
+.rn-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.rn-footer-quote {
+    flex: 1;
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.4;
+    color: #f8fafc;
+    max-width: 500px;
+}
+
+.rn-footer-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.rn-footer-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rn-footer-stat-val {
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.rn-footer-stat-lbl {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.rn-footer-sep {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════ */
+@media (max-width: 1200px) {
+    .rn-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .rn-header-right {
+        max-width: 100%;
+        padding-bottom: 0;
+    }
+
+    .rn-footer-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 60px;
+    }
+
+    .rn-footer-quote {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .rn-watermark {
+        font-size: 35vw;
+        letter-spacing: -2vw;
+    }
+
+    .rn-pillars {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .rn-slab-dark {
+        transform: translateY(0);
+    }
+
+    .rn-slab-dark:hover {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 600px) {
+    .rn-monument {
+        padding-top: 120px;
+    }
+
+    .rn-header {
+        margin-bottom: 80px;
+    }
+
+    .rn-pillars {
+        margin-bottom: 100px;
+    }
+
+    .rn-slab {
+        padding: 32px 24px;
+        min-height: auto;
+    }
+
+    .rn-slab-watermark {
+        font-size: 10rem;
+        top: -10px;
+        right: 10px;
+    }
+
+    .rn-slab-num {
+        font-size: 4rem;
+    }
+
+    .rn-footer {
+        padding: 60px 0;
+    }
+
+    .rn-footer-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .rn-footer-sep {
+        width: 100%;
+        height: 1px;
+    }
+}
+
+
+.rpe-aurora-val {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    color: var(--white) !important;
+    letter-spacing: -2px !important;
+}
+
+.rpe-aurora-unit {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    color: #64748b !important;
+}
+
+.rpe-aurora-card-glow {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(179, 40, 45, 0.1), transparent 70%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s !important;
+    z-index: 1 !important;
+}
+
+.rpe-aurora-card:hover .rpe-aurora-card-glow {
+    opacity: 1 !important;
+}
+
+/* ── Mobile ── */
+@media (max-width: 1024px) {
+    .rpe-aurora-heading {
+        font-size: 3.5rem !important;
+    }
+
+    .rpe-aurora-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .rpe-aurora-card {
+        padding: 40px !important;
+    }
+}
+
+/* Legacy Styles Cleaned */
+
+@keyframes rpe-rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Legacy Orbiter Removed */
+
+.rpe-node-1 {
+    top: 10% !important;
+    left: 15% !important;
+}
+
+.rpe-node-2 {
+    bottom: 20% !important;
+    left: 5% !important;
+}
+
+.rpe-node-3 {
+    top: 30% !important;
+    right: 5% !important;
+}
+
+.rpe-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    width: 320px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.rpe-card:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(179, 40, 45, 0.4) !important;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+.rpe-card-top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+}
+
+.rpe-card-num {
+    font-size: 2.5rem !important;
+    font-weight: 200 !important;
+    color: rgba(255, 255, 255, 0.1) !important;
+    font-style: italic !important;
+    line-height: 1 !important;
+}
+
+.rpe-card:hover .rpe-card-num {
+    color: var(--accent-crimson) !important;
+}
+
+.rpe-card-kicker {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    color: var(--accent-crimson) !important;
+    background: rgba(179, 40, 45, 0.1) !important;
+    padding: 4px 12px !important;
+    border-radius: 12px !important;
+}
+
+.rpe-card-title {
+    font-size: 1.4rem !important;
+    font-weight: 400 !important;
+    color: var(--white) !important;
+    margin: 0 0 12px !important;
+    letter-spacing: -0.3px !important;
+}
+
+.rpe-card-text {
+    font-size: 0.95rem !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    line-height: 1.6 !important;
+    margin: 0 0 24px !important;
+}
+
+.rpe-card-stat {
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding-top: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.rpe-stat-val {
+    font-size: 2rem !important;
+    font-weight: 300 !important;
+    color: var(--white) !important;
+    line-height: 1 !important;
+}
+
+.rpe-stat-lbl {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ── Responsive Ripple ── */
+@media (max-width: 1200px) {
+    .rpe-matrix {
+        height: auto !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+
+    .rpe-hub {
+        margin-bottom: 60px !important;
+    }
+
+    .rpe-node {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+
+    .rpe-card {
+        width: 100% !important;
+        max-width: 500px !important;
+    }
+
+    .rpe-ring {
+        display: none !important;
+    }
+}
+
+
+/* =================================================================
+   ACADEMIC ANTHOLOGY — THE SOVEREIGN CINEMATIC ANTHOLOGY
+   ================================================================= */
+.sa-mosaic-section {
+    background: #ffffff !important;
+    padding: 160px 0 40px 0 !important;
+    color: var(--text-dark) !important;
+    position: relative !important;
+}
+
+/* Overlay removed */
+
+.sa-mosaic-section .container {
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.sa-mosaic-header {
+    margin-bottom: 100px !important;
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 40px !important;
+}
+
+.sa-mosaic-eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    font-size: 0.75rem !important;
+    font-weight: 850 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 5px !important;
+    color: var(--accent-gold) !important;
+    margin-bottom: 30px !important;
+}
+
+.sa-m-dot {
+    width: 6px !important;
+    height: 6px !important;
+    background: var(--accent-gold) !important;
+    border-radius: 50% !important;
+}
+
+.sa-mosaic-title {
+    font-size: clamp(3rem, 7vw, 5rem) !important;
+    font-weight: 900 !important;
+    color: var(--text-dark) !important;
+    line-height: 1 !important;
+    letter-spacing: -2px !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+}
+
+.sa-m-serif {
+    font-family: Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    color: var(--accent-crimson) !important;
+}
+
+/* ── Mosaic Grid ── */
+.sa-mosaic-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    border-top: 1px solid #f1f1f1 !important;
+    background: #ffffff !important;
+}
+
+.sa-mosaic-column {
+    padding: 100px 60px !important;
+    border-right: 1px solid #f1f1f1 !important;
+    border-bottom: 1px solid #f1f1f1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 60px !important;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.sa-mosaic-column:nth-child(3n) {
+    border-right: none !important;
+}
+
+.sa-mosaic-column:hover {
+    background: #fafafa !important;
+    padding-top: 90px !important;
+    padding-bottom: 110px !important;
+}
+
+/* ━━ Header (Indexing) ━━ */
+.sa-mosaic-index {
+    font-family: monospace !important;
+    font-size: 0.85rem !important;
+    font-weight: 900 !important;
+    color: var(--primary) !important;
+    letter-spacing: 2px !important;
+}
+
+.sa-mosaic-line {
+    width: 40px !important;
+    height: 2px !important;
+    background: var(--accent-crimson) !important;
+    margin-top: 20px !important;
+    opacity: 0.1 !important;
+    transition: all 0.4s ease !important;
+}
+
+.sa-mosaic-column:hover .sa-mosaic-line {
+    width: 60px !important;
+    opacity: 1 !important;
+}
+
+/* ━━ Body (The Quote) ━━ */
+.sa-mosaic-quote {
+    font-family: Georgia, serif !important;
+    font-size: 1.6rem !important;
+    line-height: 1.6 !important;
+    color: var(--text-dark) !important;
+    font-weight: 300 !important;
+    font-style: italic !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Column Footer */
+.sa-pano-footer {
+    margin-top: 80px !important;
+    padding-top: 40px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+
+.sa-pano-name {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: var(--text-dark) !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.sa-pano-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.sa-pano-role {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: var(--accent-crimson) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+}
+
+.sa-pano-uni {
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+    font-weight: 400 !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .sa-anthology-panorama {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .sa-pano-column:nth-child(2) {
+        border-right: none !important;
+    }
+
+    .sa-pano-column:nth-child(3) {
+        grid-column: span 2 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .sa-anthology-panorama {
+        grid-template-columns: 1fr !important;
+    }
+
+    .sa-pano-column {
+        border-right: none !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        padding: 60px 30px !important;
+    }
+
+    .sa-anthology-title {
+        font-size: 3rem !important;
+    }
+
+    .sa-pano-quote {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* =================================================================
+   THE SOVEREIGN INSTITUTIONAL ARCHIVE — ARCHITECTURAL PORTFOLIO
+   ================================================================= */
+.sia-section {
+    background: #ffffff !important;
+    padding: 40px 0 10px 0 !important;
+    position: relative !important;
+    color: var(--text-dark) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.sia-header {
+    text-align: center !important;
+    margin-bottom: 120px !important;
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 40px !important;
+}
+
+.sia-eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    color: #7B1A2C !important;
+    margin-bottom: 25px !important;
+}
+
+.sia-title {
+    font-size: 4.5rem !important;
+    font-weight: 800 !important;
+    color: var(--text-dark) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    letter-spacing: -3px !important;
+}
+
+.sia-accent {
+    color: var(--accent-crimson) !important;
+    font-family: Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+/* ── Portfolio Grid ── */
+.sia-portfolio-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 40px 20px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 5% !important;
+}
+
+.sia-portfolio-card {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* ━━ Visual Component ━━ */
+.sia-portfolio-visual {
+    position: relative !important;
+    width: 100% !important;
+    height: 350px !important;
+    overflow: hidden !important;
+}
+
+.sia-p-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    filter: grayscale(1) brightness(0.9) !important;
+    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+.sia-p-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.1) 100%) !important;
+    z-index: 1 !important;
+}
+
+/* Technical Corner Accent */
+.sia-p-corner {
+    position: absolute !important;
+    top: 40px !important;
+    right: 40px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-top: 2px solid var(--accent-gold) !important;
+    border-right: 2px solid var(--accent-gold) !important;
+    z-index: 5 !important;
+    transition: all 0.4s ease !important;
+}
+
+/* ━━ Info Component ━━ */
+.sia-portfolio-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+}
+
+.sia-portfolio-name {
+    font-size: 1.2rem !important;
+    font-weight: 850 !important;
+    color: var(--text-dark) !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    letter-spacing: -0.5px !important;
+}
+
+.sia-portfolio-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.sia-pm-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.sia-pm-label {
+    font-size: 0.55rem !important;
+    font-weight: 900 !important;
+    color: #94a3b8 !important;
+    letter-spacing: 1px !important;
+}
+
+.sia-pm-val {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    color: var(--text-dark) !important;
+}
+
+.sia-pm-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin-top: 10px !important;
+}
+
+.sia-pm-loc {
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+    color: var(--accent-gold) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+}
+
+.sia-pm-line {
+    flex-grow: 1 !important;
+    height: 1px !important;
+    background: #eeeeee !important;
+    transition: all 0.6s ease !important;
+}
+
+/* ━━ Hover Interactions ━━ */
+.sia-portfolio-card:hover .sia-p-img {
+    filter: grayscale(0) brightness(1) !important;
+    transform: scale(1.08) !important;
+}
+
+.sia-portfolio-card:hover .sia-p-corner {
+    transform: translate(10px, -10px) !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-color: var(--accent-crimson) !important;
+}
+
+.sia-portfolio-card:hover .sia-pm-line {
+    background: var(--accent-crimson) !important;
+    flex-grow: 2 !important;
+}
+
+.sia-portfolio-card:hover .sia-portfolio-name {
+    color: var(--accent-crimson) !important;
+}
+
+/* ── Responsive Architecture ── */
+@media (max-width: 1024px) {
+    .sia-portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 80px !important;
+    }
+
+    .sia-title {
+        font-size: 3rem !important;
+    }
+
+    .sia-portfolio-visual {
+        height: 450px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .sia-header {
+        text-align: center !important;
+        padding: 0 20px !important;
+    }
+
+    .sia-eyebrow {
+        justify-content: center !important;
+    }
+
+    .sia-portfolio-name {
+        font-size: 1.6rem !important;
+    }
+}

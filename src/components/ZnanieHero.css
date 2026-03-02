@@ -1,0 +1,452 @@
+/* ZnanieHero.css */
+/* Premium Redesign for Home Page Hero Section */
+
+.hero-znanie-layout {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #030712;
+    /* Very deep blue/black */
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    padding-top: 80px;
+    /* Header offset */
+}
+
+/* Background & Overlays */
+.zh-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.zh-bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6) contrast(1.1);
+    animation: zhZoomBg 30s infinite alternate ease-in-out;
+}
+
+.zh-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(5, 10, 24, 0.95) 0%, rgba(13, 25, 50, 0.7) 50%, rgba(5, 10, 24, 0.3) 100%);
+}
+
+.zh-gradient-sphere {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 160, 23, 0.15) 0%, rgba(212, 160, 23, 0) 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: zhFloatSphere 15s infinite alternate ease-in-out;
+}
+
+/* Layout Grid */
+.zh-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.zh-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Typography & Content */
+.zh-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.zh-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f3f4f6;
+    margin-bottom: 32px;
+    backdrop-filter: blur(10px);
+    animation: zhFadeInUp 0.8s ease-out forwards;
+}
+
+.zh-badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #d4a017;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(212, 160, 23, 0.8);
+    animation: zhPulse 2s infinite;
+}
+
+.zh-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    letter-spacing: -1.5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.zh-title-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: zhFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.zh-title-word:nth-child(1) {
+    animation-delay: 0.2s;
+    color: #ffffff;
+}
+
+.zh-title-word:nth-child(2) {
+    animation-delay: 0.4s;
+    color: #d4a017;
+}
+
+/* Accent word */
+.zh-title-word:nth-child(3) {
+    animation-delay: 0.6s;
+    color: #ffffff;
+}
+
+.zh-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #d4a017, transparent);
+    margin: 16px 0 32px 0;
+    border-radius: 2px;
+    opacity: 0;
+    animation: zhFadeIn 1s ease forwards 0.8s;
+}
+
+.zh-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #e5e7eb;
+    max-width: 600px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    opacity: 0;
+    animation: zhFadeInUp 0.8s ease forwards 0.8s;
+}
+
+/* Actions */
+.zh-actions {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: zhFadeInUp 0.8s ease forwards 1s;
+}
+
+.zh-btn-primary,
+.zh-btn-glass {
+    padding: 18px 40px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.zh-btn-primary {
+    background: #d4a017;
+    color: #030712;
+    box-shadow: 0 10px 25px rgba(212, 160, 23, 0.2);
+}
+
+.zh-btn-primary:hover {
+    background: #e5b32e;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(212, 160, 23, 0.4);
+}
+
+.zh-arrow {
+    transition: transform 0.3s ease;
+}
+
+.zh-btn-primary:hover .zh-arrow {
+    transform: translateX(5px);
+}
+
+.zh-btn-glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    backdrop-filter: blur(12px);
+}
+
+.zh-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Right Side - Glass Panel Visual */
+.zh-visual {
+    perspective: 1000px;
+    opacity: 0;
+    animation: zhFadeIn 1.5s ease forwards 0.6s;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.zh-glass-panel {
+    background: rgba(10, 22, 40, 0.5);
+    backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+    transform: rotateY(-8deg) rotateX(4deg);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    width: 100%;
+    max-width: 480px;
+}
+
+.zh-glass-panel:hover {
+    transform: rotateY(0) rotateX(0) translateY(-10px);
+    box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.6);
+}
+
+.zh-panel-header {
+    margin-bottom: 32px;
+}
+
+.zh-panel-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #cbd5e1;
+    display: inline-block;
+    border-bottom: 2px solid #d4a017;
+    padding-bottom: 8px;
+}
+
+.zh-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.zh-node-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.zh-node-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(10px);
+    border-color: rgba(212, 160, 23, 0.4);
+}
+
+.zh-node-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 160, 23, 0.15);
+    border-radius: 12px;
+    font-size: 1.5rem;
+    color: #d4a017;
+}
+
+.zh-node-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f8fafc;
+    letter-spacing: 0.5px;
+}
+
+.zh-panel-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.zh-pulse {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    /* Success green */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: zhPulse 2s infinite;
+}
+
+/* Animations */
+@keyframes zhFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zhFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zhPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+@keyframes zhZoomBg {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes zhFloatSphere {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-30px, 30px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .zh-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .zh-title {
+        font-size: 3.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .zh-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .zh-subtitle {
+        margin: 0 auto 40px auto;
+    }
+
+    .zh-divider {
+        margin: 16px auto 32px auto;
+    }
+
+    .zh-visual {
+        justify-content: center;
+    }
+
+    .zh-glass-panel {
+        max-width: 600px;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .zh-glass-panel:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-znanie-layout {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .zh-title {
+        font-size: 2.5rem;
+        gap: 8px;
+    }
+
+    .zh-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .zh-btn-primary,
+    .zh-btn-glass {
+        width: 100%;
+    }
+
+    .zh-glass-panel {
+        padding: 30px 20px;
+    }
+}

@@ -1,0 +1,235 @@
+.donate-page {
+    padding-top: 80px;
+}
+
+.donate-hero {
+    background: var(--gradient-hero);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.donate-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.donate-hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.donate-why {
+    background: var(--white);
+}
+
+.why-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.why-description {
+    font-size: 1.0625rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.why-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.why-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.feature-check {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--success);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.why-image {
+    display: flex;
+    justify-content: center;
+}
+
+.donate-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #e74c3c 100%);
+    border-radius: var(--border-radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    box-shadow: var(--shadow-xl);
+}
+
+.donate-causes {
+    background: var(--gray-50);
+}
+
+.causes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.donate-options {
+    background: var(--white);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.option-card {
+    background: var(--gray-50);
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+}
+
+.option-type {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+}
+
+.option-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.option-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.amount-btn {
+    padding: 12px 20px;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.amount-btn:hover {
+    border-color: var(--accent-gold);
+    background: rgba(212, 160, 58, 0.1);
+}
+
+.option-submit {
+    width: 100%;
+}
+
+.donate-transparency {
+    background: var(--gradient-primary);
+    padding: 80px 0;
+}
+
+.transparency-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.transparency-icon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+}
+
+.transparency-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.transparency-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.transparency-badges {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+@media (max-width: 1024px) {
+    .causes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .donate-hero-title {
+        font-size: 2.25rem;
+    }
+
+    .why-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .causes-grid,
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transparency-title {
+        font-size: 1.75rem;
+    }
+
+    .transparency-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+}

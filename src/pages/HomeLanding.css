@@ -1,0 +1,751 @@
+/* ═══════════════════════════════════════════════
+   HomeLanding.css – Partnership Section Styles
+   Redesigned with image-forward layout
+   ═══════════════════════════════════════════════ */
+
+.partnership-content {
+    overflow: hidden;
+}
+
+.partner-section {
+    padding: 100px 0;
+}
+
+.partner-h2 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.25;
+    margin: 0 0 20px;
+    letter-spacing: 0.05em;
+}
+
+.partner-intro {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--text-dark);
+    margin: 0;
+    max-width: 680px;
+}
+
+
+/* ═══════════════════════════════════════════
+   1. The Strategic Monolith — Architectural Intro
+   ═══════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════
+   1. The Strategic Monolith — Architectural Intro
+   ═══════════════════════════════════════════ */
+
+.pl-monolith-intro {
+    padding: 40px 0 60px 0;
+    background-color: #ffffff !important;
+    overflow: hidden;
+    position: relative;
+    min-height: auto !important;
+    display: block !important;
+}
+
+.pl-m-split-card {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    position: relative;
+}
+
+.pl-m-visual-box {
+    position: relative;
+    height: 100%;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+.pl-m-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: none !important;
+}
+
+.pl-m-split-card:hover .pl-m-img {
+    transform: scale(1.05);
+}
+
+.pl-m-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.8) 100%);
+    pointer-events: none;
+}
+
+.pl-m-watermark {
+    position: absolute;
+    bottom: -5%;
+    left: 30px;
+    font-size: 8rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.04);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pl-m-content {
+    position: relative;
+    z-index: 10;
+    padding: 80px 60px !important;
+    max-width: none !important;
+    text-align: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pl-m-header {
+    margin-bottom: 40px;
+}
+
+.pl-m-eyebrow {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 3px !important;
+    color: var(--accent-crimson) !important;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.pl-m-title {
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0;
+    text-shadow: none !important;
+    text-align: left !important;
+}
+
+.pl-m-title-heavy {
+    font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    text-transform: none !important;
+}
+
+.pl-m-title-light {
+    font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    font-style: normal !important;
+}
+
+.pl-m-accent {
+    color: var(--accent-crimson) !important;
+    font-weight: 400 !important;
+}
+
+.pl-m-body {
+    max-width: 100% !important;
+}
+
+.pl-m-line {
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: 0 0 40px !important;
+}
+
+.pl-m-lead {
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    color: #555555 !important;
+    margin-bottom: 40px;
+    font-weight: 400 !important;
+    text-shadow: none !important;
+}
+
+.pl-m-list {
+    list-style-type: disc !important;
+    margin: 20px 0 20px 20px !important;
+    padding: 0 !important;
+}
+
+.pl-m-list li {
+    margin-bottom: 12px !important;
+    padding-left: 10px !important;
+    color: #555555 !important;
+    font-size: 1.15rem !important;
+    line-height: 1.6 !important;
+}
+
+.pl-m-thesis {
+    background: #f9f7f0 !important;
+    backdrop-filter: none !important;
+    border: 1px solid #eeeada !important;
+    padding: 24px 32px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+}
+
+.pl-m-thesis-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-crimson);
+    border-radius: 50%;
+    box-shadow: none !important;
+    flex-shrink: 0;
+}
+
+.pl-m-thesis span {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    color: var(--text-dark) !important;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+.pl-m-thesis .v5-highlight-alt {
+    color: var(--accent-crimson) !important;
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .pl-m-split-card {
+        grid-template-columns: 1fr;
+    }
+
+    .pl-m-visual-box {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .pl-monolith-intro {
+        padding: 80px 0;
+    }
+
+    .pl-m-content {
+        padding: 50px 30px !important;
+    }
+
+    .pl-m-thesis {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .pl-m-watermark {
+        font-size: 5rem;
+    }
+}
+
+
+
+
+/* ═══════════════════════════════════════════
+/* ── Prestige Gallery Layout ── */
+.pg-section {
+    background-color: #f8fafc;
+    padding: 120px 0 40px 0;
+    /* font-family: 'Inter', sans-serif; */
+}
+
+.pg-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.pg-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.pg-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.pg-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.pg-accent {
+    color: var(--primary);
+}
+
+/* ── Gallery Grid ── */
+.pg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* ── Gallery Card ── */
+.pg-card {
+    position: relative;
+    border-radius: 20px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Visual Area ── */
+.pg-visual {
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.pg-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pg-card:hover .pg-visual img {
+    transform: scale(1.05);
+}
+
+/* ── Content Box ── */
+.pg-content {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px 30px;
+    margin: -60px 20px 0;
+    /* Creates the overlap effect */
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-card:hover .pg-content {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.pg-num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.pg-item-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text-dark);
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
+}
+
+.pg-divider {
+    width: 40px;
+    height: 2px;
+    background: #D4A017;
+    margin-bottom: 24px;
+}
+
+.pg-item-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555555;
+    margin: 0 0 30px;
+    flex-grow: 1;
+}
+
+/* ── Stats ── */
+.pg-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: auto;
+}
+
+.pg-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-stat-val {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.pg-stat-lbl {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888888;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .pg-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+.ptp-pr-item.rc-title {
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+.rc-tagline {
+    font-size: 1.35rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+.rc-stats-bar {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    margin-bottom: 20px;
+}
+
+.rc-stat-num {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 950;
+    color: var(--text-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.rc-stat-lbl {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .ptp-pr-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ptp-pr-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+
+
+/* ═══════════════════════════════════════════
+   2. Why Russia? — Grand Exhibition
+   ═══════════════════════════════════════════ */
+.ge-section {
+    background-color: #fafafa;
+    padding: 40px 0 60px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ── Command Header Grid ── */
+.ge-top-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto 100px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ge-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.ge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.ge-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin: 0 0 24px;
+}
+
+.ge-accent {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.ge-lead {
+    font-size: 1.15rem;
+    color: #666666;
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 500px;
+}
+
+/* ── Monument Stats ── */
+.ge-top-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.ge-monument-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ge-ms-val {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 5.5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+.ge-ms-lbl {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-dark);
+}
+
+.ge-ms-divider {
+    width: 1px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* ── Symmetrical Exhibition Layout ── */
+.ge-exhibition {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 50px;
+    align-items: stretch;
+}
+
+.ge-wing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.ge-wing-right {
+    text-align: right;
+}
+
+.ge-wing-right .ge-card {
+    align-items: flex-end;
+}
+
+/* ── Wing Cards ── */
+.ge-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px 0;
+}
+
+.ge-num {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #cccccc;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-style: italic;
+    transition: color 0.4s ease;
+}
+
+.ge-card:hover .ge-num {
+    color: var(--primary);
+}
+
+.ge-card-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.ge-card-text {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 90%;
+}
+
+.ge-wing-right .ge-card-text {
+    max-width: 100%;
+}
+
+/* ── Centerpiece Image & Stats ── */
+.ge-centerpiece {
+    position: relative;
+    border-radius: 200px;
+    padding: 10px;
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.ge-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    border-radius: 190px;
+    overflow: hidden;
+}
+
+.ge-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.ge-centerpiece:hover .ge-img {
+    transform: scale(1.05);
+}
+
+/* Floating stats removed from image */
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .ge-top-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .ge-lead {
+        margin: 0 auto;
+    }
+
+    .ge-eyebrow {
+        justify-content: center;
+    }
+
+    .ge-exhibition {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ge-centerpiece {
+        grid-column: 1 / -1;
+        order: -1;
+        margin-bottom: 40px;
+    }
+
+    .ge-image-wrapper {
+        min-height: 400px;
+    }
+
+    .ge-wing-right {
+        text-align: left;
+    }
+
+    .ge-wing-right .ge-card {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .ge-exhibition {
+        grid-template-columns: 1fr;
+    }
+
+    .ge-centerpiece {
+        border-radius: 40px;
+        padding: 8px;
+    }
+
+    .ge-image-wrapper {
+        border-radius: 32px;
+    }
+
+    .ge-top-right {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .ge-ms-divider {
+        width: 100px;
+        height: 1px;
+    }
+}
+
+/* End of File */

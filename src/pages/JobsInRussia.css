@@ -1,0 +1,340 @@
+/* ═══ JOBS IN RUSSIA: THE STRATEGIC CORRIDOR ═══ */
+
+.jobs-in-russia-redesign {
+    background: #ffffff;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* ═══ REVEAL ANIMATIONS ═══ */
+.jr-reveal-div {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jr-reveal-div.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ═══ LABELS & TITLES ═══ */
+.jr-label {
+    display: block;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: #B3282D;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.jr-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+}
+
+.jr-header-left {
+    margin-bottom: 80px;
+}
+
+.jr-header-center {
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ═══ OPPORTUNITY SECTION ═══ */
+.jr-opportunity {
+    padding: 150px 0;
+    background: #ffffff;
+}
+
+.jr-split-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.opp-card {
+    padding: 60px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.opp-card.alt {
+    border-color: var(--text-dark);
+    background: #f1f5f9;
+}
+
+.opp-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.opp-flag {
+    font-size: 3rem;
+}
+
+.opp-card h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.opp-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.opp-stat {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #B3282D;
+}
+
+.opp-card.alt .opp-stat {
+    color: #22c55e;
+}
+
+/* ═══ PATHS MATRIX ═══ */
+.jr-paths {
+    padding: 150px 0;
+    background: #f8fafc;
+}
+
+.jr-path-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+}
+
+.path-pane {
+    background: #ffffff;
+    padding: 80px 60px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.path-pane.highlight {
+    background: #050505;
+    color: #ffffff;
+    border: none;
+}
+
+.path-badge {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #cbd5e1;
+}
+
+.path-pane.highlight .path-badge {
+    color: #B3282D;
+}
+
+.path-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.path-desc {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 50px;
+}
+
+.highlight .path-desc {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.path-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.p-check {
+    display: flex;
+    gap: 20px;
+}
+
+.c-icon {
+    font-size: 1.25rem;
+}
+
+.c-text strong {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.c-text span {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.path-locations {
+    padding: 30px;
+    background: #f1f5f9;
+    border-top: 4px solid #B3282D;
+}
+
+.path-locations strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #B3282D;
+}
+
+.sector-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.sector-box {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sector-box h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 15px 0 5px;
+    color: #D4A03A;
+}
+
+.sector-box span {
+    display: block;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.sector-box p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: monospace;
+}
+
+/* ═══ FINAL CTA ═══ */
+.jr-final-cta {
+    padding: 160px 0;
+    background: #ffffff;
+}
+
+.cta-monolith {
+    background: #050505;
+    color: #ffffff;
+    padding: 120px 80px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+}
+
+.cta-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn-monolith-primary {
+    padding: 22px 50px;
+    background: #B3282D;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-monolith-outline {
+    padding: 22px 50px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-monolith-primary:hover {
+    background: #ffffff;
+    color: #050505;
+}
+
+.btn-monolith-outline:hover {
+    background: #ffffff;
+    color: #050505;
+}
+
+/* ═══ RESPONSIVE ═══ */
+
+@media (max-width: 1024px) {
+
+    .jr-split-cards,
+    .jr-path-matrix {
+        grid-template-columns: 1fr;
+    }
+
+    .path-pane {
+        padding: 60px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-actions {
+        flex-direction: column;
+    }
+
+    .cta-monolith {
+        padding: 80px 40px;
+    }
+}
