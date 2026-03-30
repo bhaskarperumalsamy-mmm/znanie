@@ -1,0 +1,190 @@
+.heroSection {
+  position: relative;
+  height: clamp(600px, 90vh, 1000px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-midnight-teal);
+}
+
+.container {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+}
+
+.content {
+  max-width: 800px;
+}
+
+.title {
+  color: #fff;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: var(--_typhography---font-weight--h1);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--_typhography---font-size--body-font);
+  line-height: var(--_typhography---font-line-height--body-font);
+  margin-bottom: 40px;
+  max-width: 600px;
+  font-family: var(--font-body);
+  font-weight: var(--_typhography---font-weight--body-font);
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Background & Overlays */
+.bgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bgImage {
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15, 37, 42, 0.9) 0%,
+    rgba(15, 37, 42, 0.5) 60%,
+    rgba(15, 37, 42, 0.2) 100%
+  );
+  z-index: 2;
+}
+
+/* Orbital Container Styles */
+.orbitalContainer {
+  position: absolute;
+  top: 80%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  transform: translateY(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.orbitalGlow {
+  position: absolute;
+  inset: 10%;
+  background: radial-gradient(circle, rgba(220, 37, 37, 0.2) 0%, transparent 70%);
+  filter: blur(50px);
+  animation: pulseGlow 10s infinite;
+}
+
+.orbitalRings {
+  position: absolute;
+  inset: 0;
+  animation: orbitalSpin 30s linear infinite;
+}
+
+.orbitalRingInner {
+  position: absolute;
+  inset: 15%;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.orbitalRingOuter {
+  position: absolute;
+  inset: 5%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.iconWrapperIndia {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: counterRotate 30s linear infinite;
+}
+
+.iconWrapperRussia {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  animation: counterRotate 30s linear infinite;
+}
+
+.centerTextWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerText {
+  color: white;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  opacity: 0.1;
+  font-family: var(--font-heading);
+}
+
+@keyframes orbitalSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes counterRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 1024px) {
+  .orbitalContainer {
+    right: -20%;
+    transform: translateY(-50%) scale(0.6);
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    height: auto;
+    min-height: 100vh;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+  }
+  .overlay {
+    background: linear-gradient(
+      to top,
+      rgba(15, 37, 42, 0.95) 40%,
+      rgba(15, 37, 42, 0.5) 100%
+    );
+  }
+  .orbitalContainer {
+    top: 70%;
+    right: 50%;
+    transform: translateX(50%) scale(0.5);
+  }
+  .title {
+    margin-bottom: 16px;
+  }
+}

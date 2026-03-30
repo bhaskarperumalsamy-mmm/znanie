@@ -1,0 +1,178 @@
+.section {
+  padding: var(--_gaps---section-gap--section-gap-v1) 0;
+  background-color: #ffffff; /* Vistario Home 3 uses White/Soft-Gray alternating */
+  position: relative;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: stretch; /* Allign both equal at bottom */
+  }
+}
+
+/* Left: Portrait Image */
+.portraitWrapper {
+  position: relative;
+  height: 100%; /* Fill the column height */
+  min-height: 680px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.12);
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .portraitWrapper {
+    height: 480px;
+  }
+}
+
+/* Right: Content */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--_font-family---lexend);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--_color---shadow-gray); /* Grey tag in ref */
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--_font-family---lexend);
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  margin-bottom: 32px;
+}
+
+.subheadline {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--_color---charcoal-black);
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+}
+
+.desc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* Feature Grid (2 columns) */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 540px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateX(6px);
+}
+
+.featureIcon {
+  color: var(--_color---charcoal-black);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.featureLabel {
+  font-size: 1.125rem; /* Larger label */
+  font-weight: 700;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend);
+  letter-spacing: -0.01em;
+}
+
+.featureValue {
+  font-size: 1rem; /* Larger value */
+  font-weight: 500;
+  color: var(--_color---shadow-gray);
+  line-height: 1.4;
+}
+
+/* Bottom Landscape Image - Integrated */
+.landscapeWrapper {
+  position: relative;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background: linear-gradient(transparent, rgba(14, 16, 16, 0.9));
+  color: var(--_color---white);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-family: var(--font-body);
+}
+
+.imageOverlay p {
+  background: rgba(14, 16, 16, 0.85); /* Solid translucent background */
+  padding: 14px 28px;
+  border-radius: 12px;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+  margin: 0;
+  font-size: 0.9375rem; /* Increased size per user request */
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .landscapeWrapper {
+    height: 280px;
+  }
+}.section p {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}

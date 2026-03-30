@@ -1,0 +1,52 @@
+.topBar {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.left {
+  flex: 1;
+}
+
+.offerText {
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .offerText {
+    text-align: left;
+  }
+}
+
+.right {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .right {
+    width: auto;
+    justify-content: flex-end;
+  }
+}
+
+.link {
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.8;
+}

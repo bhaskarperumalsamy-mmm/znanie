@@ -1,0 +1,270 @@
+:root {
+  /* User Provided Design Tokens */
+  --_font-family---lexend: Lexend, sans-serif;
+  --_color---shadow-gray: #0e1010b3;
+  --_typhography---font-size--body-font: 1rem;
+  --_typhography---font-line-height--body-font: 143.75%;
+  --_typhography---font-weight--body-font: 400;
+  --_typhography---letter-spacing--body-font: -.03125rem;
+  --_color---midnight-teal: #0f252a;
+  --_typhography---font-size--h1: 3.75rem;
+  --_typhography---font-line-height--h1: 120%;
+  --_typhography---font-weight--h1: 500;
+  --_typhography---letter-spacing--h1: -.125rem;
+  --_typhography---font-size--h2: 2.5rem;
+  --_typhography---font-line-height--h2: 125%;
+  --_typhography---font-weight--h2: 500;
+  --_typhography---letter-spacing--h2: -.09375rem;
+  --_color---charcoal-black: #0e1010;
+  --_typhography---font-size--h3: 1.875rem;
+  --_typhography---font-line-height--h3: 133.33%;
+  --_typhography---font-weight--h3: 400;
+  --_typhography---letter-spacing--h3: -.075rem;
+  --_typhography---font-size--h4: 1.5rem;
+  --_typhography---font-line-height--h4: 133.33%;
+  --_typhography---font-weight--h4: 600;
+  --_typhography---letter-spacing--h4: 0rem;
+  --_typhography---font-size--h5: 1.25rem;
+  --_typhography---font-line-height--h5: 150%;
+  --_typhography---font-weight--h5: 500;
+  --_typhography---letter-spacing--h5: 0rem;
+  --_typhography---font-size--h6: 1.0625rem;
+  --_typhography---font-line-height--h6: 144.44%;
+  --_typhography---font-weight--h6: 500;
+  --_typhography---letter-spacing--h6: -.0313rem;
+  --_gaps---text-gaps--medium-gap: 1.875rem;
+  --_color---soft-gray: #f1f1f1;
+  --container-width-medium: 82.5rem;
+  --border-radius-xl: 6.25rem;
+  --_color---white: white;
+  --_gaps---text-gaps--gutter-gap: .9375rem;
+  --_gaps---text-gaps--large-gap: 3.125rem;
+  --border-radius-small: .625rem;
+  --_gaps---text-gaps--small-gap: 1.25rem;
+  --_color---golden-amber: #ffb502;
+  --_typhography---font-size--button-font: 1rem;
+  --_typhography---font-line-height--button-font: 150%;
+  --_typhography---font-weight--button-font: 500;
+  --border-width-tiny: .0625rem;
+  --_color---crimson-red: #dc2525;
+  --border-radius-tiny: .3125rem;
+  --_color---transperant: #fff0;
+  --border-radius-large: 100%;
+  --_gaps---text-gaps--tiny-gap: .625rem;
+  --_gaps---text-gaps--xxl-gap: 4.375rem;
+  --_typhography---font-size--tag-font: .875rem;
+  --_typhography---font-line-height--tag-font: 121.42%;
+  --_typhography---font-weight--tag-font: 400;
+  --_gaps---section-gap--section-gap-v1: 7.5rem;
+  --_typhography---font-size--subheading-font: .75rem;
+  --_typhography---font-line-height--subheading-font: 100%;
+  --_typhography---font-weight--subheading: 500;
+  --_typhography---letter-spacing--subheading-font: -.003rem;
+  --_color---silver-mist: #d9d9d9;
+  --_gaps---section-gap--section-gap-v2: 6.875rem;
+  --_gaps---text-gaps--xl-gap: 3.75rem;
+  --_color---pale-gray: #c9c4c4;
+  --_typhography---font-size--navbar-font: 1rem;
+  --_typhography---font-line-height--navbar-font: 150%;
+  --_typhography---font-weight--navbar-font: 500;
+  --_typhography---letter-spacing--button-font: -.03125rem;
+  --_typhography---font-size--small-font: .6875rem;
+  --_typhography---font-line-height--small-font: 136.364%;
+  --_typhography---letter-spacing--small-font: 0rem;
+  --container-width-small: 58.75rem;
+  --_color---smoky-black: #2e2e2ecc;
+  --container-width-large: 109.375rem;
+  --_font-family---bonheur-royale: "Bonheur Royale", sans-serif;
+  --_typhography---font-size--landing-text-small: 1.875rem;
+  --_typhography---font-line-height--landing-text-small: 93.33%;
+  --_typhography---font-weight--landing-text-small: 400;
+  --_typhography---font-size--landing-text-large-number: 7.5rem;
+  --_typhography---font-line-height--marque-text: 82%;
+  --_typhography---font-size--landing-text-large: clamp(3.125rem, 15vw, 15.625rem);
+  --_typhography---font-line-height--landing-text-large: 120%;
+  --_typhography---font-weight--landing-text-large: 600;
+  --_typhography---letter-spacing--landing-text-large: -.65625rem;
+  --_typhography---font-weight--small-font: 500;
+  --_color---mist-pink: #f3dddd;
+  --_typhography---font-size--marque-text: 6.25rem;
+  --_color---vivid-blue: #282cff;
+  --_typhography---letter-spacing--tag-font: 0rem;
+  --_typhography---letter-spacing--navbar-font: -.03125rem;
+  --_typhography---letter-spacing--marque-text: .7rem;
+  --_typhography---letter-spacing--landing-text-small: 0rem;
+  --_typhography---font-weight--marque-text: 700;
+
+  /* Legacy Mapping for backward compatibility */
+  --color-primary: var(--_color---crimson-red);
+  --color-primary-hover: #b5110a;
+  --color-secondary: var(--_color---golden-amber);
+  --color-dark: var(--_color---charcoal-black);
+  --color-body: var(--_color---shadow-gray);
+  --color-background: var(--_color---white);
+  --color-soft-gray: var(--_color---soft-gray);
+  --color-midnight-teal: var(--_color---midnight-teal);
+  --font-heading: var(--_font-family---lexend);
+  --font-body: var(--font-dm-sans), sans-serif;
+  --radius-sm: var(--border-radius-small);
+  --radius-md: .9375rem;
+  --radius-lg: 1.875rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--_color---shadow-gray);
+  background-color: var(--_color---white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--_typhography---font-line-height--body-font);
+  font-size: var(--_typhography---font-size--body-font);
+  letter-spacing: var(--_typhography---letter-spacing--body-font);
+  font-weight: var(--_typhography---font-weight--body-font);
+  min-height: 100%;
+  padding-top: 132px; /* Accommodate fixed navbar */
+  /* display: flex; flex-direction: column; - removing to allow standard behavior */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend);
+}
+
+h1 {
+  font-size: var(--_typhography---font-size--h1);
+  line-height: var(--_typhography---font-line-height--h1);
+  font-weight: var(--_typhography---font-weight--h1);
+  letter-spacing: var(--_typhography---letter-spacing--h1);
+}
+
+h2 {
+  font-size: var(--_typhography---font-size--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  letter-spacing: var(--_typhography---letter-spacing--h2);
+}
+
+h3 {
+  font-size: var(--_typhography---font-size--h3);
+  line-height: var(--_typhography---font-line-height--h3);
+  font-weight: var(--_typhography---font-weight--h3);
+  letter-spacing: var(--_typhography---letter-spacing--h3);
+}
+
+h4 {
+  font-size: var(--_typhography---font-size--h4);
+  line-height: var(--_typhography---font-line-height--h4);
+  font-weight: var(--_typhography---font-weight--h4);
+  letter-spacing: var(--_typhography---letter-spacing--h4);
+}
+
+h5 {
+  font-size: var(--_typhography---font-size--h5);
+  line-height: var(--_typhography---font-line-height--h5);
+  font-weight: var(--_typhography---font-weight--h5);
+  letter-spacing: var(--_typhography---letter-spacing--h5);
+}
+
+h6 {
+  font-size: var(--_typhography---font-size--h6);
+  line-height: var(--_typhography---font-line-height--h6);
+  font-weight: var(--_typhography---font-weight--h6);
+  letter-spacing: var(--_typhography---letter-spacing--h6);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+subheading {
+  font-size: var(--_typhography---font-size--subheading-font);
+  line-height: var(--_typhography---font-line-height--subheading-font);
+  letter-spacing: var(--_typhography---letter-spacing--subheading-font);
+}
+
+section {
+  padding: var(--_gaps---section-gap--section-gap-v1) 0;
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: var(--_gaps---section-gap--section-gap-v1) 0;
+  }
+}
+
+.container {
+  max-width: var(--container-width-medium);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-large {
+  max-width: var(--container-width-large);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Red Button Style (Standardized) */
+.rt-button-one {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background-color: var(--_color---crimson-red);
+  color: #fff;
+  border-radius: var(--border-radius-small);
+  font-weight: var(--_typhography---font-weight--button-font);
+  font-size: var(--_typhography---font-size--button-font);
+  line-height: var(--_typhography---font-line-height--button-font);
+  letter-spacing: var(--_typhography---letter-spacing--button-font);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: var(--_font-family---lexend);
+}
+
+.rt-button-one:hover {
+  background-color: #b5110a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(220, 37, 37, 0.15);
+}
+
+.tag-label {
+  font-family: var(--_font-family---lexend);
+  font-size: var(--_typhography---font-size--subheading-font);
+  font-weight: var(--_typhography---font-weight--subheading);
+  line-height: var(--_typhography---font-line-height--subheading-font);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--_color---charcoal-black);
+  background-color: var(--_color---soft-gray);
+  padding: 6px 12px;
+  border-radius: var(--border-radius-tiny);
+  display: inline-block;
+}
+
+.rt-text-yellow {
+  color: var(--_color---golden-amber);
+}
+
+.rt-red-text {
+  color: var(--_color---crimson-red);
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.text-primary {
+  color: var(--_color---crimson-red);
+}

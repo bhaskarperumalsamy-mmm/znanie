@@ -1,0 +1,122 @@
+.section {
+  background-color: var(--color-white);
+  padding: 100px 0;
+}
+
+.slider {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cardTrack {
+  position: relative;
+  min-height: 280px;
+}
+
+.card {
+  display: none;
+  background-color: var(--color-light-bg);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  border: 1px solid var(--color-border);
+}
+
+.activeCard {
+  display: block;
+}
+
+.stars {
+  color: var(--color-badge-yellow);
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+}
+
+.quote {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-dark-text);
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  object-fit: cover;
+}
+
+.name {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-dark-text);
+  margin-bottom: 4px;
+}
+
+.role {
+  font-size: 13px;
+  color: var(--color-body);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.navBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: transparent;
+  color: var(--color-dark);
+  font-size: 20px;
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navBtn:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-border);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.activeDot {
+  background-color: var(--color-primary);
+  transform: scale(1.3);
+}

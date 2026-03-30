@@ -1,0 +1,57 @@
+.learningPaths {
+  padding: 100px 0;
+  background-color: var(--color-white);
+}
+
+.pathsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 640px) {
+  .pathsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pathsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pathCard {
+  padding: 32px;
+  background: var(--color-light-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-base);
+}
+
+.pathCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pathStep {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--color-primary);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.pathTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.pathDesc {
+  font-size: 14px;
+  color: var(--color-body);
+  line-height: 1.6;
+}
