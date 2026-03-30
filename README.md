@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Znanie Website
 
-## Getting Started
+A modern, responsive Next.js application designed to facilitate educational connections, language courses, and study opportunities between India and Russia.
 
-First, run the development server:
+## 🚀 Technologies Used
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **UI & Library**: [React 18](https://reactjs.org/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Carousel/Sliders**: React Slick
+- **Styling**: Vanilla CSS with custom Global Variables (`globals.css`)
+- **Typography**: Inter Font
+
+## 📁 Project Structure & Pages
+
+The site is composed of several key pages, built with reusable UI components:
+
+- `/home` — Main Landing Page (Hero, Features, Popular Courses, Testimonials)
+- `/about` — About Us & Core Values
+- `/career` — Career Opportunities & "Why Choose Us"
+- `/courses` — Study in Russia & Educational Pathways
+- `/blog` — Language Courses & Articles
+- `/contact` — Contact Forms and FAQs
+
+## 🛠️ Getting Started
+
+First, ensure you have all dependencies installed:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3002](http://localhost:3002) with your browser to see the result. The application is configured to run on port `3002`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Dynamic Animations**: Scroll-triggered animations and page transitions powered by `framer-motion`.
+- **Custom UI Components**: Reusable `Button`, `Card`, `SectionHeader`, and interactive elements like `StatsCounter` and `TestimonialSlider`.
+- **Responsive Layouts**: Fully responsive navigation bar (with mobile hamburger menu) and multi-column grid layouts depending on screen sizes.
+- **SEO Ready**: Configured using Next.js optimal font loading (`next/font`) and built-in image optimization (`next/image`).
 
-## Learn More
+## 📜 Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev`: Starts the local development server (Port 3002).
+- `npm run build`: Builds the application for production deployment.
+- `npm run start`: Starts a production server based on the built application.
+- `npm run lint`: Runs ESLint to find and fix problems in the JavaScript/TypeScript code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).*
