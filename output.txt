@@ -1,5 +1,0 @@
-CSS Links: [
-  '<link href="https://cdn.prod.website-files.com/68b824698be8e7c047a5da51/css/vistario.webflow.shared.054dc51c7.css"'
-]
-H1 content and HTML: <h1 data-w-id="f93cc7c5-cd60-000b-f37d-54c7386027b2" style="-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 4deg);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 4deg);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 4deg);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 4deg);opacity:0;filter:blur(5px)" class="rt-text-white">Grow your skills <span class="rt-text-yellow">build your future</span></h1>
-P content and HTML: <p data-w-id="9f0961f7-757b-11b3-1572-ccdc4ce820e0" style="opacity:0;filter:blur(5px)" class="rt-text-white">Start your learning path with expert-led programs designed to elevate skills and accelerate success.</p>
