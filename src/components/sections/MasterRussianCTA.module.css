@@ -1,0 +1,120 @@
+.section {
+  position: relative;
+  padding: 160px 0;
+  overflow: hidden;
+  background-color: #0e1010;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bgImage {
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(14, 16, 16, 0.9) 0%, rgba(14, 16, 16, 0.4) 100%);
+  z-index: 2;
+}
+
+.container {
+  max-width: 1750px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.card {
+  background: #ffffff;
+  padding: 80px;
+  border-radius: 32px;
+  max-width: 680px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+  margin-left: 0;
+}
+
+.tag {
+  display: block;
+  font-family: var(--_font-family---lexend);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--_color---crimson-red);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--_font-family---lexend);
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  margin-bottom: 24px;
+}
+
+.desc {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--_color---shadow-gray);
+  margin-bottom: 56px;
+  max-width: 520px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--_color---crimson-red);
+  color: #fff;
+  padding: 18px 40px;
+  border-radius: 100px;
+  font-family: var(--_font-family---lexend);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 15px 30px rgba(220, 37, 37, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background-color: #b51a1a;
+  box-shadow: 0 20px 40px rgba(220, 37, 37, 0.4);
+}
+
+.btn svg {
+  transition: transform 0.4s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(6px);
+}
+
+@media (max-width: 1024px) {
+  .card {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 100px 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .card {
+    padding: 48px 32px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,120 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  height: 100%;
+  position: relative;
+}
+
+a.card {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(0,0,0,0.1);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-light-bg);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.badge.red {
+  background-color: var(--color-primary);
+}
+
+.badge.yellow {
+  background-color: var(--color-badge-yellow);
+  color: var(--color-dark);
+}
+
+.content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-body);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--color-dark-text);
+  font-weight: 700;
+}
+
+.card:hover .title {
+  color: var(--color-primary);
+}
+
+.description {
+  font-size: 15px;
+  color: var(--color-body);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 16px;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--color-body);
+  font-weight: 500;
+}

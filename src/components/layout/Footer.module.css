@@ -1,0 +1,207 @@
+.footer {
+  background-color: #0e1010; /* Full Vistario midnight black */
+  color: var(--color-white);
+  padding: 48px 0 24px; /* Reduced to eliminate empty vertical space */
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Background effects imitating Vistario's map grid */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 70% 100%, rgba(220, 37, 37, 0.12) 0%, rgba(14, 16, 16, 0) 60%),
+    radial-gradient(circle at 30% 0%, rgba(255, 181, 2, 0.05) 0%, rgba(14, 16, 16, 0) 50%),
+    radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 2fr 1fr 1fr; /* Precise 3-column spacing with Brand taking 50% */
+    padding-top: 16px;
+    gap: 40px;
+  }
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoImg {
+  height: 70px; /* Slightly scaled down */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.desc {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0; /* Removed bottom margin */
+  line-height: 1.8;
+  font-size: 1.0625rem;
+  max-width: 360px;
+  font-family: var(--font-body);
+}
+
+.contactLink {
+  color: var(--_color---golden-amber);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.contactLink::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--_color---crimson-red);
+}
+
+.contactLink:hover::after {
+  transform: translateX(4px);
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socialLink {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: var(--_color---crimson-red);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.colTitle {
+  font-size: 1.125rem;
+  color: var(--_color---white);
+  margin-bottom: 24px; /* Scaled down space */
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.linkList a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.linkList a::before {
+  display: none;
+}
+
+.linkList a:hover {
+  color: var(--_color---crimson-red) !important;
+}
+
+.linkList a:hover::before {
+  display: none;
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px; /* Reduced space above copyright line */
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.policyLink {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.policyLink:hover {
+  color: var(--_color---crimson-red) !important;
+}
+
+.bottomDot {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.7rem;
+}
+

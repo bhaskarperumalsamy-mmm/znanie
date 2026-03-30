@@ -1,0 +1,774 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT US — Vistario-Style Redesign
+   White cards · Crimson accents · Golden amber numbers · 
+   Soft gray alternating backgrounds · Hover lift effects
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Section 1: HERO — BRIDGES (Vistario about-one style) ─── */
+.heroSection {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #0e1010;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.heroBgImage {
+  object-fit: cover;
+  filter: brightness(0.35) contrast(1.1);
+}
+
+.heroGridOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+  text-align: left;
+}
+
+.heroTag {
+  display: inline-block;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: #fff;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin-bottom: 32px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 800px;
+}
+
+.heroTitleAccent {
+  color: #ffb502;
+}
+
+.heroDesc {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 600px;
+}
+
+.heroLabels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.heroLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.heroDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--_color---golden-amber);
+}
+
+/* ─── Section 2: HERITAGE — Our Journey ─── */
+.heritageSection {
+  padding: 120px 0;
+  background: var(--_color---soft-gray);
+}
+
+.heritageHeader {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.sectionTag {
+  display: inline-block;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---crimson-red);
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 16px;
+}
+
+.titleItalic {
+  font-style: italic;
+  font-weight: 400;
+  font-family: 'Georgia', serif;
+  color: var(--_color---shadow-gray);
+}
+
+.sectionSubtitle {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.heritageGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .heritageGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+.vistarioCard {
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 20px;
+  padding: 48px 40px;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.vistarioCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -12px rgba(0,0,0,0.1);
+  border-color: transparent;
+}
+
+.cardTag {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---shadow-gray);
+  margin-bottom: 24px;
+}
+
+.cardText {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.founderItem {
+  margin-bottom: 24px;
+}
+
+.founderRole {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--_color---crimson-red);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.founderName {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+/* ─── Section 3: THREE DECADES — Where We Are Today ─── */
+.decadesSection {
+  padding: 120px 0;
+  background: var(--_color---white);
+}
+
+.decadesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1024px) {
+  .decadesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.decadesImageCol {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.decadesImageWrapper {
+  position: relative;
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.12);
+}
+
+.decadesStatsOverlay {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 16px;
+  padding: 24px 40px;
+  display: flex;
+  gap: 36px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.decadesStat {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--_color---crimson-red);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-top: 6px;
+}
+
+.decadesTextCol {
+  padding-top: 16px;
+}
+
+.decadesDesc {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 40px;
+}
+
+.decadesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.decadesListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--_color---silver-mist);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.decadesStar {
+  color: var(--_color---golden-amber);
+  font-size: 0.875rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.decadesQuote {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--_color---crimson-red);
+  opacity: 0.65;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Georgia', serif;
+}
+
+/* ─── Section 4: PRINCIPLES — What Guides Us (Vistario Card Grid) ─── */
+.principlesSection {
+  padding: 120px 0;
+  background: var(--_color---soft-gray);
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .principlesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .principlesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.principleCard {
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 20px;
+  padding: 40px 32px;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.principleCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -12px rgba(0,0,0,0.1);
+  background-color: #0e1010;
+  border-color: transparent;
+}
+
+.principleCard:hover .principleNum {
+  color: rgba(255,255,255,0.15);
+}
+.principleCard:hover .principleLabel {
+  color: var(--_color---golden-amber);
+  background: rgba(255,181,2,0.1);
+}
+.principleCard:hover .principleText {
+  color: rgba(255,255,255,0.7);
+}
+
+.principleNum {
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: rgba(0,0,0,0.08);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 20px;
+  transition: color 0.4s ease;
+}
+
+.principleLabel {
+  display: inline-block;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---crimson-red);
+  background: rgba(220,37,37,0.06);
+  padding: 6px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  transition: all 0.4s ease;
+}
+
+.principleText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  transition: color 0.4s ease;
+}
+
+/* ─── Section 5: INSTITUTIONAL REACH — Our Impact ─── */
+.impactSection {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.impactBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.impactBgImage {
+  object-fit: cover;
+  filter: brightness(0.3);
+}
+
+.impactOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(14, 16, 16, 0.92) 0%,
+    rgba(15, 37, 42, 0.85) 100%
+  );
+}
+
+.impactContent {
+  position: relative;
+  z-index: 10;
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .impactGrid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+  }
+}
+
+.impactTag {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---crimson-red);
+  margin-bottom: 16px;
+}
+
+.impactTitle {
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: #fff;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 24px;
+}
+
+.impactDesc {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.impactStatsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.impactStatCard {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.impactStatCard:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.impactStatIcon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.impactStatValue {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 8px;
+}
+
+.impactStatLabel {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 8px;
+}
+
+.impactStatDesc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+/* ─── Section 6: ACADEMIC MANDATE — Ten Imperatives (Vistario Card Grid) ─── */
+.mandateSection {
+  padding: 120px 0;
+  background: var(--_color---soft-gray);
+}
+
+.mandateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .mandateGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mandateGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mandateCard {
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 20px;
+  padding: 40px 32px;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.mandateCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -12px rgba(0,0,0,0.1);
+  border-color: transparent;
+}
+
+.mandateCardWide {
+  composes: mandateCard;
+}
+
+@media (min-width: 640px) {
+  .mandateCardWide {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mandateCardWide {
+    grid-column: span 2;
+  }
+}
+
+.mandateCardNum {
+  font-size: 2.25rem;
+  font-weight: 200;
+  color: var(--_color---golden-amber);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 16px;
+}
+
+.mandateCardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 10px;
+}
+
+.mandateCardDesc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+/* ─── Section 7: NATIONAL VISION — Our Bigger Picture ─── */
+.visionSection {
+  padding: 120px 0;
+  background: var(--_color---white);
+}
+
+.visionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+@media (min-width: 1024px) {
+  .visionGrid {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.visionImageWrapper {
+  position: relative;
+  height: 580px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.12);
+}
+
+.visionPillars {
+  display: flex;
+  flex-direction: column;
+}
+
+.visionPillarRow {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--_color---silver-mist);
+  transition: all 0.3s ease;
+}
+
+.visionPillarRow:hover {
+  padding-left: 12px;
+}
+
+.visionPillarNum {
+  font-size: 1.75rem;
+  font-weight: 200;
+  color: var(--_color---golden-amber);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.visionPillarTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 8px;
+}
+
+.visionPillarDesc {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+/* ─── Section 8: ENGAGEMENT — Call to Action ─── */
+.engagementSection {
+  padding: 120px 0;
+  background: var(--_color---soft-gray);
+}
+
+.engagementGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .engagementGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.engagementCard {
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 20px;
+  padding: 48px 36px;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.engagementCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -12px rgba(0,0,0,0.1);
+  background-color: #0e1010;
+  border-color: transparent;
+}
+
+.engagementCard:hover .engagementCardNum { color: var(--_color---golden-amber); }
+.engagementCard:hover .engagementCardTag { color: rgba(255,255,255,0.4); }
+.engagementCard:hover .engagementCardTitle { color: #fff; }
+.engagementCard:hover .engagementCardDesc { color: rgba(255,255,255,0.6); }
+
+.engagementCardNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--_color---crimson-red);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+.engagementCardTag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 4px;
+  transition: color 0.4s ease;
+}
+
+.engagementCardTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 20px;
+  transition: color 0.4s ease;
+}
+
+.engagementCardDesc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  transition: color 0.4s ease;
+}

@@ -1,0 +1,190 @@
+.section {
+  padding: var(--_gaps---section-gap--section-gap-v1) 0;
+  background-color: #ffffff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.overline {
+  display: block;
+  font-family: var(--_font-family---lexend);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--_color---crimson-red);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.mainTitle {
+  font-family: var(--_font-family---lexend);
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  margin-bottom: 32px;
+}
+
+.mainTitle span {
+  font-style: normal;
+  color: var(--_color---crimson-red);
+}
+
+.subTitle {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--_color---shadow-gray);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 3-Column Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Lifestyle Card Styling */
+.lifestyleCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 10 / 13;
+  cursor: pointer;
+  background-color: #000;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bgImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.lifestyleCard:hover .bgImage {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 80%
+  );
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.lifestyleCard:hover .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+/* Floating Red Badge */
+.redBadge {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 52px;
+  height: 52px;
+  background-color: var(--_color---crimson-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(220, 37, 37, 0.3);
+  animation: heartbeat 2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.badgeVal {
+  color: #ffffff;
+  font-family: var(--_font-family---lexend);
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Card Content */
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  z-index: 10;
+  color: #ffffff;
+}
+
+.categoryTag {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-family: var(--_font-family---lexend);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.divider {
+  width: 32px;
+  height: 2px;
+  background-color: var(--_color---crimson-red);
+  margin-bottom: 16px;
+}
+
+.detailText {
+  font-family: var(--_font-family---lexend);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--_color---golden-amber); /* EXACT Golden Color ref from Home Two */
+  margin: 0;
+}

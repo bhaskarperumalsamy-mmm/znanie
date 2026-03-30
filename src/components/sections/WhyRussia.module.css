@@ -1,0 +1,205 @@
+.section {
+  background-color: #ffffff;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  overflow: hidden;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+@media (min-width: 768px) { .container { padding: 0 32px; } }
+@media (min-width: 1024px) { .container { padding: 0 64px; } }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (min-width: 1024px) { .grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+
+.imageCol { position: relative; }
+.imageWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(123,26,44,0.1);
+}
+.mainImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(123,26,44,0.3), transparent);
+}
+
+.floatCard {
+  position: absolute;
+  bottom: -24px;
+  right: -16px;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: float 3s ease-in-out infinite;
+}
+@media (min-width: 768px) { .floatCard { right: -32px; } }
+
+.floatCardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7b1a2c;
+  color: white;
+}
+
+.floatCardValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #7b1a2c;
+  font-family: var(--font-lexend);
+}
+.floatCardLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  font-family: var(--font-lexend);
+}
+
+.floatCardTop {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #7b1a2c;
+  color: white;
+  box-shadow: 0 20px 50px rgba(123,26,44,0.3);
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+@media (min-width: 768px) { .floatCardTop { left: -32px; } }
+
+.floatCardTopTitle {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: var(--font-lexend);
+}
+.floatCardTopSub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-lexend);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background-color: rgba(123,26,44,0.06);
+  color: #7b1a2c;
+  font-family: var(--font-lexend);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  font-family: var(--font-lexend);
+  line-height: 1.15;
+}
+
+.accent { color: #7b1a2c; }
+
+.desc {
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-family: var(--font-lexend);
+}
+@media (min-width: 768px) { .desc { font-size: 18px; } }
+
+.advGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (min-width: 640px) { .advGrid { grid-template-columns: 1fr 1fr; } }
+
+.advCard {
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.advCard:hover { transform: translateY(-4px); }
+
+.advIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+.advCard:hover .advIcon { transform: scale(1.1); }
+
+.advTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 6px;
+  font-family: var(--font-lexend);
+}
+
+.advDesc {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.6;
+  font-family: var(--font-lexend);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  background-color: #7b1a2c;
+  font-family: var(--font-lexend);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.cta:hover {
+  box-shadow: 0 10px 25px rgba(123,26,44,0.3);
+  transform: translateY(-2px);
+}

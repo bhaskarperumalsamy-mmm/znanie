@@ -1,0 +1,228 @@
+.section {
+  padding: 120px 0;
+  background-color: #f5f5f5 !important;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.overline {
+  display: block;
+  font-family: var(--_font-family---lexend);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--_color---crimson-red);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.mainTitle {
+  font-family: var(--_font-family---lexend);
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  margin-bottom: 32px;
+}
+
+.mainTitle span {
+  font-style: normal;
+  color: var(--_color---crimson-red);
+}
+
+.subTitle {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--_color---shadow-gray);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card Base */
+.card {
+  border-radius: 40px;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media (min-width: 640px) {
+  .card {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+.grayCard {
+  background-color: #ffffff;
+}
+
+.peachCard {
+  background-color: #ffffff;
+}
+
+/* Card Content Area */
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tag {
+  color: var(--_color---crimson-red);
+  font-family: var(--_font-family---lexend);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.badge {
+  background-color: var(--_color---charcoal-black);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-family: var(--_font-family---lexend);
+  font-size: 10px;
+  font-weight: 800;
+  width: min-content;
+  white-space: nowrap;
+}
+
+.cardTitle {
+  font-family: var(--_font-family---lexend);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--_color---charcoal-black);
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--_color---shadow-gray);
+  max-width: 320px;
+}
+
+/* Buttons */
+.buttonWrapper {
+  margin-top: auto;
+}
+
+.blackBtn {
+  background: var(--_color---charcoal-black);
+  color: #fff;
+  border-radius: 100px;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.redBtn {
+  background: var(--_color---crimson-red);
+  color: #fff;
+  border-radius: 100px;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blackBtn:hover, .redBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.blackBtn:hover svg, .redBtn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Image Section Area */
+.imageSection {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleMask {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.rectMask {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  transform: rotate(-4deg);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.imageGrayscale {
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1) brightness(1.1);
+}
+
+.priceBadge {
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  background-color: var(--_color---crimson-red);
+  color: #fff;
+  font-family: var(--_font-family---lexend);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(220, 37, 37, 0.2);
+  z-index: 5;
+}

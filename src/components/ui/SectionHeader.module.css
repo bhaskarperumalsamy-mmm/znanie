@@ -1,0 +1,52 @@
+.header {
+  margin-bottom: 48px;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.left {
+  text-align: left;
+}
+
+.tag {
+  display: block;
+  color: var(--color-dark);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--_font-family---lexend);
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  margin-bottom: 32px;
+}
+
+.subtitle {
+  color: var(--color-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Light Text Variation for Dark Backgrounds */
+.lightText .tag {
+  color: var(--color-white);
+}
+
+.lightText .title {
+  color: var(--color-white);
+}
+
+.lightText .subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}

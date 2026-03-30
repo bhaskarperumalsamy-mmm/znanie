@@ -1,0 +1,175 @@
+.heroSection {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0e1010;
+  padding: 120px 0;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.heroBgImage {
+  object-fit: cover;
+  filter: brightness(0.4) contrast(1.1);
+}
+
+.heroGridOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.heroOverlayGradient {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 16, 16, 0.4) 0%,
+    rgba(14, 16, 16, 0.2) 50%,
+    rgba(14, 16, 16, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--_color---golden-amber);
+  margin-bottom: 24px;
+}
+
+.heroTag::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--_color---crimson-red);
+}
+
+.heroTitle {
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 900px;
+}
+
+.heroDesc {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body), sans-serif;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.advisorsSection {
+  padding: 100px 0;
+  background-color: var(--color-white);
+}
+
+.advisorsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 640px) {
+  .advisorsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .advisorsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.advisorCard {
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition-base);
+  background: var(--color-white);
+}
+
+.advisorCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.advisorImageWrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 3px solid var(--color-primary);
+}
+
+.advisorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.advisorName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.advisorRole {
+  font-size: 13px;
+  color: var(--color-body);
+  margin-bottom: 16px;
+}
+
+.advisorMeta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}

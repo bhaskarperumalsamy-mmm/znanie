@@ -1,0 +1,234 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--_color---white); /* Fixed variable name */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  padding: 16px 0;
+}
+
+.scrolled {
+  padding: 12px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--_color---charcoal-black);
+  position: relative;
+  transition: color 0.3s ease;
+  text-decoration: none !important; /* Removes active/hover underlines */
+}
+
+.navLink:hover {
+  color: var(--_color---crimson-red);
+  text-decoration: none;
+}
+
+.navLink.active {
+  color: var(--_color---crimson-red);
+  text-decoration: none;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.signInBtn {
+  display: none;
+}
+
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--_color---charcoal-black);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--_color---charcoal-black);
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.hamburgerActive {
+  background-color: transparent;
+}
+
+.hamburgerActive::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburgerActive::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+  }
+  
+  .signInBtn {
+    display: inline-flex;
+  }
+  
+  .mobileToggle {
+    display: none;
+  }
+}
+
+/* Mobile Menu Opened State */
+@media (max-width: 1023px) {
+  .nav.mobileOpen {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--_color---white);
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav.mobileOpen .navList {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .nav.mobileOpen .navLink {
+    display: block;
+    padding: 16px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav.mobileOpen .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    padding: 10px 0 10px 20px;
+    display: block;
+  }
+}
+
+/* ─── Dropdown Styling ─── */
+.hasDropdown {
+  position: relative;
+}
+
+.arrow {
+  font-size: 10px;
+  vertical-align: middle;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.hasDropdown:hover .arrow {
+  transform: rotate(180deg);
+  color: var(--_color---crimson-red);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background-color: var(--_color---white);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 12px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 100;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.hasDropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownLink {
+  display: block;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--_color---charcoal-black);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.dropdownLink:hover {
+  background-color: rgba(220, 37, 37, 0.05);
+  color: var(--_color---crimson-red);
+  padding-left: 28px;
+}

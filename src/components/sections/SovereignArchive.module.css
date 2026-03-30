@@ -1,0 +1,122 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a0a10, #5a1320, #1a0a10);
+}
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.glowLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(212,167,67,0.08);
+  filter: blur(80px);
+  transform: translate(-50%, -50%);
+}
+.glowRight {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(123,26,44,0.2);
+  filter: blur(80px);
+  transform: translate(50%, 50%);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 16px;
+}
+@media (min-width: 768px) { .content { padding: 64px 32px; } }
+@media (min-width: 1024px) { .content { padding: 64px 64px; } }
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-family: var(--font-lexend);
+}
+.gold { color: #d4a743; }
+
+.subtitle {
+  max-width: 512px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-lexend);
+  line-height: 1.6;
+}
+@media (min-width: 768px) { .subtitle { font-size: 16px; } }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #d4a743;
+  color: #1a0a10;
+  font-family: var(--font-lexend);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+@media (min-width: 768px) { .ctaPrimary { font-size: 16px; } }
+.ctaPrimary:hover {
+  box-shadow: 0 10px 25px rgba(212,167,67,0.3);
+  transform: translateY(-2px);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  border: 2px solid rgba(255,255,255,0.8);
+  font-family: var(--font-lexend);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+@media (min-width: 768px) { .ctaSecondary { font-size: 16px; } }
+.ctaSecondary:hover {
+  background-color: #ffffff;
+  color: #1a0a10;
+}
