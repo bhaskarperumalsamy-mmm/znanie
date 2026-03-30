@@ -22,7 +22,7 @@ The site is composed of several key pages, built with reusable UI components:
 - `/blog` — Language Courses & Articles
 - `/contact` — Contact Forms and FAQs
 
-## 🛠️ Getting Started
+## 🛠️ Getting Started  
 
 First, ensure you have all dependencies installed:
 
