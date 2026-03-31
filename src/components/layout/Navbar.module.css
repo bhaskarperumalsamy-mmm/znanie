@@ -28,10 +28,23 @@
 }
 
 .logoImg {
-  height: 100px;
+  height: 50px;
   width: auto;
   object-fit: contain;
   display: block;
+  transition: height 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .logoImg {
+    height: 70px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logoImg {
+    height: 100px;
+  }
 }
 
 .nav {

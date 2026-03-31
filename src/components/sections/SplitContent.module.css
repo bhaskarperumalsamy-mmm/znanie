@@ -1,6 +1,12 @@
 .section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 100px 0;
+  }
 }
 
 .lightBg {
@@ -10,8 +16,14 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 60px;
+  gap: 32px;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 60px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -44,7 +56,6 @@
   object-fit: cover;
 }
 
-.contentCol {}
 
 .description {
   color: var(--color-body);

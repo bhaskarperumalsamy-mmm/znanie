@@ -83,9 +83,16 @@ export const PreservingKnowledge = () => {
 
       <style>{`
         .preserving-section {
-          padding: var(--_gaps---section-gap--section-gap-v1) 0;
+          padding: 60px 0;
           background-color: var(--_color---white);
         }
+
+        @media (min-width: 1024px) {
+          .preserving-section {
+            padding: var(--_gaps---section-gap--section-gap-v1) 0;
+          }
+        }
+
 
         .top-header {
           text-align: center;

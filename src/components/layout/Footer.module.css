@@ -37,11 +37,12 @@
   margin-bottom: 32px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 
 @media (min-width: 1024px) {
   .grid {
@@ -57,11 +58,17 @@
 }
 
 .logoImg {
-  height: 70px; /* Slightly scaled down */
+  height: 50px;
   width: auto;
   object-fit: contain;
   display: block;
   margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .logoImg {
+    height: 70px;
+  }
 }
 
 .desc {

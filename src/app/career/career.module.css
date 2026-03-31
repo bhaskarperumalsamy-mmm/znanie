@@ -6,7 +6,13 @@
   align-items: center;
   overflow: hidden;
   background: #0e1010;
-  padding: 120px 0;
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 120px 0;
+  }
 }
 
 .heroBg {
@@ -96,7 +102,13 @@
 /* Customized Education Section */
 .educationSection {
   background-color: var(--color-white);
-  padding: 120px 0;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .educationSection {
+    padding: 120px 0;
+  }
 }
 
 .educationGrid {
@@ -114,9 +126,16 @@
 
 .imageGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 480px) {
+  .imageGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+  }
 }
 
 .imageLarge {
@@ -211,7 +230,13 @@
 /* Updated Reasons Section */
 .reasonsSection {
   background-color: var(--color-white);
-  padding: 100px 0;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .reasonsSection {
+    padding: 100px 0;
+  }
 }
 
 .reasonsGrid {
@@ -220,20 +245,27 @@
   gap: 30px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .reasonsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+
 .reasonCard {
-  padding: 40px 36px;
+  padding: 24px 20px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   transition: var(--transition-base);
   background: var(--color-white);
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .reasonCard {
+    padding: 40px 36px;
+  }
 }
 
 .reasonCard::before {
@@ -292,7 +324,13 @@
 /* Jobs */
 .jobsSection {
   background-color: var(--color-light-bg);
-  padding: 100px 0;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .jobsSection {
+    padding: 100px 0;
+  }
 }
 
 .jobList {
@@ -305,11 +343,17 @@
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 32px 40px;
+  padding: 24px 30px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   transition: var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .jobCard {
+    padding: 32px 40px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -374,8 +418,14 @@
 }
 /* ─── Three Decades Style (From About Us) ─── */
 .decadesSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---white);
+}
+
+@media (min-width: 768px) {
+  .decadesSection {
+    padding: 120px 0;
+  }
 }
 
 .heritageHeader {
@@ -404,10 +454,16 @@
 
 .decadesImageWrapper {
   position: relative;
-  height: 480px;
+  height: 320px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 30px 60px -15px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 768px) {
+  .decadesImageWrapper {
+    height: 480px;
+  }
 }
 
 .decadesStatsOverlay {
@@ -419,10 +475,20 @@
   background: var(--_color---white);
   border: 1px solid var(--_color---silver-mist);
   border-radius: 16px;
-  padding: 24px 40px;
+  padding: 16px 20px;
   display: flex;
-  gap: 36px;
+  gap: 20px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  width: 90%;
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .decadesStatsOverlay {
+    padding: 24px 40px;
+    gap: 36px;
+    width: auto;
+  }
 }
 
 .decadesStat {
@@ -430,11 +496,17 @@
 }
 
 .statValue {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--_color---crimson-red);
   font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
   line-height: 1;
+}
+
+@media (min-width: 480px) {
+  .statValue {
+    font-size: 1.75rem;
+  }
 }
 
 .statLabel {

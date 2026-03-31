@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const reasons = [
   {
-    title: 'Financial Advantage',
-    description: 'Premium global education at a fraction of Western costs. Strategic state subsidies ensure the highest tier of academic rigor remains universally accessible.',
+    title: 'Leern Russian, Experience Culture',
+    description: ' Our intitiative delivers free access to Russian language and cultural education for all, nurturing cross-cultural understanding, global collaboration, and inclusive academic advancement.',
     image: '/images/study-work.jpg'
   },
   {
@@ -274,6 +274,12 @@ export const WhyRussia = () => {
         }
 
         @media (max-width: 1024px) {
+          .why-russia-tight-redesign {
+            padding: 60px 0 60px;
+          }
+          .container-master-v7 {
+            padding: 0 24px;
+          }
           .header-compact {
             flex-direction: column;
             align-items: flex-start;
@@ -298,7 +304,11 @@ export const WhyRussia = () => {
             grid-template-columns: 1fr;
             padding: 32px 16px;
           }
+          .display-h2-compact {
+            font-size: 2.25rem;
+          }
         }
+
       `}</style>
     </section>
   )

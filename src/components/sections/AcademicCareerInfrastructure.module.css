@@ -58,11 +58,17 @@
 .careerCard {
   background: #ffffff;
   border-radius: 24px;
-  padding: 48px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   border: 1px solid transparent;
+}
+
+@media (min-width: 768px) {
+  .careerCard {
+    padding: 48px;
+  }
 }
 
 .careerCard:hover {
@@ -137,10 +143,17 @@
 /* Meta Grid */
 .metaGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 20px;
   padding-top: 32px;
   border-top: 1px solid #ebebeb;
+}
+
+@media (min-width: 480px) {
+  .metaGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
 
 .metaItem {

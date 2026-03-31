@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   background-color: #f7fafc;
-  padding: 96px 0;
+  padding: 60px 0;
 }
 @media (min-width: 1024px) { .section { padding: 128px 0; } }
 
@@ -41,7 +41,7 @@
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 32px;
   align-items: center;
 }
 @media (min-width: 1024px) {

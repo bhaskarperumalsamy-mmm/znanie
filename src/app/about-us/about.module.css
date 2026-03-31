@@ -12,7 +12,13 @@
   align-items: center;
   overflow: hidden;
   background: #0e1010;
-  padding: 120px 0;
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 120px 0;
+  }
 }
 
 .heroBg {
@@ -80,13 +86,15 @@
 }
 
 .heroTitle {
-  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-size: clamp(2rem, 8vw, 2.75rem);
   font-weight: 700;
   line-height: 1.1;
   color: #fff;
   letter-spacing: -0.02em;
   margin-bottom: 32px;
   font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  word-break: break-word;
+  hyphens: auto;
   max-width: 900px;
 }
 
@@ -139,9 +147,15 @@
 
 /* ─── Section 2: HERITAGE — Our Journey (Vistario home-two style) ─── */
 .heritageSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---soft-gray);
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .heritageSection {
+    padding: 120px 0;
+  }
 }
 
 .sectionTag {
@@ -199,7 +213,7 @@
 .bentoDark {
   flex: 1;
   background: #0a0b0b;
-  padding: 80px 60px;
+  padding: 40px 24px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -207,15 +221,27 @@
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+  .bentoDark {
+    padding: 80px 60px;
+  }
+}
+
 .bentoLight {
   flex: 1;
   background: #ffffff;
-  padding: 80px 60px;
+  padding: 40px 24px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .bentoLight {
+    padding: 80px 60px;
+  }
 }
 
 .bentoTagDark {
@@ -243,7 +269,7 @@
 }
 
 .bentoTitleDark {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
   letter-spacing: -0.02em;
   color: #f4f4f4;
@@ -253,8 +279,14 @@
   z-index: 2;
 }
 
+@media (min-width: 768px) {
+  .bentoTitleDark {
+    font-size: 3rem;
+  }
+}
+
 .bentoTitleLight {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
   letter-spacing: -0.02em;
   color: #111;
@@ -262,6 +294,12 @@
   font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
   position: relative;
   z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .bentoTitleLight {
+    font-size: 3rem;
+  }
 }
 
 .bentoDividerDark {
@@ -360,8 +398,14 @@
   background: var(--_color---white);
   border: 1px solid var(--_color---silver-mist);
   border-radius: 20px;
-  padding: 48px 40px;
+  padding: 32px 24px;
   transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (min-width: 768px) {
+  .vistarioCard {
+    padding: 48px 40px;
+  }
 }
 
 .vistarioCard:hover {
@@ -406,12 +450,20 @@
   font-weight: 600;
   color: var(--_color---charcoal-black);
   font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 /* ─── Section 3: THREE DECADES — Where We Are Today ─── */
 .decadesSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---white);
+}
+
+@media (min-width: 768px) {
+  .decadesSection {
+    padding: 120px 0;
+  }
 }
 
 .decadesGrid {
@@ -443,18 +495,32 @@
 }
 
 .decadesStatsOverlay {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transform: none;
   z-index: 5;
   background: var(--_color---white);
   border: 1px solid var(--_color---silver-mist);
   border-radius: 16px;
-  padding: 24px 40px;
+  padding: 20px;
   display: flex;
-  gap: 36px;
+  gap: 20px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+@media (min-width: 768px) {
+  .decadesStatsOverlay {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 24px 40px;
+    gap: 36px;
+    margin-top: 0;
+  }
 }
 
 .decadesStat {
@@ -548,10 +614,16 @@
 
 /* ─── Section 4: PRINCIPLES — What Guides Us (Premium Bento Card Grid) ─── */
 .principlesSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---soft-gray);
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .principlesSection {
+    padding: 120px 0;
+  }
 }
 
 /* Clean background - Only solid gray */
@@ -842,8 +914,14 @@
 /* ─── Section 5: INSTITUTIONAL REACH — Our Impact ─── */
 .impactSection {
   position: relative;
-  padding: 120px 0;
+  padding: 60px 0;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .impactSection {
+    padding: 120px 0;
+  }
 }
 
 .impactBg {
@@ -932,11 +1010,17 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  padding: 48px 40px;
+  padding: 32px 24px;
   text-align: left;
   transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .impactStatCard {
+    padding: 48px 40px;
+  }
 }
 
 .impactStatCard:hover {
@@ -993,14 +1077,26 @@
 
 /* ─── Section 6: ACADEMIC MANDATE — Ten Imperatives (Vistario Slider Style) ─── */
 .mandateSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---soft-gray);
   overflow: hidden; /* Hide overflowing cards */
 }
 
+@media (min-width: 768px) {
+  .mandateSection {
+    padding: 120px 0;
+  }
+}
+
 .mandateHeader {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .mandateHeader {
+    margin-bottom: 80px;
+  }
 }
 
 .sectionSubtitleSmall {
@@ -1045,16 +1141,26 @@
 
 .sliderTrack {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   width: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
-  padding-top: 80px; /* Room for top overlapping red icon */
-  padding-left: max(40px, calc((100vw - 1280px) / 2)); /* Start aligned */
-  padding-right: 40px;
-  padding-bottom: 60px; /* Room for hover shadow */
+  padding-top: 60px; /* Room for top overlapping red icon */
+  padding-left: 20px; /* Mobile safe padding */
+  padding-right: 20px;
+  padding-bottom: 40px; /* Room for hover shadow */
+}
+
+@media (min-width: 768px) {
+  .sliderTrack {
+    gap: 30px;
+    padding-top: 80px;
+    padding-left: max(40px, calc((100vw - 1280px) / 2));
+    padding-right: 40px;
+    padding-bottom: 60px;
+  }
 }
 
 .sliderTrack::-webkit-scrollbar {
@@ -1068,7 +1174,7 @@
   background: #f4f4f4; /* Slightly lighter gray */
   border: 1px solid rgba(0, 0, 0, 0.08); /* Premium outline requested */
   border-radius: 16px;
-  padding: 60px 40px 40px;
+  padding: 48px 24px 32px;
   position: relative;
   transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
   display: flex;
@@ -1076,6 +1182,12 @@
   align-items: center;
   text-align: center;
   user-select: none;
+}
+
+@media (min-width: 768px) {
+  .mandateSliderCard {
+    padding: 60px 40px 40px;
+  }
 }
 
 .mandateSliderCard:hover {
@@ -1192,8 +1304,14 @@
 
 /* ─── Section 7: NATIONAL VISION — Our Bigger Picture (Vistario Interactive List Layout) ─── */
 .visionSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---white);
+}
+
+@media (min-width: 768px) {
+  .visionSection {
+    padding: 120px 0;
+  }
 }
 
 .visionGrid {
@@ -1338,10 +1456,16 @@
 
 /* ─── Section 8: ENGAGEMENT — Call to Action (The Ultimate Vistario Wipe UI) ─── */
 .engagementSection {
-  padding: 140px 0;
+  padding: 60px 0;
   background: var(--_color---soft-gray);
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .engagementSection {
+    padding: 140px 0;
+  }
 }
 
 .engagementGridOverlay {

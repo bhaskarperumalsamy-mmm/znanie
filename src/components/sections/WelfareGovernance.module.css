@@ -1,8 +1,14 @@
 .promiseSection {
-  padding: 120px 0;
+  padding: 60px 0;
   background: var(--_color---midnight-teal);
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .promiseSection {
+    padding: 120px 0;
+  }
 }
 
 .promiseBg {
@@ -36,9 +42,15 @@
 
 .promiseHeader {
   text-align: center;
-  margin-bottom: 96px;
+  margin-bottom: 40px;
   position: relative;
   z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .promiseHeader {
+    margin-bottom: 96px;
+  }
 }
 
 .promiseTag {
@@ -133,7 +145,7 @@
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
-  padding: 60px 36px 40px;
+  padding: 48px 24px 32px;
   text-align: center;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -142,6 +154,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .promiseCardInner {
+    padding: 60px 36px 40px;
+  }
 }
 
 .promiseCard:hover .promiseCardInner {

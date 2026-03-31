@@ -435,10 +435,16 @@ export const LanguageMastery = () => {
         }
 
         @media (max-width: 1024px) {
+           .language-mastery-v8 { padding: 60px 0; }
            .container-master-v8 { padding: 0 24px; }
            .v8-benefit-card { padding: 32px; }
            .v8-v { font-size: 2rem; }
+           .v8-header { margin-bottom: 60px; }
+           .v8-feature-grid { margin-bottom: 60px; gap: 48px; }
+           .v8-stats-strip { padding: 40px 20px; }
+           .old-pathway-area { padding: 40px 20px; }
         }
+
       `}</style>
     </section>
   )

@@ -1,21 +1,39 @@
 .section {
-  padding: 120px 0;
+  padding: 60px 0;
   background-color: var(--_color---soft-gray);
   overflow: hidden;
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .section {
+    padding: 120px 0;
+  }
+}
+
 .container {
   max-width: 1750px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 60px;
+  }
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 80px;
+  gap: 40px;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 80px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -136,16 +154,27 @@
 }
 
 .statsCard {
-  position: absolute;
-  bottom: 40px;
-  left: -40px;
+  position: relative;
   background: #0e1010;
-  padding: 40px;
+  padding: 32px 24px;
   border-radius: 24px;
   color: #fff;
   z-index: 10;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
   max-width: 280px;
+  margin-top: -40px;
+  margin-left: 20px;
+}
+
+@media (min-width: 1024px) {
+  .statsCard {
+    position: absolute;
+    bottom: 40px;
+    left: -40px;
+    padding: 40px;
+    margin-top: 0;
+    margin-left: 0;
+  }
 }
 
 .statsVal {

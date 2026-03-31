@@ -101,8 +101,14 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 40px;
+  padding: 24px;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .largeOverlay {
+    padding: 40px;
+  }
 }
 
 .meta {

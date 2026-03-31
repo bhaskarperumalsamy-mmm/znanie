@@ -1,15 +1,27 @@
 .section {
-  padding: var(--_gaps---section-gap--section-gap-v1) 0;
+  padding: 60px 0;
   background-color: #ffffff; /* Vistario Home 3 uses White/Soft-Gray alternating */
   position: relative;
   overflow: hidden;
 }
 
+@media (min-width: 768px) {
+  .section {
+    padding: var(--_gaps---section-gap--section-gap-v1) 0;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
+  gap: 32px;
   align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 48px;
+  }
 }
 
 @media (min-width: 1024px) {

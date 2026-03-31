@@ -195,7 +195,28 @@ export const IndiaRussiaEnter = () => {
             font-size: 1.75rem;
           }
         }
+
+        @media (max-width: 640px) {
+          .kinetic-axis-wrapper {
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+          }
+          .k-axis-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(to right, var(--_color---crimson-red), var(--_color---golden-amber));
+          }
+          .horizon-layout {
+            gap: 48px;
+          }
+          .horizon-quote {
+            max-width: 100%;
+          }
+        }
       `}</style>
+
+
     </section>
   )
 }

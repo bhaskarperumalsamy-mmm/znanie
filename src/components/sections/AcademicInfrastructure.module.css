@@ -1,14 +1,26 @@
 .section {
-  padding: 120px 0;
+  padding: 60px 0;
   background-color: #f9f9f9;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 120px 0;
+  }
 }
 
 .layoutGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 80px;
+  gap: 40px;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .layoutGrid {
+    gap: 80px;
+  }
 }
 
 @media (min-width: 1100px) {
@@ -93,7 +105,7 @@
   margin-top: 40px; /* The staggered shift */
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .staggeredStack {
     grid-template-columns: 1fr;
   }
@@ -102,16 +114,23 @@
   }
 }
 
+
 .infoCard {
   background: #ffffff;
   border: 1.5px solid #ebebeb;
   border-radius: 24px;
-  padding: 40px;
+  padding: 24px;
   height: min-content;
   display: flex;
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .infoCard {
+    padding: 40px;
+  }
 }
 
 .infoCard:hover {
