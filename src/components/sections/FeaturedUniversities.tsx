@@ -149,12 +149,15 @@ export const FeaturedUniversities = () => {
           background: rgba(255,181,2,0.06);
         }
         .fu-subtitle {
-          font-size: 1rem;
-          line-height: 1.7;
+          font-size: 0.9375rem;
+          line-height: 1.6;
           color: var(--_color---shadow-gray);
           font-family: var(--font-body);
           max-width: 480px;
-          margin: 16px auto 0;
+          margin: 12px auto 0;
+        }
+        @media (min-width: 1024px) {
+          .fu-subtitle { font-size: 1rem; margin-top: 16px; }
         }
 
         /* ─── Showcase (Hero) ─── */
@@ -177,7 +180,7 @@ export const FeaturedUniversities = () => {
         /* Left: Image */
         .fu-hero-img-wrap {
           position: relative;
-          height: 320px;
+          height: 260px;
           overflow: hidden;
         }
         @media (min-width: 1024px) {

@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const reasons = [
   {
-    title: 'Leern Russian, Experience Culture',
-    description: ' Our intitiative delivers free access to Russian language and cultural education for all, nurturing cross-cultural understanding, global collaboration, and inclusive academic advancement.',
+    title: 'Learn Russian, Experience Culture',
+    description: ' Our initiative delivers free access to Russian language and cultural education for all, nurturing cross-cultural understanding, global collaboration, and inclusive academic advancement.',
     image: '/images/study-work.jpg'
   },
   {
@@ -140,7 +140,7 @@ export const WhyRussia = () => {
           font-weight: var(--_typhography---font-weight--h2);
           line-height: var(--_typhography---font-line-height--h2);
           color: var(--_color---charcoal-black);
-          margin: 0 0 32px 0;
+          margin: 0 0 16px 0;
         }
 
         .text-accent-red {
@@ -275,14 +275,16 @@ export const WhyRussia = () => {
 
         @media (max-width: 1024px) {
           .why-russia-tight-redesign {
-            padding: 60px 0 60px;
+            padding: 40px 0;
           }
           .container-master-v7 {
-            padding: 0 24px;
+            padding: 0 20px;
           }
           .header-compact {
             flex-direction: column;
             align-items: flex-start;
+            margin-bottom: 32px;
+            gap: 24px;
           }
           .image-reveal-v7 {
             width: 100% !important;
@@ -302,10 +304,16 @@ export const WhyRussia = () => {
           }
           .ledger-row-compact {
             grid-template-columns: 1fr;
-            padding: 32px 16px;
+            padding: 24px 0;
           }
           .display-h2-compact {
-            font-size: 2.25rem;
+            font-size: 1.75rem;
+          }
+          .stats-group-compact {
+            gap: 32px;
+          }
+          .v-num {
+            font-size: 2rem;
           }
         }
 

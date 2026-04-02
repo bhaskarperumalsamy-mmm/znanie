@@ -70,7 +70,9 @@ const testimonials = [
   },
 ]
 
-// Duplicate for seamless infinite marquee
+// Original testimonials only for mobile to avoid massive duplication
+const mobileTestimonials = testimonials;
+// Duplicate for seamless infinite marquee on desktop
 const marqueeItems = [...testimonials, ...testimonials]
 
 export const SuccessStories = () => {
@@ -99,30 +101,19 @@ export const SuccessStories = () => {
       {/* ─── Infinite Marquee Scroller (Vistario auto-scroll) ─── */}
       <div className="vt-marquee-wrapper">
         <div ref={marqueeRef} className="vt-marquee-track">
-          {marqueeItems.map((t, index) => (
-            <div key={index} className="vt-card">
-              {/* Quote icon */}
-              <div className="vt-quote-icon">&ldquo;</div>
+          {/* Desktop Marquee */}
+          <div className="vt-marquee-desktop">
+            {marqueeItems.map((t, index) => (
+              <TestimonialCard key={index} t={t} />
+            ))}
+          </div>
 
-              {/* Bold title */}
-              <h4 className="vt-card-title">{t.title}</h4>
-
-              {/* Quote text */}
-              <p className="vt-card-quote">{t.quote}</p>
-
-              {/* Red divider */}
-              <div className="vt-divider" />
-
-              {/* Profile */}
-              <div className="vt-profile">
-                <div className="vt-avatar">
-                  <Image src={t.image} alt={t.name} fill className="object-cover" sizes="64px" />
-                </div>
-                <div className="vt-name">{t.name}</div>
-                <div className="vt-role">{t.university}</div>
-              </div>
-            </div>
-          ))}
+          {/* Mobile Grid */}
+          <div className="vt-marquee-mobile">
+            {testimonials.map((t, index) => (
+              <TestimonialCard key={index} t={t} />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -164,6 +155,47 @@ export const SuccessStories = () => {
           gap: 28px;
           animation: marqueeScroll 60s linear infinite;
           width: max-content;
+        }
+
+        @media (max-width: 768px) {
+          .vt-marquee-wrapper {
+            mask-image: none;
+            -webkit-mask-image: none;
+          }
+          .vt-marquee-track {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            animation: none;
+            width: 100%;
+            padding: 0 20px;
+          }
+          .vt-card {
+            width: 100% !important;
+          }
+        }
+
+        .vt-marquee-desktop { display: flex; gap: 28px; }
+        .vt-marquee-mobile { display: none; }
+
+        @media (max-width: 768px) {
+          .vt-marquee-wrapper {
+            mask-image: none;
+            -webkit-mask-image: none;
+          }
+          .vt-marquee-track {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            animation: none;
+            width: 100%;
+            padding: 0 20px;
+          }
+          .vt-card {
+            width: 100% !important;
+          }
+          .vt-marquee-desktop { display: none; }
+          .vt-marquee-mobile { display: grid; gap: 24px; width: 100%; }
         }
 
         .vt-marquee-track:hover {
@@ -267,3 +299,19 @@ export const SuccessStories = () => {
     </section>
   )
 }
+
+const TestimonialCard = ({ t }: { t: any }) => (
+  <div className="vt-card">
+    <div className="vt-quote-icon">&ldquo;</div>
+    <h4 className="vt-card-title">{t.title}</h4>
+    <p className="vt-card-quote">{t.quote}</p>
+    <div className="vt-divider" />
+    <div className="vt-profile">
+      <div className="vt-avatar">
+        <Image src={t.image} alt={t.name} fill className="object-cover" sizes="64px" />
+      </div>
+      <div className="vt-name">{t.name}</div>
+      <div className="vt-role">{t.university}</div>
+    </div>
+  </div>
+)

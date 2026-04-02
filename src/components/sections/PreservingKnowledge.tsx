@@ -112,7 +112,7 @@ export const PreservingKnowledge = () => {
 
         .welcome-card {
            background-color: var(--_color---soft-gray);
-           padding: 64px 48px;
+           padding: 40px 24px;
            border-radius: var(--radius-lg);
            border: 1px solid var(--_color---silver-mist);
            position: relative;
@@ -121,14 +121,22 @@ export const PreservingKnowledge = () => {
            flex-direction: column;
         }
 
+        @media (min-width: 1024px) {
+          .welcome-card { padding: 64px 48px; }
+        }
+
         .quote-icon {
            position: absolute;
-           top: 32px;
-           left: 32px;
-           font-size: 120px;
+           top: 0px;
+           left: 0px;
+           font-size: 80px;
            font-family: serif;
-           color: rgba(220, 37, 37, 0.08);
+           color: rgba(220, 37, 37, 0.05);
            line-height: 1;
+        }
+
+        @media (min-width: 1024px) {
+          .quote-icon { top: 32px; left: 32px; font-size: 120px; }
         }
 
         .welcome-text {

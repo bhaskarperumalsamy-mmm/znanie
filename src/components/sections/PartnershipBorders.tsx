@@ -63,9 +63,9 @@ export const PartnershipBorders = () => {
           <motion.div variants={itemVariants} className="pb-header">
             <div className="pb-header-left">
               <span className="tag-premium" style={{ marginBottom: 16, fontSize: '.75rem' }}>Stronger Together</span>
-              <h2 style={{ fontSize: 'var(--_typhography---font-size--h2)', fontWeight: 'var(--_typhography---font-weight--h2)', lineHeight: 'var(--_typhography---font-line-height--h2)', marginBottom: 32, color: 'var(--_color---charcoal-black)' }}>
+              <h2 className="pb-title">
                 Partnership Beyond <br />
-                <span style={{ color: 'var(--_color---crimson-red)' }}>Borders</span>
+                <span className="text-crimson-v2">Borders</span>
               </h2>
             </div>
             <p className="pb-header-desc">
@@ -147,14 +147,23 @@ export const PartnershipBorders = () => {
         }
 
         /* ─── Header ─── */
-        .pb-header {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-          margin-bottom: 64px;
-          align-items: flex-start;
+        .text-crimson-v2 { color: var(--_color---crimson-red); }
+
+        .pb-title {
+          font-family: var(--_font-family---lexend);
+          font-size: 2rem;
+          font-weight: var(--_typhography---font-weight--h2);
+          line-height: 1.2;
+          color: var(--_color---charcoal-black);
+          margin-bottom: 24px;
         }
+
         @media (min-width: 1024px) {
+          .pb-title {
+            font-size: var(--_typhography---font-size--h2);
+            line-height: var(--_typhography---font-line-height--h2);
+            margin-bottom: 32px;
+          }
           .pb-header {
             flex-direction: row;
             align-items: flex-end;
@@ -219,11 +228,14 @@ export const PartnershipBorders = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 32px;
-          padding: 28px 32px;
-          background: rgba(15,37,42,0.5);
-          backdrop-filter: blur(20px);
+          gap: 16px;
+          padding: 20px 16px;
+          background: rgba(15,37,42,0.6);
+          backdrop-filter: blur(12px);
           border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        @media (min-width: 768px) {
+          .pb-image-stats { gap: 32px; padding: 28px 32px; }
         }
 
         .pb-stat-item {
