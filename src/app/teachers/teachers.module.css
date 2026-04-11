@@ -1,0 +1,129 @@
+.container {
+  max-width: var(--container-width-medium);
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  margin-bottom: 12px;
+}
+
+.header p {
+  color: var(--color-body);
+  font-size: 1.125rem;
+}
+
+.searchBar {
+  margin-bottom: 32px;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(220, 37, 37, 0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--color-white);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin: 16px 0 8px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.rating {
+  color: var(--color-secondary);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background: var(--color-soft-gray);
+  padding: 4px 12px;
+  border-radius: var(--radius-tiny);
+  font-size: 0.75rem;
+  color: var(--color-body);
+}
+
+.bio {
+  font-size: 0.875rem;
+  color: var(--color-body);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.bookBtn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.bookBtn:hover {
+  background: var(--color-primary-hover);
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-body);
+}

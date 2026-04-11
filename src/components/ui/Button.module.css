@@ -5,9 +5,16 @@
   padding: 12px 24px;
   font-weight: 600;
   border-radius: var(--radius-sm);
-  transition: var(--transition-base);
+  transition: all 0.2s ease;
   text-align: center;
   gap: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .fullWidth {

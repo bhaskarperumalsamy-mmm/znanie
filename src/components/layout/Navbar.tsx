@@ -7,12 +7,23 @@ import { usePathname } from 'next/navigation';
 import { Button } from '../ui/Button';
 import styles from './Navbar.module.css';
 
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
+    checkAuth();
+    
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -25,10 +36,33 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const checkAuth = async () => {
+    try {
+      const res = await fetch('/api/auth/me');
+      const data = await res.json();
+      setUser(data.user);
+    } catch (error) {
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/me', { method: 'DELETE' });
+      setUser(null);
+      window.location.href = '/login';
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
   const navLinks = [
     { name: 'Home', path: '/home' },
     { name: 'About Us', path: '/about-us' },
     { name: 'Why Choose Us', path: '/why-choose-us' },
+    { name: 'Teachers', path: '/teachers' },
     { 
       name: 'Study in Russia', 
       path: '#',
@@ -95,11 +129,27 @@ export const Navbar: React.FC = () => {
         </nav>
 
         <div className={styles.rightSection}>
-          {/* 
-          <Button variant="primary" href="/contact" className={styles.signInBtn}>
-            Get Started &rarr;
-          </Button> 
-          */}
+          {!loading && (
+            user ? (
+              <>
+                <Link href="/dashboard" className={styles.dashboardLink}>
+                  Dashboard
+                </Link>
+                <button onClick={handleLogout} className={styles.logoutLink}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className={styles.loginLink}>
+                  Sign In
+                </Link>
+                <Link href="/register" className={styles.signUpLink}>
+                  Sign Up
+                </Link>
+              </>
+            )
+          )}
           
           <button 
             className={styles.mobileToggle}

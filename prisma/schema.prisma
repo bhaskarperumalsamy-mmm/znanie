@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  TEACHER
+  COUNSELOR
+  MENTOR
+  ADMIN
+}
+
+enum MeetingType {
+  ONE_ON_ONE
+  GROUP
+  ORIENTATION
+}
+
+enum MeetingStatus {
+  REQUESTED
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String   @unique
+  password       String
+  name           String
+  role            Role      @default(STUDENT)
+  timezone        String   @default("Asia/Kolkata")
+  language        String   @default("en")
+  profilePhoto   String?
+  isVerified     Boolean  @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  teacherProfile  TeacherProfile?
+  availability  Availability[]
+  studentMeetings Meeting[] @relation("StudentMeetings")
+  teacherMeetings Meeting[] @relation("TeacherMeetings")
+  notifications Notification[]
+  meetingNotes MeetingNote[]
+  actionItems ActionItem[]
+  reviewsByMe Review[] @relation("ReviewerReviews")
+  reviewsForMe Review[] @relation("TeacherReviews")
+}
+
+model TeacherProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio             String?
+  specializations  String[]
+  certifications  String[]
+  hourlyRate      Float?
+  avgRating       Float    @default(0)
+  totalReviews    Int      @default(0)
+  languages      String[]
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Availability {
+  id            String   @id @default(cuid())
+  teacherId      String
+  teacher       User     @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  dayOfWeek     Int      // 0-6, Sunday-Saturday
+  startTime    String   // "HH:mm" format
+  endTime      String   // "HH:mm" format
+  isRecurring   Boolean  @default(true)
+  bufferMinutes Int      @default(15)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([teacherId])
+}
+
+model Meeting {
+  id              String        @id @default(cuid())
+  studentId       String
+  student         User         @relation("StudentMeetings", fields: [studentId], references: [id])
+  teacherId       String
+  teacher         User         @relation("TeacherMeetings", fields: [teacherId], references: [id])
+  title           String
+  description     String?
+  startTime       DateTime
+  endTime         DateTime
+  timezone        String       @default("Asia/Kolkata")
+  meetingType     MeetingType  @default(ONE_ON_ONE)
+  status          MeetingStatus @default(REQUESTED)
+  meetingUrl      String?     // Zoom join URL (for students)
+  hostUrl         String?     // Zoom host URL (for teacher)
+  zoomMeetingId   String?     // Zoom meeting ID
+  groupCode       String?     // Invite code for group sessions
+  maxParticipants Int?        @default(10)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  notes        MeetingNote[]
+  actionItems  ActionItem[]
+  review     Review?
+
+  @@index([studentId])
+  @@index([teacherId])
+  @@index([startTime])
+}
+
+model MeetingNote {
+  id          String   @id @default(cuid())
+  meetingId    String
+  meeting     Meeting  @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  content     String
+  isPrivate   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([meetingId])
+}
+
+model ActionItem {
+  id          String    @id @default(cuid())
+  meetingId   String
+  meeting    Meeting   @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  assigneeId String
+  assignee   User      @relation(fields: [assigneeId], references: [id])
+  title      String
+  dueDate    DateTime?
+  status     String    @default("PENDING")
+  createdAt  DateTime  @default(now())
+  completedAt DateTime?
+
+  @@index([meetingId])
+}
+
+model Review {
+  id             String   @id @default(cuid())
+  meetingId       String   @unique
+  meeting        Meeting  @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  reviewerId      String
+  reviewer       User     @relation("ReviewerReviews", fields: [reviewerId], references: [id])
+  teacherId      String
+  teacher        User     @relation("TeacherReviews", fields: [teacherId], references: [id])
+  overallRating  Int
+  knowledgeRating Int?
+  communicationRating Int?
+  punctualityRating  Int?
+  helpfulnessRating Int?
+  comment      String?
+  isAnonymous  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  @@index([teacherId])
+}
+
+model Notification {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type           String
+  title         String
+  message       String
+  relatedEntity  String?
+  relatedId      String?
+  isRead         Boolean  @default(false)
+  sentAt         DateTime  @default(now())
+
+  @@index([userId])
+}
