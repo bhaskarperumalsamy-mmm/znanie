@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^3.0.3",
     "framer-motion": "^12.38.0",
+    "jsonwebtoken": "^9.0.3",
     "lucide-react": "^1.7.0",
     "next": "^16.2.1",
+    "prisma": "^5.22.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
@@ -31,6 +35,8 @@
     ]
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "typescript": "^6.0.2"

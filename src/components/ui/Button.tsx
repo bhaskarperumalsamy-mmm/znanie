@@ -10,6 +10,7 @@ interface ButtonProps {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -20,10 +21,17 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   type = 'button',
   fullWidth = false,
+  disabled = false,
 }) => {
   const baseClass = `${styles.btn} ${styles[variant]} ${fullWidth ? styles.fullWidth : ''} ${className}`;
 
-  if (href) {
+  const buttonContent = (
+    <button type={type} className={`${baseClass} ${disabled ? styles.disabled : ''}`} onClick={onClick} disabled={disabled}>
+      {children}
+    </button>
+  );
+
+  if (href && !disabled) {
     return (
       <Link href={href} className={baseClass}>
         {children}
@@ -31,9 +39,5 @@ export const Button: React.FC<ButtonProps> = ({
     );
   }
 
-  return (
-    <button type={type} className={baseClass} onClick={onClick}>
-      {children}
-    </button>
-  );
+  return buttonContent;
 };

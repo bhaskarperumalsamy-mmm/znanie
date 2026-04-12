@@ -108,6 +108,8 @@
   --radius-sm: var(--border-radius-small);
   --radius-md: .9375rem;
   --radius-lg: 1.875rem;
+  --color-border: var(--_color---silver-mist);
+  --color-light-bg: var(--_color---soft-gray);
 }
 
 * {
