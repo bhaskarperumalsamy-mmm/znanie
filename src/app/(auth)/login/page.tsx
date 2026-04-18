@@ -31,15 +31,17 @@ export default function LoginPage() {
         throw new Error(data.error || 'Login failed');
       }
 
-      // Redirect based on role - add delay to let cookie settle
-      if (['TEACHER', 'COUNSELOR', 'MENTOR'].includes(data.user?.role)) {
-        setTimeout(() => router.push('/teacher'), 500);
-      } else if (data.user?.role === 'STUDENT') {
-        setTimeout(() => router.push('/student'), 500);
-      } else if (data.user?.role === 'ADMIN') {
-        setTimeout(() => router.push('/admin'), 500);
+      // Redirect based on role from login response
+      const userRole = data.user?.role;
+      
+      if (userRole === 'ADMIN') {
+        router.push('/admin');
+      } else if (['TEACHER', 'COUNSELOR', 'MENTOR'].includes(userRole)) {
+        router.push('/teacher');
+      } else if (userRole === 'STUDENT') {
+        router.push('/student');
       } else {
-        setTimeout(() => router.push('/student'), 500);
+        router.push('/student');
       }
     } catch (err: any) {
       setError(err.message);

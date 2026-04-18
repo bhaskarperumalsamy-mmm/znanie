@@ -1,35 +1,32 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuthRedirect } from '@/lib/useAuthRedirect';
 
 export default function TeacherLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { user, loading, logout } = useAuth();
+  const { logout } = useAuth();
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
-  const [authChecked, setAuthChecked] = useState(false);
-
-  // ALL hooks at top level - unconditional
-  useEffect(() => {
-    if (!loading && !user && authChecked) {
-      router.replace('/login');
-    } else if (!loading && user && user.role !== 'TEACHER' && user.role !== 'COUNSELOR' && user.role !== 'MENTOR') {
-      router.replace('/student');
-    }
-  }, [user, loading, authChecked, router]);
+  
+  const { user, loading, checkAuth } = useAuthRedirect({
+    allowedRoles: ['TEACHER', 'COUNSELOR', 'MENTOR'],
+    loginUrl: '/login',
+    maxRetries: 2,
+    retryDelay: 500,
+  });
 
   const handleLogout = async () => {
     await logout();
     router.push('/login');
   };
 
-  // First check: while loading show spinner
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -38,33 +35,17 @@ export default function TeacherLayout({
     );
   }
 
-  // Second check: user loaded but not verified yet - retry
-  if (!user && !authChecked) {
-    setAuthChecked(true);
+  if (!user) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c1121f] mb-4"></div>
-        <p className="text-gray-500">Verifying session...</p>
-      </div>
-    );
-  }
-
-  // Third check: after retry, no user
-  if (!user && authChecked) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c1121f] mb-4"></div>
-        <p className="text-gray-500">Please login...</p>
-      </div>
-    );
-  }
-
-  // Fourth check: wrong role
-  if (!user || (user.role !== 'TEACHER' && user.role !== 'COUNSELOR' && user.role !== 'MENTOR')) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c1121f] mb-4"></div>
-        <p className="text-gray-500">Redirecting...</p>
+        <p className="text-gray-500">Verifying access...</p>
+        <button 
+          onClick={() => checkAuth()}
+          className="mt-4 text-[#c1121f] hover:underline"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -81,9 +62,7 @@ export default function TeacherLayout({
 
   return (
     <div className="min-h-screen flex bg-gray-50">
-      {/* Sidebar */}
       <aside className={`${collapsed ? 'w-20' : 'w-64'} fixed h-full bg-white border-r border-gray-200 transition-all duration-300`}>
-        {/* Logo Section */}
         <div className="p-5 border-b border-gray-100">
           <div className="flex items-center justify-between">
             {!collapsed && (
@@ -109,7 +88,6 @@ export default function TeacherLayout({
           )}
         </div>
 
-        {/* User Info */}
         <div className="p-4 border-b border-gray-100">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#c1121f] text-white flex items-center justify-center font-semibold flex-shrink-0">
@@ -124,7 +102,6 @@ export default function TeacherLayout({
           </div>
         </div>
 
-        {/* Navigation */}
         <nav className="p-3 space-y-1">
           {navItems.map((item) => (
             <Link
@@ -140,7 +117,6 @@ export default function TeacherLayout({
           ))}
         </nav>
 
-        {/* Bottom Actions */}
         <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-gray-100">
           <Link
             href="/"
@@ -163,7 +139,6 @@ export default function TeacherLayout({
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className={`${collapsed ? 'ml-20' : 'ml-64'} flex-1 p-8 bg-gray-50 min-h-screen transition-all duration-300`}>
         {children}
       </main>
