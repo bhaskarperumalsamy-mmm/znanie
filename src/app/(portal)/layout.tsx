@@ -1,6 +1,6 @@
 "use client";
 
-export default function AuthLayout({
+export default function PortalLayout({
   children,
 }: {
   children: React.ReactNode;

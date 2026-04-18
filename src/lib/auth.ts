@@ -61,7 +61,7 @@ export function setAuthCookie(token: string) {
   return cookies().then((cookieStore) => {
     cookieStore.set('auth-token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: false,
       sameSite: 'lax',
       maxAge: 60 * 60 * 24, // 24 hours
       path: '/',
