@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Lexend, DM_Sans } from "next/font/google";
+import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -51,13 +50,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   openGraph: {
     type: "website",
@@ -67,21 +59,12 @@ export const metadata: Metadata = {
     title: "India-Russia Education & Cultural Exchange | ZNANIE",
     description:
       "ZNANIE bridges the gap between certified academic proficiency and elite professional opportunities in the Russia-India corridor.",
-    images: [
-      {
-        url: "/images/og-znanie.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ZNANIE – India-Russia Education & Cultural Exchange",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "India-Russia Education & Cultural Exchange | ZNANIE",
     description:
       "ZNANIE bridges the gap between certified academic proficiency and elite professional opportunities in the Russia-India corridor.",
-    images: ["/images/og-znanie.jpg"],
   },
   alternates: {
     canonical: SITE_URL,
@@ -102,43 +85,9 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
       </head>
       <body>
-        {/* Organization JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "EducationalOrganization",
-              name: "ZNANIE Foundation",
-              alternateName: "S.I. Vavilov Foundation Znanie",
-              url: SITE_URL,
-              logo: `${SITE_URL}/images/znaine-favicon.ico`,
-              description:
-                "ZNANIE bridges the gap between certified academic proficiency and elite professional opportunities in the Russia-India corridor.",
-              email: "info@znaine.com",
-              foundingDate: "1991-10-01",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress:
-                  "No. 8, Solakalipalayam Road, Thannasi Kovil Street, Kodumudi",
-                addressLocality: "Erode",
-                addressRegion: "Tamil Nadu",
-                postalCode: "638151",
-                addressCountry: "IN",
-              },
-              sameAs: [],
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+91-8925269033",
-                contactType: "admissions",
-                availableLanguage: ["English", "Hindi", "Russian"],
-              },
-            }),
-          }}
-        />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
