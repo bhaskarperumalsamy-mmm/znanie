@@ -34,11 +34,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isDashboardRoute = pathname?.startsWith('/dashboard') ||
-    pathname?.startsWith('/teachers') ||
-    pathname === '/login' ||
-    pathname === '/register';
-
   const refreshAuth = async () => {
     try {
       const res = await fetch('/api/auth/me');
@@ -82,7 +77,5 @@ export function useAuthCheck() {
 
   const isAuthPage = pathname === '/login' || pathname === '/register';
 
-  const isDashboardPage = pathname?.startsWith('/dashboard') || pathname === '/teachers';
-
-  return { isPublicPage, isAuthPage, isDashboardPage };
+  return { isPublicPage, isAuthPage };
 }

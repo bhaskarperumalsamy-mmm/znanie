@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -13,12 +13,23 @@ export default function TeacherLayout({
   const { user, loading, logout } = useAuth();
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  // ALL hooks at top level - unconditional
+  useEffect(() => {
+    if (!loading && !user && authChecked) {
+      router.replace('/login');
+    } else if (!loading && user && user.role !== 'TEACHER' && user.role !== 'COUNSELOR' && user.role !== 'MENTOR') {
+      router.replace('/student');
+    }
+  }, [user, loading, authChecked, router]);
 
   const handleLogout = async () => {
     await logout();
     router.push('/login');
   };
 
+  // First check: while loading show spinner
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -27,17 +38,35 @@ export default function TeacherLayout({
     );
   }
 
-  if (!user) {
+  // Second check: user loaded but not verified yet - retry
+  if (!user && !authChecked) {
+    setAuthChecked(true);
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <p className="text-gray-500">Redirecting to login...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c1121f] mb-4"></div>
+        <p className="text-gray-500">Verifying session...</p>
       </div>
     );
   }
 
-  if (user.role !== 'TEACHER' && user.role !== 'COUNSELOR' && user.role !== 'MENTOR') {
-    router.push('/student');
-    return null;
+  // Third check: after retry, no user
+  if (!user && authChecked) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c1121f] mb-4"></div>
+        <p className="text-gray-500">Please login...</p>
+      </div>
+    );
+  }
+
+  // Fourth check: wrong role
+  if (!user || (user.role !== 'TEACHER' && user.role !== 'COUNSELOR' && user.role !== 'MENTOR')) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c1121f] mb-4"></div>
+        <p className="text-gray-500">Redirecting...</p>
+      </div>
+    );
   }
 
   const navItems = [

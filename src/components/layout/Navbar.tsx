@@ -132,7 +132,10 @@ export const Navbar: React.FC = () => {
           {!loading && (
             user ? (
               <>
-                <Link href="/dashboard" className={styles.dashboardLink}>
+                <Link 
+                  href={['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role) ? '/teacher' : '/student'} 
+                  className={styles.dashboardLink}
+                >
                   Dashboard
                 </Link>
                 <button onClick={handleLogout} className={styles.logoutLink}>
