@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
             user ? (
               <>
                 <Link 
-                  href={['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role) ? '/teacher' : '/student'} 
+                  href={['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role) ? '/teacher' : user.role === 'ADMIN' ? '/admin' : '/student'} 
                   className={styles.dashboardLink}
                 >
                   Dashboard
@@ -146,9 +146,6 @@ export const Navbar: React.FC = () => {
               <>
                 <Link href="/login" className={styles.loginLink}>
                   Sign In
-                </Link>
-                <Link href="/register" className={styles.signUpLink}>
-                  Sign Up
                 </Link>
               </>
             )
