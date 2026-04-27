@@ -9,7 +9,7 @@ interface Meeting {
   title: string;
   startTime: string;
   status: string;
-  meetingUrl: string;
+  joinUrl: string | null;
   teacher: { name: string };
 }
 
@@ -94,7 +94,7 @@ export default function StudentDashboard() {
   };
 
   const canJoin = (meeting: Meeting) => {
-    if (meeting.status !== 'CONFIRMED' || !meeting.meetingUrl) return false;
+    if (meeting.status !== 'CONFIRMED' || !meeting.joinUrl) return false;
     const meetingStart = new Date(meeting.startTime);
     const now = new Date();
     const tenMinutesFromNow = new Date(now.getTime() + 10 * 60 * 1000);
@@ -253,7 +253,7 @@ export default function StudentDashboard() {
                   </span>
                   {canJoin(meeting) && (
                     <a
-                      href={meeting.meetingUrl}
+                      href={meeting.joinUrl || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium transition"

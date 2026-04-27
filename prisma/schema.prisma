@@ -98,11 +98,11 @@ model Meeting {
   timezone        String       @default("Asia/Kolkata")
   meetingType     MeetingType  @default(ONE_ON_ONE)
   status          MeetingStatus @default(REQUESTED)
-  meetingUrl      String?     // Zoom join URL (for students)
-  hostUrl         String?     // Zoom host URL (for teacher)
-  zoomMeetingId   String?     // Zoom meeting ID
-  groupCode       String?     // Invite code for group sessions
-  maxParticipants Int?        @default(10)
+  joinUrl         String?      // Yandex join URL (for students)
+  hostUrl         String?      // Host URL (for teacher/admin)
+  conferenceId    String?      // Yandex conference ID
+  groupCode       String?      // Invite code for group sessions
+  maxParticipants Int?         @default(10)
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
 

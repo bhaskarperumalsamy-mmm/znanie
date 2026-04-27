@@ -12,7 +12,7 @@ interface Meeting {
   endTime: string;
   status: string;
   meetingType: string;
-  meetingUrl: string;
+  joinUrl: string | null;
   student: { id: string; name: string; email: string };
 }
 

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/lib/auth';
-import { createZoomMeeting } from '@/lib/zoom';
+import { createConference } from '@/lib/telemost';
 
 export async function GET(request: NextRequest) {
   try {
@@ -69,29 +69,17 @@ export async function POST(request: NextRequest) {
 
     const startDate = new Date(startTime);
     const endDate = new Date(endTime);
-    const duration = Math.round((endDate.getTime() - startDate.getTime()) / 60000);
 
-    // Create Zoom meeting
-    let zoomJoinUrl = null;
-    let zoomHostUrl = null;
-    let zoomMeetingId = null;
+    // Create Jitsi meeting
+    let conferenceId: string | null = null;
+    let joinUrl: string | null = null;
 
     try {
-      const zoomMeeting = await createZoomMeeting({
-        topic: title,
-        type: 2,
-        start_time: startDate.toISOString(),
-        duration: duration > 0 ? duration : 60,
-        timezone: timezone,
-        agenda: description,
-      });
-
-      zoomJoinUrl = zoomMeeting.join_url;
-      zoomHostUrl = zoomMeeting.start_url;
-      zoomMeetingId = String(zoomMeeting.id);
-    } catch (zoomError) {
-      console.error('Zoom creation error:', zoomError);
-      // Continue without Zoom if it fails
+      const conference = createConference();
+      conferenceId = conference.id;
+      joinUrl = conference.joinUrl;
+    } catch (conferenceError) {
+      console.error('Conference creation error:', conferenceError);
     }
 
     const meeting = await prisma.meeting.create({
@@ -104,9 +92,8 @@ export async function POST(request: NextRequest) {
         endTime: endDate,
         timezone,
         meetingType: meetingType as any,
-        meetingUrl: zoomJoinUrl,
-        hostUrl: zoomHostUrl,
-        zoomMeetingId: zoomMeetingId,
+        joinUrl: joinUrl,
+        conferenceId: conferenceId,
         status: 'REQUESTED',
       },
       include: {

@@ -158,16 +158,23 @@ export default function StudentMeetingDetailPage() {
           </div>
 
           {/* Meeting URL */}
-          {meeting.meetingUrl && (
+          {meeting.joinUrl && (
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h3 className="font-semibold text-gray-900 mb-4">Video Meeting</h3>
+              <div className="mb-3">
+                <p className="text-sm text-gray-500 mb-1">Meeting Link</p>
+                <p className="text-gray-700 text-sm font-mono break-all">{meeting.joinUrl}</p>
+              </div>
               <a
-                href={meeting.meetingUrl}
+                href={meeting.joinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#c1121f] hover:text-[#b5110a] font-medium"
+                className="inline-flex items-center px-4 py-2 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition"
               >
-                Join Meeting →
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Join Meeting
               </a>
             </div>
           )}
