@@ -100,7 +100,7 @@ export default function TeachersPage() {
                 <p className={styles.bio}>{teacher.teacherProfile.bio}</p>
               )}
               
-              <Link href={`/dashboard/book/${teacher.id}`} className={styles.bookBtn}>
+              <Link href={`/student/book?teacher=${teacher.id}`} className={styles.bookBtn}>
                 Book Session
               </Link>
             </div>

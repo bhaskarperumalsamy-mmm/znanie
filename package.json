@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@prisma/client": "^5.22.0",
+    "autoprefixer": "^10.5.0",
     "bcryptjs": "^3.0.3",
     "framer-motion": "^12.38.0",
     "jsonwebtoken": "^9.0.3",
@@ -18,9 +19,14 @@
   },
   "scripts": {
     "dev": "next dev -p 3002",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:seed": "npx tsx prisma/seed.ts",
+    "db:reset": "npx prisma migrate reset --force && npm run db:seed"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
   },
   "browserslist": {
     "production": [
@@ -35,10 +41,13 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
+    "dotenv": "^17.4.1",
+    "tailwindcss": "^3.4.19",
     "typescript": "^6.0.2"
   }
 }

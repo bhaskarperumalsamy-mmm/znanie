@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/lib/auth';
+import { deleteConference } from '@/lib/telemost';
 
 export async function GET(
   request: NextRequest,
@@ -142,7 +143,21 @@ export async function DELETE(
       return NextResponse.json({ error: 'Access denied' }, { status: 403 });
     }
 
-    // Instead of deleting, mark as cancelled
+    // Only teacher can cancel their own meetings (per PRD)
+    if (user.role !== 'ADMIN' && meeting.teacherId !== user.id) {
+      return NextResponse.json({ error: 'You do not have permission to cancel this meeting' }, { status: 403 });
+    }
+
+    // Delete from Jitsi if conference exists
+    if (meeting.conferenceId) {
+      try {
+        deleteConference(meeting.conferenceId);
+      } catch (error) {
+        console.error('Failed to delete conference:', error);
+      }
+    }
+
+    // Mark as cancelled in database
     await prisma.meeting.update({
       where: { id },
       data: { status: 'CANCELLED' },

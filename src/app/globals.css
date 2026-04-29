@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* User Provided Design Tokens */
   --_font-family---lexend: Lexend, sans-serif;
@@ -136,10 +140,13 @@ body {
   letter-spacing: var(--_typhography---letter-spacing--body-font);
   font-weight: var(--_typhography---font-weight--body-font);
   min-height: 100%;
-  padding-top: 132px; /* Accommodate fixed navbar */
   overflow-x: hidden !important;
   width: 100%;
   position: relative;
+}
+
+.with-navbar {
+  padding-top: 132px;
 }
 
 

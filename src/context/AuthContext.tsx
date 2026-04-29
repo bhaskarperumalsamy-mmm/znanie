@@ -22,8 +22,8 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   isAuthenticated: false,
-  refreshAuth: async () => {},
-  logout: async () => {},
+  refreshAuth: async () => { },
+  logout: async () => { },
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -33,11 +33,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
   const router = useRouter();
-
-  const isDashboardRoute = pathname?.startsWith('/dashboard') || 
-                          pathname?.startsWith('/teachers') ||
-                          pathname === '/login' ||
-                          pathname === '/register';
 
   const refreshAuth = async () => {
     try {
@@ -74,15 +69,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
 export function useAuthCheck() {
   const pathname = usePathname();
-  
+
   const isPublicPage = [
     '/', '/home', '/about-us', '/about-two', '/why-choose-us',
     '/study-in-russia', '/russian-language-courses', '/contact', '/career'
   ].includes(pathname || '');
 
   const isAuthPage = pathname === '/login' || pathname === '/register';
-  
-  const isDashboardPage = pathname?.startsWith('/dashboard') || pathname === '/teachers';
 
-  return { isPublicPage, isAuthPage, isDashboardPage };
+  return { isPublicPage, isAuthPage };
 }

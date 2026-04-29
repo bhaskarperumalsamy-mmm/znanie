@@ -15,6 +15,7 @@ interface HeroSectionThreeProps {
   secondaryCtaHref?: string;
   imageSrc: string;
   ratingText?: string;
+  heroTag?: string;
   showOrbital?: boolean;
 }
 
@@ -27,6 +28,7 @@ export const HeroSectionThree: React.FC<HeroSectionThreeProps> = ({
   secondaryCtaHref,
   imageSrc,
   ratingText,
+  heroTag,
   showOrbital = true,
 }) => {
   const containerVariants: Variants = {
@@ -78,13 +80,25 @@ export const HeroSectionThree: React.FC<HeroSectionThreeProps> = ({
           <div className={styles.orbitalRings}>
             <div className={styles.orbitalRingInner}></div>
             <div className={styles.orbitalRingOuter}>
-              {/* India Icon */}
-              <div className={styles.iconWrapperIndia}>
-                <Image src="/images/indian_icon.png" alt="India" width={40} height={40} className="object-contain" />
+              {/* UAE Icon - Position 1 (top) */}
+              <div className={styles.iconWrapperPos1}>
+                <Image src="/images/uae-icon.png" alt="UAE" width={48} height={48} className="object-contain" />
               </div>
-              {/* Russia Icon */}
-              <div className={styles.iconWrapperRussia}>
-                <Image src="/images/russia_icon.png" alt="Russia" width={40} height={40} className="object-contain" />
+              {/* Russia Icon - Position 2 (top-right) */}
+              <div className={styles.iconWrapperPos2}>
+                <Image src="/images/russia_icon.png" alt="Russia" width={60} height={60} className="object-contain" />
+              </div>
+              {/* Sri Lanka Icon - Position 3 (bottom-right) */}
+              <div className={styles.iconWrapperPos3}>
+                <Image src="/images/srilanka-icon.png" alt="Sri Lanka" width={48} height={48} className="object-contain" />
+              </div>
+              {/* India Icon - Position 4 (bottom-left) */}
+              <div className={styles.iconWrapperPos4}>
+                <Image src="/images/indian_icon.png" alt="India" width={60} height={60} className="object-contain" />
+              </div>
+              {/* Nepal Icon - Position 5 (top-left) */}
+              <div className={styles.iconWrapperPos5}>
+                <Image src="/images/nepal-icon.png" alt="Nepal" width={48} height={48} className="object-contain" />
               </div>
             </div>
           </div>
@@ -101,6 +115,17 @@ export const HeroSectionThree: React.FC<HeroSectionThreeProps> = ({
           initial="hidden"
           animate="visible"
         >
+          {heroTag && (
+            <motion.div
+              variants={itemVariants}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            >
+              <span className={styles.heroTag}>{heroTag}</span>
+            </motion.div>
+          )}
+
           {ratingText && (
             <motion.div variants={itemVariants} className={styles.reviewsBanner}>
               <div className={styles.stars}>

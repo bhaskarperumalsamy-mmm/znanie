@@ -72,7 +72,7 @@ export const LanguageMastery = () => {
           >
             <div className="v8-img-frame">
               <Image
-                src="/images/studying.jpg"
+                src="/images/zn_student.jpg"
                 alt="Institutional Mastery"
                 fill
                 className="object-cover"

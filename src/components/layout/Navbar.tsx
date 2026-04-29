@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
     { name: 'Home', path: '/home' },
     { name: 'About Us', path: '/about-us' },
     { name: 'Why Choose Us', path: '/why-choose-us' },
-    { name: 'Teachers', path: '/teachers' },
+    { name: 'Gallery', path: '/gallery' },
     { 
       name: 'Study in Russia', 
       path: '#',
@@ -132,7 +132,10 @@ export const Navbar: React.FC = () => {
           {!loading && (
             user ? (
               <>
-                <Link href="/dashboard" className={styles.dashboardLink}>
+                <Link 
+                  href={['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role) ? '/teacher' : user.role === 'ADMIN' ? '/admin' : '/student'} 
+                  className={styles.dashboardLink}
+                >
                   Dashboard
                 </Link>
                 <button onClick={handleLogout} className={styles.logoutLink}>
@@ -143,9 +146,6 @@ export const Navbar: React.FC = () => {
               <>
                 <Link href="/login" className={styles.loginLink}>
                   Sign In
-                </Link>
-                <Link href="/register" className={styles.signUpLink}>
-                  Sign Up
                 </Link>
               </>
             )

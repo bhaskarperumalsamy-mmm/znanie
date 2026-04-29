@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/lib/auth';
-import { createZoomMeeting } from '@/lib/zoom';
+import { createConference } from '@/lib/telemost';
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,31 +30,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create Zoom meeting
-    let zoomJoinUrl = null;
-    let zoomHostUrl = null;
-    let zoomMeetingId = null;
+    // Create Jitsi meeting
+    let conferenceId: string | null = null;
+    let joinUrl: string | null = null;
 
     try {
-      const startDate = new Date(startTime);
-      const endDate = new Date(endTime);
-      const duration = Math.round((endDate.getTime() - startDate.getTime()) / 60000);
-
-      const zoomMeeting = await createZoomMeeting({
-        topic: title,
-        type: 2,
-        start_time: startDate.toISOString(),
-        duration: duration,
-        timezone: 'Asia/Kolkata',
-        agenda: description,
-      });
-
-      zoomJoinUrl = zoomMeeting.join_url;
-      zoomHostUrl = zoomMeeting.start_url;
-      zoomMeetingId = String(zoomMeeting.id);
-    } catch (zoomError) {
-      console.error('Zoom creation error:', zoomError);
-      // Continue without Zoom if it fails
+      const conference = createConference();
+      conferenceId = conference.id;
+      joinUrl = conference.joinUrl;
+    } catch (conferenceError) {
+      console.error('Conference creation error:', conferenceError);
     }
 
     // Create meeting in database
@@ -69,9 +54,8 @@ export async function POST(request: NextRequest) {
         timezone: 'Asia/Kolkata',
         meetingType: meetingType as any,
         status: 'CONFIRMED',
-        meetingUrl: zoomJoinUrl,
-        hostUrl: zoomHostUrl,
-        zoomMeetingId,
+        joinUrl: joinUrl,
+        conferenceId: conferenceId,
         maxParticipants,
         groupCode,
       },
@@ -85,7 +69,11 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    return NextResponse.json({ meeting });
+    return NextResponse.json({ 
+      meeting,
+      message: 'Meeting created successfully',
+      joinUrl: joinUrl,
+    });
   } catch (error) {
     console.error('Create meeting error:', error);
     return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });

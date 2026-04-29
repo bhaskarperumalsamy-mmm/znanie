@@ -51,13 +51,14 @@ export const PartnershipBorders = () => {
   }
 
   return (
-    <section className="pb-section">
-      <div className="container-large">
+    <>
+      <section className="pb-section">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
+          style={{ width: '100%' }}
         >
           {/* ─── Header Row ─── */}
           <motion.div variants={itemVariants} className="pb-header">
@@ -80,7 +81,7 @@ export const PartnershipBorders = () => {
             <motion.div variants={itemVariants} className="pb-image-col">
               <div className="pb-image-wrapper">
                 <Image
-                  src="/images/alexis-brown.jpg"
+                  src="/images/zn_learning.jpg"
                   alt="Derbent Fortress — Heritage and Strength"
                   fill
                   className="object-cover"
@@ -123,15 +124,17 @@ export const PartnershipBorders = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+      </section>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         /* ─── Section ─── */
         .pb-section {
-          padding: var(--_gaps---section-gap--section-gap-v1) 0;
+          padding: var(--_gaps---section-gap--section-gap-v1) 5%;
           background: var(--_color---soft-gray);
           position: relative;
           overflow: hidden;
+          width: 100%;
         }
 
         /* ─── Tag ─── */
@@ -165,25 +168,21 @@ export const PartnershipBorders = () => {
             margin-bottom: 32px;
           }
           .pb-header {
-            flex-direction: row;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 80px;
+            display: block;
             margin-bottom: 80px;
           }
         }
 
         .pb-header-left {
-          flex-shrink: 0;
+          margin-bottom: 32px;
         }
 
         .pb-header-desc {
-          font-size: 1.0625rem;
-          line-height: 1.75;
+          font-size: 1.125rem;
+          line-height: 1.7;
           color: var(--_color---shadow-gray);
           font-family: var(--font-body);
-          max-width: 440px;
-          padding-bottom: 10px;
+          width: 100%;
         }
 
         /* ─── Main Grid ─── */
@@ -354,7 +353,7 @@ export const PartnershipBorders = () => {
         .pb-pillar-card:hover .pb-pillar-desc {
           color: #ffffff;
         }
-      `}</style>
-    </section>
+      `}} />
+    </>
   )
 }

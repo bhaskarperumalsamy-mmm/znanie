@@ -45,12 +45,12 @@ export const PreservingKnowledge = () => {
               <div className="welcome-card">
                 <div className="quote-icon">&ldquo;</div>
                 <p className="welcome-text">
-                  Welcome to the Regional Charitable Public Foundation &quot;Znanie&quot; named after S.I. Vavilov.
+                  To become a globally recognized centre of excellence in promoting the Russian language, education, science, and culture—serving as a bridge between nations and inspiring generations to learn, connect, and grow together.
                   <br /><br />
-                  Imagine a place where science, art, and technology come together to shape the future. Officially established in 1991 to support the brightest minds in Russia and beyond.
+                  We envision a world where knowledge transcends borders, cultures are respected and celebrated, and international collaboration leads to peace, progress, and shared prosperity.
                 </p>
                 <div className="attribution">
-                  <div className="program">S.I. VAVILOV FOUNDATION</div>
+                  <div className="program">Vision & Mission </div>
                 </div>
               </div>
             </motion.div>

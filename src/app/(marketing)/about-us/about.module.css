@@ -1,0 +1,1730 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT US — Vistario-Style Redesign
+   White cards · Crimson accents · Golden amber numbers · 
+   Soft gray alternating backgrounds · Hover lift effects
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Section 1: HERO — BRIDGES (Vistario about-one style) ─── */
+.heroSection {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0e1010;
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 120px 0;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.heroBgImage {
+  object-fit: cover;
+  filter: brightness(0.4) contrast(1.1);
+}
+
+.heroGridOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.heroOverlayGradient {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 16, 16, 0.4) 0%,
+    rgba(14, 16, 16, 0.2) 50%,
+    rgba(14, 16, 16, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--_color---golden-amber);
+  margin-bottom: 24px;
+}
+
+.heroTag::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--_color---crimson-red);
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 900px;
+}
+
+.heroTitleAccent {
+  color: #fff;
+  display: block;
+  opacity: 0.9;
+}
+
+.heroDesc {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body), sans-serif;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.heroLabels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.heroLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.heroDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--_color---golden-amber);
+}
+
+/* ─── Section 2: HERITAGE — Our Journey (Vistario home-two style) ─── */
+.heritageSection {
+  padding: 60px 0;
+  background: var(--_color---soft-gray);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .heritageSection {
+    padding: 120px 0;
+  }
+}
+
+.sectionTag {
+  display: inline-block;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.heritageHeader {
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-size: var(--_typhography---font-size--h2);
+  font-weight: var(--_typhography---font-weight--h2);
+  line-height: var(--_typhography---font-line-height--h2);
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 32px;
+}
+
+.heritageSection .sectionTitle {
+  color: var(--_color---charcoal-black);
+}
+
+.heritageSection .sectionTag {
+  color: var(--_color---crimson-red);
+}
+
+/* ─── Senior Edge-to-Edge Bento Poster ─── */
+.seniorBentoBox {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.05);
+  background: #fff;
+}
+
+@media (min-width: 992px) {
+  .seniorBentoBox {
+    flex-direction: row;
+    min-height: 500px;
+  }
+}
+
+.bentoDark {
+  flex: 1;
+  background: #0a0b0b;
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .bentoDark {
+    padding: 80px 60px;
+  }
+}
+
+.bentoLight {
+  flex: 1;
+  background: #ffffff;
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .bentoLight {
+    padding: 80px 60px;
+  }
+}
+
+.bentoTagDark {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--_color---golden-amber, #ffb502);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.bentoTagLight {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--_color---crimson-red, #dc2525);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.bentoTitleDark {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #f4f4f4;
+  margin-bottom: 32px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .bentoTitleDark {
+    font-size: 3rem;
+  }
+}
+
+.bentoTitleLight {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin-bottom: 32px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .bentoTitleLight {
+    font-size: 3rem;
+  }
+}
+
+.bentoDividerDark {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.bentoDividerLight {
+  width: 60px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.bentoDescDark {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.65);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.bentoLeadersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.bentoRole {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--_color---crimson-red, #dc2525);
+  margin-bottom: 12px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.bentoName {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.5;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.watermarkDark {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  font-size: 16rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  user-select: none;
+}
+
+.bentoCircles {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  pointer-events: none;
+  opacity: 0.12;
+  user-select: none;
+}
+
+.circleRed, .circleAmber {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+.circleRed {
+  background: var(--_color---crimson-red, #dc2525);
+  transform: translate(50px, 50px);
+}
+.circleAmber {
+  background: var(--_color---golden-amber, #ffb502);
+  transform: translate(-20px, 20px);
+}
+
+.vistarioCard {
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 20px;
+  padding: 32px 24px;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (min-width: 768px) {
+  .vistarioCard {
+    padding: 48px 40px;
+  }
+}
+
+.vistarioCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -12px rgba(0,0,0,0.1);
+  border-color: transparent;
+}
+
+.cardTag {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---shadow-gray);
+  margin-bottom: 24px;
+}
+
+.cardText {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.founderItem {
+  margin-bottom: 24px;
+}
+
+.founderRole {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--_color---crimson-red);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.founderName {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* ─── Section 3: THREE DECADES — Where We Are Today ─── */
+.decadesSection {
+  padding: 60px 0;
+  background: var(--_color---white);
+}
+
+@media (min-width: 768px) {
+  .decadesSection {
+    padding: 120px 0;
+  }
+}
+
+.decadesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1024px) {
+  .decadesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.decadesImageCol {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.decadesImageWrapper {
+  position: relative;
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.12);
+}
+
+.decadesStatsOverlay {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transform: none;
+  z-index: 5;
+  background: var(--_color---white);
+  border: 1px solid var(--_color---silver-mist);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+@media (min-width: 768px) {
+  .decadesStatsOverlay {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 24px 40px;
+    gap: 36px;
+    margin-top: 0;
+  }
+}
+
+.decadesStat {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--_color---crimson-red);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-top: 6px;
+}
+
+.decadesTextCol {
+  padding-top: 16px;
+}
+
+.decadesSection .sectionTitle {
+  color: var(--_color---charcoal-black);
+}
+
+.decadesSection .sectionTag {
+  color: var(--_color---crimson-red);
+}
+
+.decadesSection .decadesDesc {
+  color: var(--_color---shadow-gray);
+}
+
+.decadesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.decadesListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--_color---silver-mist);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.decadesStar {
+  color: var(--_color---golden-amber);
+  font-size: 0.875rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.decadesQuote {
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--_color---charcoal-black);
+  opacity: 0.8;
+  max-width: 800px;
+  margin: 40px auto 0;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-weight: 300;
+  border-top: 1px solid var(--_color---silver-mist);
+  padding-top: 40px;
+}
+
+/* ── Shared subtitle used across sections ── */
+.sectionSubtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ─── Section 4: PRINCIPLES — What Guides Us (Premium Bento Card Grid) ─── */
+.principlesSection {
+  padding: 60px 0;
+  background: var(--_color---soft-gray);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .principlesSection {
+    padding: 120px 0;
+  }
+}
+
+/* Clean background - Only solid gray */
+.principlesBgDecor {
+  display: none;
+}
+
+/* ── Split Header ── */
+.principlesHeader {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  position: relative;
+  z-index: 10;
+}
+
+.principlesHeader .sectionTitle {
+  color: var(--_color---charcoal-black);
+}
+
+.principlesHeader .sectionTag {
+  color: var(--_color---crimson-red);
+}
+
+.principlesHeader .principlesHeaderDesc {
+  color: var(--_color---shadow-gray);
+}
+
+@media (min-width: 1024px) {
+  .principlesHeader {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 120px;
+    align-items: center;
+  }
+}
+
+.principlesHeaderLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.principlesHeaderRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.principlesAccentBar {
+  width: 60px;
+  height: 3px;
+  background: var(--_color---crimson-red);
+  margin-bottom: 24px;
+}
+
+.principlesHeaderDesc {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* Override sectionTitle/sectionTag colors */
+.principlesSection .sectionTag {
+  color: var(--_color---crimson-red, #dc2525);
+}
+
+.principlesSection .sectionTitle {
+  color: var(--_color---charcoal-black);
+}
+
+/* ── Bento Grid ── */
+.principlesStaggeredGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px; /* Reduced space */
+  position: relative;
+  z-index: 10;
+  align-items: start; /* Prevents card height auto-stretching against offset siblings */
+}
+
+@media (min-width: 768px) {
+  .principlesStaggeredGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px; /* Reduced space */
+  }
+}
+
+@media (min-width: 1024px) {
+  .principlesStaggeredGrid {
+    gap: 32px; /* Reduced space from 60px */
+  }
+}
+
+/* ── Individual Principle Card ── */
+.principleCard {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 10px; /* Exact Vistario radius */
+  padding: 50px 20px 40px; /* Exact Vistario padding */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: all 400ms cubic-bezier(.702, .299, .234, .79);
+  box-shadow: 0 0.125rem 2.5rem rgba(179, 179, 179, 0.4);
+}
+
+/* Hover logic with high specificity and robust property overrides */
+.principleCard:hover {
+  background: #dc2525 !important;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 40px 80px -20px rgba(220, 37, 37, 0.45);
+  border: 1px solid transparent !important;
+}
+
+.principleCard:hover h3,
+.principleCard:hover p,
+.principleCard:hover div[class*="Icon"],
+.principleCard:hover div[class*="Watermark"] {
+  color: #ffffff !important;
+}
+
+.principleCard:hover div[class*="Icon"] {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Offset for even items to create staggered effect */
+@media (min-width: 768px) {
+  .principleCard:nth-child(even) {
+    margin-top: 60px;
+  }
+}
+
+/* Highlight card variant - Exact Vistario Crimson */
+.principleCardCrimson {
+  background: #dc2525;
+  border: none;
+  box-shadow: 0 0.125rem 2.5rem rgba(220, 37, 37, 0.2);
+  transition: all 400ms cubic-bezier(.702, .299, .234, .79);
+}
+
+.principleCardCrimson .principleCardLabel {
+  color: #ffffff;
+}
+
+.principleCardCrimson .principleCardText {
+  color: rgba(255,255,255,0.85);
+}
+
+.principleCardCrimson .principleCardWatermark {
+  color: rgba(255,255,255,0.1);
+}
+
+.principleCardCrimson:hover {
+  background: #dc2525;
+  box-shadow: 0 40px 80px -20px rgba(220, 37, 37, 0.45);
+}
+
+/* ── Watermark Number ── */
+.principleCardWatermark {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.08);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: all 0.5s ease;
+}
+
+.principleCard:hover .principleCardWatermark {
+  color: var(--_color---crimson-red);
+  transform: scale(1.1);
+}
+
+@media (min-width: 1024px) {
+  .principleCardFeatured .principleCardWatermark {
+    font-size: 12rem;
+    top: -30px;
+    right: 40px;
+  }
+}
+
+/* ── Icon ── */
+.principleCardIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px; /* Slightly squared like Vistario icons in this section */
+  background: rgba(220, 37, 37, 0.05);
+  color: #dc2525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  transition: all 0.4s ease;
+}
+
+.principleCard:hover .principleCardIcon {
+  transform: scale(1.1);
+}
+
+.principleCardCrimson .principleCardIcon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* ── Card Body ── */
+.principleCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.principleCardLabel {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: var(--_typhography---font-size--h5); /* Updated per request */
+  font-weight: 700;
+  color: var(--_color---charcoal-black);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  transition: all 400ms cubic-bezier(.702, .299, .234, .79);
+}
+
+.principleCardText {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin: 0;
+  transition: all 400ms cubic-bezier(.702, .299, .234, .79);
+}
+
+.principleCardAccent {
+  display: none; /* Removed for this cleaner staggered style */
+}
+
+/* Featured card text is larger */
+@media (min-width: 1024px) {
+  .principleCardFeatured .principleCardLabel {
+    font-size: 1.5rem;
+  }
+
+  .principleCardFeatured .principleCardText {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ── Animated Bottom Accent (gradient reveal on hover) ── */
+.principleCardAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--_color---crimson-red, #dc2525), var(--_color---golden-amber, #ffb502));
+  border-radius: 0 0 24px 24px;
+  transition: width 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.principleCard:hover .principleCardAccent {
+  width: 100%;
+}
+
+/* ── Mobile Responsive ── */
+@media (max-width: 639px) {
+  .principlesSection {
+    padding: 100px 0;
+  }
+
+  .principleCard {
+    padding: 36px 28px;
+    gap: 20px;
+  }
+
+  .principleCardWatermark {
+    font-size: 5rem;
+    right: 10px;
+    top: -5px;
+  }
+}
+
+/* ─── Section 5: INSTITUTIONAL REACH — Our Impact ─── */
+.impactSection {
+  position: relative;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .impactSection {
+    padding: 120px 0;
+  }
+}
+
+.impactBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.impactBgImage {
+  object-fit: cover;
+  filter: brightness(0.6); /* Increased from 0.3 to reveal image details */
+}
+
+.impactOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(14, 16, 16, 0.75) 0%,  /* Reduced from 0.92 overlay opacity */
+    rgba(15, 37, 42, 0.65) 100% /* Reduced from 0.85 overlay opacity */
+  );
+}
+
+.impactContent {
+  position: relative;
+  z-index: 10;
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .impactGrid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+  }
+}
+
+.impactTag {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---golden-amber, #ffb502);
+  margin-bottom: 24px;
+}
+
+.impactTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.impactDesc {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 500px;
+}
+
+.impactStatsGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Stack vertically on phones */
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .impactStatsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.impactStatCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .impactStatCard {
+    padding: 48px 40px;
+  }
+}
+
+.impactStatCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--_color---crimson-red);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.impactStatIcon {
+  color: var(--_color---crimson-red);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(220, 37, 37, 0.1);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.impactStatCard:hover .impactStatIcon {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--_color---crimson-red);
+  color: #fff;
+}
+
+.impactStatValue {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #fff;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.impactStatLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---golden-amber);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 16px;
+}
+
+.impactStatDesc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+/* ─── Section 6: ACADEMIC MANDATE — Ten Imperatives (Vistario Slider Style) ─── */
+.mandateSection {
+  padding: 60px 0;
+  background: var(--_color---soft-gray);
+  overflow: hidden; /* Hide overflowing cards */
+}
+
+@media (min-width: 768px) {
+  .mandateSection {
+    padding: 120px 0;
+  }
+}
+
+.mandateHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .mandateHeader {
+    margin-bottom: 80px;
+  }
+}
+
+.sectionSubtitleSmall {
+  display: inline-block;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.sectionTitleLarge {
+  font-size: var(--_typhography---font-size--h2, 2.75rem);
+  font-weight: var(--_typhography---font-weight--h2, 700);
+  line-height: var(--_typhography---font-line-height--h2, 1.2);
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.textAccent {
+  color: var(--_color---crimson-red);
+}
+
+.sectionSubtitleText {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #555;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-top: 60px; /* Room for top overlapping red icon */
+  padding-left: 20px; /* Mobile safe padding */
+  padding-right: 20px;
+  padding-bottom: 40px; /* Room for hover shadow */
+}
+
+@media (min-width: 768px) {
+  .sliderTrack {
+    gap: 30px;
+    padding-top: 80px;
+    padding-left: max(40px, calc((100vw - 1280px) / 2));
+    padding-right: 40px;
+    padding-bottom: 60px;
+  }
+}
+
+.sliderTrack::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.mandateSliderCard {
+  width: min(85vw, 380px); /* Peeks next card on mobile automatically */
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: #f4f4f4; /* Slightly lighter gray */
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Premium outline requested */
+  border-radius: 16px;
+  padding: 48px 24px 32px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .mandateSliderCard {
+    padding: 60px 40px 40px;
+  }
+}
+
+.mandateSliderCard:hover {
+  background: #ffffff;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+  border-color: transparent;
+}
+
+.mandateCardIconOuter {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: var(--_color---crimson-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  z-index: 5;
+  box-shadow: 0 10px 30px rgba(220, 37, 37, 0.3);
+}
+
+.mandateSliderCard:hover .mandateCardIconOuter {
+  transform: translate(-50%, -55%) scale(1.05);
+}
+
+.mandateCardIconInner {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mandateCardIconNum {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.mandateCardContent {
+  width: 100%;
+}
+
+.mandateCardSubtitle {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.mandateCardTitleSlider {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 24px;
+  line-height: 1.25;
+}
+
+.mandateCardSeparator {
+  width: 40px;
+  height: 2px;
+  background: var(--_color---crimson-red);
+  margin: 0 auto 24px;
+  transition: width 0.4s ease;
+}
+
+.mandateSliderCard:hover .mandateCardSeparator {
+  width: 80px;
+}
+
+.mandateCardDescSlider {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+}
+
+.progressContainer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+.progressTrack {
+  width: 400px;
+  height: 4px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--_color---crimson-red);
+  border-radius: 2px;
+}
+
+/* ─── Section 7: NATIONAL VISION — Our Bigger Picture (Vistario Interactive List Layout) ─── */
+.visionSection {
+  padding: 60px 0;
+  background: var(--_color---white);
+}
+
+@media (min-width: 768px) {
+  .visionSection {
+    padding: 120px 0;
+  }
+}
+
+.visionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+@media (min-width: 1024px) {
+  .visionGrid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.visionImageCol {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .visionImageCol {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+.visionImageWrapper {
+  position: relative;
+  height: 400px; /* Reduced for smaller screens */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
+}
+
+@media (min-width: 1024px) {
+  .visionImageWrapper {
+    height: 640px;
+  }
+}
+
+.visionPillars {
+  display: flex;
+  flex-direction: column;
+}
+
+.visionPillarRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 32px 16px;
+  border-top: 1px solid var(--_color---silver-mist);
+  transition: all 400ms cubic-bezier(.702, .299, .234, .79);
+  cursor: default;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .visionPillarRow {
+    padding: 40px 24px;
+    gap: 32px;
+  }
+}
+
+.visionPillarRow:last-child {
+  border-bottom: 1px solid var(--_color---silver-mist);
+}
+
+/* Hover Accent Line */
+.visionPillarBlock {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--_color---crimson-red, #FF2D2D);
+  transform: scaleY(0);
+  transition: transform 400ms cubic-bezier(.702, .299, .234, .79);
+  transform-origin: center;
+}
+
+.visionPillarRow:hover .visionPillarBlock {
+  transform: scaleY(1);
+}
+
+/* Interactive Right-Shift Layout */
+.visionPillarRow:hover {
+  background: rgba(0, 0, 0, 0.015);
+  transform: translateX(12px);
+}
+
+.visionPillarNum {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--_color---silver-mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 400ms cubic-bezier(.702, .299, .234, .79);
+}
+
+/* Let number bubble light up purely on hover */
+.visionPillarRow:hover .visionPillarNum {
+  color: var(--_color---white);
+  background: var(--_color---crimson-red);
+  border-color: transparent;
+  box-shadow: 0 10px 20px -5px rgba(220, 37, 37, 0.4);
+}
+
+.visionPillarContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.visionPillarTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--_color---charcoal-black);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  transition: color 400ms cubic-bezier(.702, .299, .234, .79);
+}
+
+.visionPillarRow:hover .visionPillarTitle {
+  color: var(--_color---crimson-red);
+}
+
+.visionPillarDesc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin: 0;
+}
+
+/* ─── Section 8: ENGAGEMENT — Call to Action (The Ultimate Vistario Wipe UI) ─── */
+.engagementSection {
+  padding: 60px 0;
+  background: var(--_color---soft-gray);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .engagementSection {
+    padding: 140px 0;
+  }
+}
+
+.engagementGridOverlay {
+  display: none;
+}
+
+.engagementContent {
+  position: relative;
+  z-index: 10;
+}
+
+.engagementHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.engagementHeader .sectionTag {
+  color: var(--_color---crimson-red, #dc2525);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-block;
+  background: rgba(220, 37, 37, 0.05); /* Premium light tag */
+  padding: 10px 20px;
+  border-radius: 40px;
+}
+
+.engagementHeader .sectionTitle {
+  font-size: var(--_typhography---font-size--h2, 3rem);
+  font-weight: var(--_typhography---font-weight--h2, 700);
+  line-height: var(--_typhography---font-line-height--h2, 1.2);
+  color: var(--_color---charcoal-black, #111);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 24px;
+}
+
+.engagementHeader .sectionSubtitle {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--_color---shadow-gray, #555);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.engagementGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .engagementGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.engagementCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06); /* Clean modern border */
+  border-radius: 16px;
+  padding: 40px 24px; /* Mobile accessible padding */
+  position: relative;
+  z-index: 1; /* Text stays above wipe */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02); /* Added subtle shadow for depth on white BG */
+  transition: all 500ms cubic-bezier(.702, .299, .234, .79);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .engagementCard {
+    padding: 60px 48px;
+  }
+}
+
+/* The Signature Vistario Wipe Animation */
+.engagementCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--_color---crimson-red);
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 600ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.engagementCard:hover::before {
+  transform: scaleY(1);
+}
+
+.engagementCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px -20px rgba(220, 37, 37, 0.4); /* Glowing red shadow */
+  border-color: transparent;
+}
+
+/* Typography transitions to pure white when swiped by red */
+.engagementCard:hover .engagementCardNum,
+.engagementCard:hover .engagementCardTag,
+.engagementCard:hover .engagementCardTitle,
+.engagementCard:hover .engagementCardDesc {
+  color: #ffffff;
+}
+
+.engagementCardNum {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--_color---crimson-red);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 37, 37, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin-bottom: 32px;
+  transition: all 400ms ease;
+}
+
+.engagementCard:hover .engagementCardNum {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: transparent;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.engagementCardTag {
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--_color---golden-amber, #ffb502);
+  margin-bottom: 12px;
+  transition: color 400ms ease;
+}
+
+.engagementCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--_color---charcoal-black);
+  margin-bottom: 16px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  transition: color 400ms ease;
+}
+
+.engagementCardDesc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--_color---shadow-gray);
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  margin: 0;
+  transition: color 400ms ease;
+}
+
+/* ─── Section 2.5: LEADERSHIP & GOVERNANCE — FULL WIDTH ─── */
+.leadershipSection {
+  position: relative;
+  width: 100%;
+  padding: 100px 5%;
+  background-color: #fff;
+  overflow: hidden;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.leadershipGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .leadershipGrid {
+    grid-template-columns: 10% 1fr;
+    gap: 60px;
+  }
+}
+
+.leadershipVisual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.leadershipIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--_color---crimson-red, #dc2525);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -5px rgba(220, 37, 37, 0.3);
+}
+
+.leadershipVerticalText {
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #bbb;
+  transform: rotate(180deg);
+}
+
+.leadershipTextContent {
+  width: 100%;
+}
+
+.leadershipTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 30px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.leadershipMainText {
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.6;
+  color: #111;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-weight: 400;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.leadershipDivider {
+  width: 100%;
+  height: 1px;
+  background: #eee;
+  margin-bottom: 50px;
+}
+
+.leadershipSubText {
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.7;
+  color: #555;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-weight: 300;
+  width: 100%;
+}
