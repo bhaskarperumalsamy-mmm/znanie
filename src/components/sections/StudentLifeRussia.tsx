@@ -21,7 +21,7 @@ const LifeCard: React.FC<LifeCardProps> = ({ image, category, title, badgeText, 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, delay, ease: [0.33, 1, 0.68, 1] }}
+      transition={{ duration: 0.8, delay, ease: [0.33, 1, 0.68, 1] as any }}
     >
       <div className={styles.imageWrapper}>
         <Image 

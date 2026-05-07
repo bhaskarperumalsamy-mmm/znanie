@@ -144,7 +144,7 @@ const decadesBullets = [
    ─────────────────────────────────────────── */
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } },
 }
 
 const staggerContainer: Variants = {
@@ -210,7 +210,7 @@ export default function AboutContent() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <span className={styles.heroTag}>OUR MISSION & HERITAGE</span>
           </motion.div>
@@ -219,7 +219,7 @@ export default function AboutContent() {
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Bridging Cultures<br />Building <span className="rt-text-yellow">future</span>
           </motion.h1>
@@ -228,7 +228,7 @@ export default function AboutContent() {
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
           >
             A vibrant, inclusive society that acts as a global melting pot. Join our community of dreamers and doers.
           </motion.p>

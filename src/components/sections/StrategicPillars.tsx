@@ -25,7 +25,7 @@ export const StrategicPillars = () => {
 
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } }
   }
 
   const smokyBlack = '#1a1a2e'

@@ -27,7 +27,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, description, isD
           transition: { duration: 0.3, ease: 'easeOut' }
         }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay, ease: [0.33, 1, 0.68, 1] }}
+        transition={{ duration: 0.8, delay, ease: [0.33, 1, 0.68, 1] as any }}
       >
         <motion.div 
           className={styles.iconWrapper}

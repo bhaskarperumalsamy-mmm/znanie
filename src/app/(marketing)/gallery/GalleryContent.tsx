@@ -7,39 +7,96 @@ import styles from "./gallery.module.css";
 
 /* ─── Gallery Image Data ─── */
 const galleryImages = [
-  { src: "/images/zn_teaching.jpg", alt: "ZNANIE Teaching Session", category: "Education" },
-  { src: "/images/zn_learning.jpg", alt: "Students Learning Together", category: "Education" },
-  { src: "/images/zn_student.JPG", alt: "ZNANIE Student Life", category: "Education" },
-  { src: "/images/zn_language.jpg", alt: "Russian Language Class", category: "Education" },
-  { src: "/images/studying.jpg", alt: "Focused Study Session", category: "Education" },
-  { src: "/images/studying-together.jpg", alt: "Collaborative Learning", category: "Education" },
-  { src: "/images/students-studying.jpg", alt: "Students in Discussion", category: "Education" },
-  { src: "/images/element5.jpg", alt: "Academic Excellence", category: "Education" },
-  { src: "/images/girl-writing-notebook.jpg", alt: "Student Taking Notes", category: "Education" },
-  { src: "/images/book-read.jpg", alt: "Reading and Research", category: "Education" },
-  { src: "/images/fortress_derbent.jpg", alt: "Derbent Fortress — Russian Heritage", category: "Culture" },
-  { src: "/images/kenozero_lake.jpg", alt: "Kenozero Lake — Natural Beauty", category: "Culture" },
-  { src: "/images/mary-bertova.jpg", alt: "Russian Cultural Scene", category: "Culture" },
-  { src: "/images/radik-sitdikov.jpg", alt: "Cultural Landmark", category: "Culture" },
-  { src: "/images/mira-kireeva.jpg", alt: "Russian Architecture", category: "Culture" },
-  { src: "/images/daniil-smetanin.jpg", alt: "Urban Russia", category: "Culture" },
-  { src: "/images/evgeny-strzhalkovsky.jpg", alt: "Heritage Site", category: "Culture" },
-  { src: "/images/alexis-brown.jpg", alt: "Student Interaction", category: "Campus" },
-  { src: "/images/mimi-thian.jpg", alt: "Group Collaboration", category: "Campus" },
-  { src: "/images/stocksnap-people.jpg", alt: "Campus Community", category: "Campus" },
-  { src: "/images/chris-montgomery.jpg", alt: "Virtual Learning Setup", category: "Campus" },
-  { src: "/images/annika-gordon.jpg", alt: "Library Resources", category: "Campus" },
-  { src: "/images/jarmoluk-library.jpg", alt: "University Library", category: "Campus" },
-  { src: "/images/thisisengineering.jpg", alt: "Engineering Lab", category: "Campus" },
-  { src: "/images/startup-stock.jpg", alt: "Team Workspace", category: "Campus" },
-  { src: "/images/friends-cheering-world.jpg", alt: "International Community", category: "Events" },
-  { src: "/images/cosmetica-india-academy.jpg", alt: "Academy Events", category: "Events" },
-  { src: "/images/rishikesh-yogpeeth.jpg", alt: "Cultural Exchange Program", category: "Events" },
-  { src: "/images/bruno-nascimento.jpg", alt: "Student Activities", category: "Events" },
-  { src: "/images/katerina-holmes.jpg", alt: "Workshop Session", category: "Events" },
-  { src: "/images/low-angle-medium.jpg", alt: "Graduation Ceremony", category: "Events" },
-  { src: "/images/cottonbro.jpg", alt: "Student Presentation", category: "Events" },
-  { src: "/images/elly-fairytale.jpg", alt: "Cultural Celebration", category: "Events" },
+  { src: "/images/gallery/znanie_001.jpg", alt: "ZNANIE Gallery Image 1", category: "Gallery" },
+  { src: "/images/gallery/znanie_002.jpg", alt: "ZNANIE Gallery Image 2", category: "Gallery" },
+  { src: "/images/gallery/znanie_003.jpg", alt: "ZNANIE Gallery Image 3", category: "Gallery" },
+  { src: "/images/gallery/znanie_004.jpg", alt: "ZNANIE Gallery Image 4", category: "Gallery" },
+  { src: "/images/gallery/znanie_005.jpg", alt: "ZNANIE Gallery Image 5", category: "Gallery" },
+  { src: "/images/gallery/znanie_006.jpg", alt: "ZNANIE Gallery Image 6", category: "Gallery" },
+  { src: "/images/gallery/znanie_007.jpg", alt: "ZNANIE Gallery Image 7", category: "Gallery" },
+  { src: "/images/gallery/znanie_008.jpg", alt: "ZNANIE Gallery Image 8", category: "Gallery" },
+  { src: "/images/gallery/znanie_009.jpg", alt: "ZNANIE Gallery Image 9", category: "Gallery" },
+  { src: "/images/gallery/znanie_010.jpg", alt: "ZNANIE Gallery Image 10", category: "Gallery" },
+  { src: "/images/gallery/znanie_011.jpg", alt: "ZNANIE Gallery Image 11", category: "Gallery" },
+  { src: "/images/gallery/znanie_012.jpg", alt: "ZNANIE Gallery Image 12", category: "Gallery" },
+  { src: "/images/gallery/znanie_013.jpg", alt: "ZNANIE Gallery Image 13", category: "Gallery" },
+  { src: "/images/gallery/znanie_014.jpg", alt: "ZNANIE Gallery Image 14", category: "Gallery" },
+  { src: "/images/gallery/znanie_015.jpg", alt: "ZNANIE Gallery Image 15", category: "Gallery" },
+  { src: "/images/gallery/znanie_016.jpg", alt: "ZNANIE Gallery Image 16", category: "Gallery" },
+  { src: "/images/gallery/znanie_017.jpg", alt: "ZNANIE Gallery Image 17", category: "Gallery" },
+  { src: "/images/gallery/znanie_018.jpg", alt: "ZNANIE Gallery Image 18", category: "Gallery" },
+  { src: "/images/gallery/znanie_019.jpg", alt: "ZNANIE Gallery Image 19", category: "Gallery" },
+  { src: "/images/gallery/znanie_020.jpg", alt: "ZNANIE Gallery Image 20", category: "Gallery" },
+  { src: "/images/gallery/znanie_021.jpg", alt: "ZNANIE Gallery Image 21", category: "Gallery" },
+  { src: "/images/gallery/znanie_022.jpg", alt: "ZNANIE Gallery Image 22", category: "Gallery" },
+  { src: "/images/gallery/znanie_023.jpg", alt: "ZNANIE Gallery Image 23", category: "Gallery" },
+  { src: "/images/gallery/znanie_024.jpg", alt: "ZNANIE Gallery Image 24", category: "Gallery" },
+  { src: "/images/gallery/znanie_025.jpg", alt: "ZNANIE Gallery Image 25", category: "Gallery" },
+  { src: "/images/gallery/znanie_026.jpg", alt: "ZNANIE Gallery Image 26", category: "Gallery" },
+  { src: "/images/gallery/znanie_027.jpg", alt: "ZNANIE Gallery Image 27", category: "Gallery" },
+  { src: "/images/gallery/znanie_028.jpg", alt: "ZNANIE Gallery Image 28", category: "Gallery" },
+  { src: "/images/gallery/znanie_029.jpg", alt: "ZNANIE Gallery Image 29", category: "Gallery" },
+  { src: "/images/gallery/znanie_030.jpg", alt: "ZNANIE Gallery Image 30", category: "Gallery" },
+  { src: "/images/gallery/znanie_031.jpg", alt: "ZNANIE Gallery Image 31", category: "Gallery" },
+  { src: "/images/gallery/znanie_032.jpg", alt: "ZNANIE Gallery Image 32", category: "Gallery" },
+  { src: "/images/gallery/znanie_033.jpg", alt: "ZNANIE Gallery Image 33", category: "Gallery" },
+  { src: "/images/gallery/znanie_034.jpg", alt: "ZNANIE Gallery Image 34", category: "Gallery" },
+  { src: "/images/gallery/znanie_035.jpg", alt: "ZNANIE Gallery Image 35", category: "Gallery" },
+  { src: "/images/gallery/znanie_036.jpg", alt: "ZNANIE Gallery Image 36", category: "Gallery" },
+  { src: "/images/gallery/znanie_037.jpg", alt: "ZNANIE Gallery Image 37", category: "Gallery" },
+  { src: "/images/gallery/znanie_038.jpg", alt: "ZNANIE Gallery Image 38", category: "Gallery" },
+  { src: "/images/gallery/znanie_039.jpg", alt: "ZNANIE Gallery Image 39", category: "Gallery" },
+  { src: "/images/gallery/znanie_040.jpg", alt: "ZNANIE Gallery Image 40", category: "Gallery" },
+  { src: "/images/gallery/znanie_041.jpg", alt: "ZNANIE Gallery Image 41", category: "Gallery" },
+  { src: "/images/gallery/znanie_042.jpg", alt: "ZNANIE Gallery Image 42", category: "Gallery" },
+  { src: "/images/gallery/znanie_043.jpg", alt: "ZNANIE Gallery Image 43", category: "Gallery" },
+  { src: "/images/gallery/znanie_044.jpg", alt: "ZNANIE Gallery Image 44", category: "Gallery" },
+  { src: "/images/gallery/znanie_045.jpg", alt: "ZNANIE Gallery Image 45", category: "Gallery" },
+  { src: "/images/gallery/znanie_047.jpg", alt: "ZNANIE Gallery Image 46", category: "Gallery" },
+  { src: "/images/gallery/znanie_048.jpg", alt: "ZNANIE Gallery Image 47", category: "Gallery" },
+  { src: "/images/gallery/znanie_049.jpg", alt: "ZNANIE Gallery Image 48", category: "Gallery" },
+  { src: "/images/gallery/znanie_050.jpg", alt: "ZNANIE Gallery Image 49", category: "Gallery" },
+  { src: "/images/gallery/znanie_051.jpg", alt: "ZNANIE Gallery Image 50", category: "Gallery" },
+  { src: "/images/gallery/znanie_052.jpg", alt: "ZNANIE Gallery Image 51", category: "Gallery" },
+  { src: "/images/gallery/znanie_053.jpg", alt: "ZNANIE Gallery Image 52", category: "Gallery" },
+  { src: "/images/gallery/znanie_054.jpg", alt: "ZNANIE Gallery Image 53", category: "Gallery" },
+  { src: "/images/gallery/znanie_055.jpg", alt: "ZNANIE Gallery Image 54", category: "Gallery" },
+  { src: "/images/gallery/znanie_056.jpg", alt: "ZNANIE Gallery Image 55", category: "Gallery" },
+  { src: "/images/gallery/znanie_057.jpg", alt: "ZNANIE Gallery Image 56", category: "Gallery" },
+  { src: "/images/gallery/znanie_058.jpg", alt: "ZNANIE Gallery Image 57", category: "Gallery" },
+  { src: "/images/gallery/znanie_059.jpg", alt: "ZNANIE Gallery Image 58", category: "Gallery" },
+  { src: "/images/gallery/znanie_060.jpg", alt: "ZNANIE Gallery Image 59", category: "Gallery" },
+  { src: "/images/gallery/znanie_061.jpg", alt: "ZNANIE Gallery Image 60", category: "Gallery" },
+  { src: "/images/gallery/znanie_062.jpg", alt: "ZNANIE Gallery Image 61", category: "Gallery" },
+  { src: "/images/gallery/znanie_063.jpg", alt: "ZNANIE Gallery Image 62", category: "Gallery" },
+  { src: "/images/gallery/znanie_064.jpg", alt: "ZNANIE Gallery Image 63", category: "Gallery" },
+  { src: "/images/gallery/znanie_065.jpg", alt: "ZNANIE Gallery Image 64", category: "Gallery" },
+  { src: "/images/gallery/znanie_066.jpg", alt: "ZNANIE Gallery Image 65", category: "Gallery" },
+  { src: "/images/gallery/znanie_067.jpg", alt: "ZNANIE Gallery Image 66", category: "Gallery" },
+  { src: "/images/gallery/znanie_068.jpg", alt: "ZNANIE Gallery Image 67", category: "Gallery" },
+  { src: "/images/gallery/znanie_069.jpg", alt: "ZNANIE Gallery Image 68", category: "Gallery" },
+  { src: "/images/gallery/znanie_070.jpg", alt: "ZNANIE Gallery Image 69", category: "Gallery" },
+  { src: "/images/gallery/znanie_071.jpg", alt: "ZNANIE Gallery Image 70", category: "Gallery" },
+  { src: "/images/gallery/znanie_072.jpg", alt: "ZNANIE Gallery Image 71", category: "Gallery" },
+  { src: "/images/gallery/znanie_073.jpg", alt: "ZNANIE Gallery Image 72", category: "Gallery" },
+  { src: "/images/gallery/znanie_074.jpg", alt: "ZNANIE Gallery Image 73", category: "Gallery" },
+  { src: "/images/gallery/znanie_075.jpg", alt: "ZNANIE Gallery Image 74", category: "Gallery" },
+  { src: "/images/gallery/znanie_076.jpg", alt: "ZNANIE Gallery Image 75", category: "Gallery" },
+  { src: "/images/gallery/znanie_077.jpg", alt: "ZNANIE Gallery Image 76", category: "Gallery" },
+  { src: "/images/gallery/znanie_078.jpg", alt: "ZNANIE Gallery Image 77", category: "Gallery" },
+  { src: "/images/gallery/znanie_079.jpg", alt: "ZNANIE Gallery Image 78", category: "Gallery" },
+  { src: "/images/gallery/znanie_080.jpg", alt: "ZNANIE Gallery Image 79", category: "Gallery" },
+  { src: "/images/gallery/znanie_081.jpg", alt: "ZNANIE Gallery Image 80", category: "Gallery" },
+  { src: "/images/gallery/znanie_082.jpg", alt: "ZNANIE Gallery Image 81", category: "Gallery" },
+  { src: "/images/gallery/znanie_083.jpg", alt: "ZNANIE Gallery Image 82", category: "Gallery" },
+  { src: "/images/gallery/znanie_084.jpg", alt: "ZNANIE Gallery Image 83", category: "Gallery" },
+  { src: "/images/gallery/znanie_085.jpg", alt: "ZNANIE Gallery Image 84", category: "Gallery" },
+  { src: "/images/gallery/znanie_086.jpg", alt: "ZNANIE Gallery Image 85", category: "Gallery" },
+  { src: "/images/gallery/znanie_087.jpg", alt: "ZNANIE Gallery Image 86", category: "Gallery" },
+  { src: "/images/gallery/znanie_089.jpg", alt: "ZNANIE Gallery Image 87", category: "Gallery" },
+  { src: "/images/gallery/znanie_090.jpg", alt: "ZNANIE Gallery Image 88", category: "Gallery" },
+  { src: "/images/gallery/znanie_091.jpg", alt: "ZNANIE Gallery Image 89", category: "Gallery" },
+  { src: "/images/gallery/znanie_092.jpg", alt: "ZNANIE Gallery Image 90", category: "Gallery" }
 ];
 
 export default function GalleryContent() {
@@ -101,7 +158,7 @@ export default function GalleryContent() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <span className={styles.heroTag}>VISUAL JOURNEY</span>
           </motion.div>
@@ -111,7 +168,7 @@ export default function GalleryContent() {
             className={styles.heroLogoWrapper}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <Image
               src="/images/znaine-logo.png"
@@ -126,7 +183,7 @@ export default function GalleryContent() {
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Our <span className={styles.heroTitleAccent}>Gallery</span>
           </motion.h1>
@@ -135,7 +192,7 @@ export default function GalleryContent() {
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
           >
             A curated collection capturing our educational excellence, cultural
             heritage, and the vibrant spirit of Indo-Russian cooperation.
@@ -151,7 +208,7 @@ export default function GalleryContent() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
+          transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] as any }}
         >
           <span className={styles.sectionTag}>EXPERIENCES</span>
           <h2 className={styles.sectionTitle}>Events &amp; People</h2>
@@ -167,7 +224,7 @@ export default function GalleryContent() {
           viewport={{ once: true, amount: 0.05 }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.06 } },
+            visible: { transition: { staggerChildren: 0.18 } },
           }}
         >
           {galleryImages.map((img, index) => (
@@ -175,8 +232,17 @@ export default function GalleryContent() {
               key={img.src}
               className={styles.gridItem}
               variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                hidden: { opacity: 0, x: 30, y: 30, scale: 0.95 },
+                visible: { 
+                  opacity: 1, 
+                  x: 0, 
+                  y: 0, 
+                  scale: 1, 
+                  transition: { 
+                    duration: 0.9, 
+                    ease: [0.33, 1, 0.68, 1] as any 
+                  } 
+                },
               }}
               onClick={() => openLightbox(index)}
             >
@@ -190,7 +256,6 @@ export default function GalleryContent() {
                 />
                 <div className={styles.imageOverlay}>
                   <div className={styles.imageCaption}>
-                    <p className={styles.captionText}>{img.alt}</p>
                     <span className={styles.expandIcon}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="15 3 21 3 21 9" />
@@ -274,9 +339,6 @@ export default function GalleryContent() {
 
             {/* Caption Bar */}
             <div className={styles.lightboxCaption}>
-              <span className={styles.lightboxTitle}>
-                {galleryImages[lightboxIndex].alt}
-              </span>
               <span className={styles.lightboxCounter}>
                 {lightboxIndex + 1} / {galleryImages.length}
               </span>

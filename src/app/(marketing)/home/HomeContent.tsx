@@ -1,6 +1,6 @@
 "use client";
 
-import { HeroSectionThree } from '@/components/sections/HeroSectionThree';
+import { HeroSlider } from '@/components/sections/HeroSlider';
 import { IndiaRussiaEnter } from '@/components/sections/IndiaRussiaEnter';
 import { PreservingKnowledge } from '@/components/sections/PreservingKnowledge';
 import { PartnershipBorders } from '@/components/sections/PartnershipBorders';
@@ -21,7 +21,7 @@ const ScrollReveal = ({ children }: { children: React.ReactNode }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+      transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
     >
       {children}
     </motion.div>
@@ -31,12 +31,7 @@ const ScrollReveal = ({ children }: { children: React.ReactNode }) => {
 export default function HomeContent() {
   return (
     <>
-      <HeroSectionThree
-        heroTag="REGIONAL PUBLIC CHARITY FOUNDATION"
-        title={<>“ZNANIE” Named after  <br />Academician <span className="rt-text-yellow">S.I. VAVILOV</span></>}
-        description="Empowering Minds Through Russian Language and Education — Bridging Nations for a Peaceful and Prosperous World Inspired by Russian Culture"
-        imageSrc="/images/zn_teaching.jpg"
-      />
+      <HeroSlider />
 
       <IndiaRussiaEnter />
 

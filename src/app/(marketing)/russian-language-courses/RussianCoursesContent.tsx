@@ -32,7 +32,7 @@ export default function RussianCoursesContent() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <span className={styles.heroTag}>Master Russian.</span>
           </motion.div>
@@ -41,7 +41,7 @@ export default function RussianCoursesContent() {
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Thinking about starting a <br />
             <span className="rt-text-yellow">new journey?</span>
@@ -51,7 +51,7 @@ export default function RussianCoursesContent() {
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
           >
             We promote the growth of the Russian language and help you learn with confidence—from beginner to advanced levels—carefully designed to prepare you for study, work, and successful integration into Russian society.
           </motion.p>

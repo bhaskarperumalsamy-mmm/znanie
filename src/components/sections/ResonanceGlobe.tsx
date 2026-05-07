@@ -19,7 +19,7 @@ export const ResonanceGlobe = () => {
   }
   const itemVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } }
   }
 
   const smokyBlack = '#0f252a'
