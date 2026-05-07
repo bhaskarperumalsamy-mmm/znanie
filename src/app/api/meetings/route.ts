@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/lib/auth';
-import { createConference } from '@/lib/telemost';
+import { createImmediateConference, createScheduledConference } from '@/lib/telemost';
 
 export async function GET(request: NextRequest) {
   try {
@@ -58,43 +58,111 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { teacherId, title, description, startTime, endTime, timezone = 'Asia/Kolkata', meetingType = 'ONE_ON_ONE' } = body;
+    const { 
+      studentId: bodyStudentId,
+      teacherId: bodyTeacherId, 
+      title, 
+      description, 
+      startTime, 
+      endTime, 
+      timezone = 'Asia/Kolkata', 
+      meetingType = 'ONE_ON_ONE',
+      type = 'IMMEDIATE',
+      scheduledAt,
+      duration = 60
+    } = body;
 
-    if (!teacherId || !title || !startTime || !endTime) {
-      return NextResponse.json(
-        { error: 'teacherId, title, startTime, and endTime are required' },
-        { status: 400 }
-      );
-    }
-
-    const startDate = new Date(startTime);
-    const endDate = new Date(endTime);
-
-    // Create Jitsi meeting
     let conferenceId: string | null = null;
     let joinUrl: string | null = null;
+    let roomName: string | null = null;
+    let hostToken: string | null = null;
 
+    // Create meeting using LiveKit
     try {
-      const conference = createConference();
-      conferenceId = conference.id;
-      joinUrl = conference.joinUrl;
+      if (type === 'SCHEDULED' && scheduledAt) {
+        const scheduledDate = new Date(scheduledAt);
+        const result = await createScheduledConference(
+          user.id.toString(),
+          user.name || 'Host',
+          scheduledDate,
+          duration
+        );
+        conferenceId = result.id;
+        joinUrl = result.joinUrl;
+        roomName = result.roomName || result.id;
+        hostToken = result.token || null;
+      } else {
+        // IMMEDIATE - start now
+        const result = await createImmediateConference(
+          user.id.toString(),
+          user.name || 'Host'
+        );
+        conferenceId = result.id;
+        joinUrl = result.joinUrl;
+        roomName = result.roomName || result.id;
+        hostToken = result.token || null;
+      }
+      console.log('[API] Created conference:', { conferenceId, joinUrl, roomName });
     } catch (conferenceError) {
-      console.error('Conference creation error:', conferenceError);
+      console.error('[API] Conference creation error:', conferenceError);
+    }
+
+    // Calculate start and end times
+    let startDate: Date;
+    let endDate: Date;
+
+    if (startTime && endTime) {
+      startDate = new Date(startTime);
+      endDate = new Date(endTime);
+    } else if (type === 'SCHEDULED' && scheduledAt) {
+      startDate = new Date(scheduledAt);
+      endDate = new Date(startDate.getTime() + duration * 60 * 1000);
+    } else {
+      // Immediate - start now
+      startDate = new Date();
+      endDate = new Date(startDate.getTime() + duration * 60 * 1000);
+    }
+
+    // Determine studentId and teacherId based on user role
+    let finalStudentId: string;
+    let finalTeacherId: string;
+
+    if (user.role === 'STUDENT') {
+      // Student creating meeting - they are the student
+      finalStudentId = user.id;
+      if (!bodyTeacherId) {
+        return NextResponse.json({ error: 'teacherId is required' }, { status: 400 });
+      }
+      finalTeacherId = bodyTeacherId;
+    } else if (['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role)) {
+      // Teacher creating meeting - they are the teacher
+      finalTeacherId = user.id;
+      if (!bodyStudentId) {
+        return NextResponse.json({ error: 'studentId is required' }, { status: 400 });
+      }
+      finalStudentId = bodyStudentId;
+    } else {
+      // Admin - need both
+      if (!bodyTeacherId || !bodyStudentId) {
+        return NextResponse.json({ error: 'teacherId and studentId are required' }, { status: 400 });
+      }
+      finalTeacherId = bodyTeacherId;
+      finalStudentId = bodyStudentId;
     }
 
     const meeting = await prisma.meeting.create({
       data: {
-        studentId: user.id,
-        teacherId,
         title,
         description,
         startTime: startDate,
         endTime: endDate,
         timezone,
         meetingType: meetingType as any,
-        joinUrl: joinUrl,
-        conferenceId: conferenceId,
+        joinUrl,
+        conferenceId,
         status: 'REQUESTED',
+        studentId: finalStudentId,
+        teacherId: finalTeacherId,
       },
       include: {
         student: {
@@ -106,7 +174,12 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    return NextResponse.json({ meeting });
+    return NextResponse.json({
+      meeting,
+      joinUrl,
+      roomName: roomName,
+      conferenceId,
+    });
   } catch (error) {
     console.error('Create meeting error:', error);
     return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });

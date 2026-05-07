@@ -178,7 +178,7 @@ export default function StudentMeetingsPage() {
                 <div className="flex items-center gap-3">
                   {canJoin(meeting) && (
                     <a
-                      href={meeting.joinUrl || '#'}
+                      href={`/api/meetings/${meeting.id}/join`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition"

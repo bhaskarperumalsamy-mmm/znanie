@@ -1,26 +1,45 @@
-const IS_DEV = process.env.NODE_ENV === 'development';
-const JITSI_DOMAIN = process.env.JITSI_DOMAIN || 'meet.jit.si';
+import { 
+  createImmediateMeeting, 
+  createScheduledMeeting,
+  createRoom,
+  getMeetingUrl,
+  generateToken,
+  deleteRoom,
+  isLiveKitConfigured 
+} from './livekit';
 
 interface CreateConferenceResult {
   id: string;
   joinUrl: string;
+  token?: string;
+  roomName?: string;
 }
 
-/**
- * Create a Jitsi meeting
- * No API needed - just generate a unique meeting ID and use the URL
- */
 export function createConference(): CreateConferenceResult {
-  if (IS_DEV) {
-    console.log('[JITSI] Creating meeting...');
+  if (!isLiveKitConfigured()) {
+    console.log('[TELEMOST] LiveKit not configured, falling back to Jitsi');
+    return createJitsiConference();
   }
+
+  console.log('[TELEMOST] Using LiveKit for conference creation');
   
-  // Generate unique meeting ID
+  const timestamp = Date.now().toString(36);
+  const randomPart = Math.random().toString(36).substring(2, 11);
+  const roomName = `znanie-${timestamp}-${randomPart}`;
+
+  return {
+    id: roomName,
+    joinUrl: getMeetingUrl(roomName),
+    roomName: roomName,
+  };
+}
+
+function createJitsiConference(): CreateConferenceResult {
   const timestamp = Date.now().toString(36);
   const randomPart = Math.random().toString(36).substring(2, 11);
   const meetingId = `znanie-${timestamp}-${randomPart}`;
   
-  const joinUrl = `https://${JITSI_DOMAIN}/${meetingId}`;
+  const joinUrl = `https://meet.jit.si/${meetingId}`;
   
   return {
     id: meetingId,
@@ -28,30 +47,74 @@ export function createConference(): CreateConferenceResult {
   };
 }
 
-/**
- * Delete a Jitsi meeting
- * Note: Jitsi public instance doesn't support meeting deletion via API
- * Meetings auto-expire after inactivity
- */
-export async function deleteConference(conferenceId: string): Promise<void> {
-  if (IS_DEV) {
-    console.log('[JITSI] Delete meeting called:', conferenceId);
+export async function createImmediateConference(
+  hostIdentity: string, 
+  hostName: string
+): Promise<CreateConferenceResult> {
+  if (!isLiveKitConfigured()) {
+    const jitsi = createJitsiConference();
+    return jitsi;
   }
-  
-  // For public Jitsi, meetings cannot be programmatically deleted
-  // They automatically expire after 24 hours of inactivity
-  console.log('[JITSI] Note: Meetings auto-expire after inactivity');
-  return;
+
+  const result = await createImmediateMeeting(hostIdentity, hostName);
+  return {
+    id: result.roomName,
+    joinUrl: result.joinUrl,
+    token: result.token,
+    roomName: result.roomName,
+  };
 }
 
-/**
- * Get conference details
- * Note: Public Jitsi doesn't provide API for this
- */
+export async function createScheduledConference(
+  hostIdentity: string,
+  hostName: string,
+  scheduledAt: Date,
+  duration?: number
+): Promise<CreateConferenceResult> {
+  if (!isLiveKitConfigured()) {
+    const jitsi = createJitsiConference();
+    return jitsi;
+  }
+
+  const result = await createScheduledMeeting(hostIdentity, hostName, scheduledAt, duration);
+  return {
+    id: result.roomName,
+    joinUrl: result.joinUrl,
+    token: result.token,
+    roomName: result.roomName,
+  };
+}
+
+export async function deleteConference(conferenceId: string): Promise<void> {
+  if (!isLiveKitConfigured()) {
+    console.log('[TELEMOST] Jitsi - cannot delete meetings programmatically');
+    return;
+  }
+
+  try {
+    await deleteRoom(conferenceId);
+    console.log('[TELEMOST] Deleted LiveKit room:', conferenceId);
+  } catch (error) {
+    console.error('[TELEMOST] Error deleting room:', error);
+  }
+}
+
+export async function getConferenceToken(
+  roomName: string,
+  participantName: string,
+  participantIdentity: string,
+  isHost?: boolean
+): Promise<string> {
+  if (!isLiveKitConfigured()) {
+    return '';
+  }
+
+  return generateToken(roomName, participantName, participantIdentity, isHost);
+}
+
 export async function getConference(conferenceId: string): Promise<{ id: string; joinUrl: string } | null> {
-  // Return the URL directly for public Jitsi
   return {
     id: conferenceId,
-    joinUrl: `https://${JITSI_DOMAIN}/${conferenceId}`,
+    joinUrl: getMeetingUrl(conferenceId),
   };
 }

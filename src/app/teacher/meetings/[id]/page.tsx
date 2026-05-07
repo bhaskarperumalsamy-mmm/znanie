@@ -210,11 +210,11 @@ export default function TeacherMeetingDetailPage() {
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h3 className="font-semibold text-gray-900 mb-4">Video Meeting</h3>
               <div className="mb-3">
-                <p className="text-sm text-gray-500 mb-1">Meeting Link</p>
-                <p className="text-gray-700 text-sm font-mono break-all">{meeting.joinUrl}</p>
+                <p className="text-sm text-gray-500 mb-1">Access</p>
+                <p className="text-gray-700 text-sm">Click below to enter the meeting room.</p>
               </div>
               <a
-                href={meeting.joinUrl}
+                href={`/api/meetings/${meeting.id}/join`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition"
