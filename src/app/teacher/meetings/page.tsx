@@ -13,7 +13,7 @@ interface Meeting {
   status: string;
   meetingType: string;
   joinUrl: string | null;
-  student: { id: string; name: string; email: string };
+  class: { id: string; title: string };
 }
 
 export default function TeacherMeetingsPage() {
@@ -144,7 +144,7 @@ export default function TeacherMeetingsPage() {
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Title</th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Student</th>
+                <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Class</th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Date & Time</th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
@@ -160,8 +160,7 @@ export default function TeacherMeetingsPage() {
                     )}
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-gray-900">{meeting.student.name}</div>
-                    <div className="text-gray-500 text-sm">{meeting.student.email}</div>
+                    <div className="text-gray-900">{meeting.class?.title || 'Unknown Class'}</div>
                   </td>
                   <td className="px-6 py-4 text-gray-600">
                     {formatDate(meeting.startTime)}

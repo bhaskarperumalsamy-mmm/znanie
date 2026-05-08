@@ -118,6 +118,55 @@ export default function StudentMeetingDetailPage() {
         </span>
       </div>
 
+      {/* Top Banner for Meeting URL */}
+      {meeting.joinUrl && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h3 className="font-semibold text-gray-900 text-lg">Video Meeting</h3>
+            <div className="mt-1">
+              {new Date(meeting.startTime).getTime() > new Date().getTime() ? (
+                <p className="text-gray-600">
+                  This meeting is scheduled for <span className="font-medium text-gray-900">{formatDate(meeting.startTime)}</span> at <span className="font-medium text-gray-900">{formatTime(meeting.startTime)}</span>.
+                  The join button will appear when it's time.
+                </p>
+              ) : (
+                <p className="text-gray-600">
+                  The meeting room is ready. Click below to enter.
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="flex gap-3">
+            {new Date(meeting.startTime).getTime() > new Date().getTime() ? (
+              <button
+                onClick={() => {
+                  setLoading(true);
+                  fetchMeeting();
+                }}
+                className="inline-flex items-center px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition font-medium whitespace-nowrap shadow-sm"
+              >
+                <svg className="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Refresh
+              </button>
+            ) : (
+              <a
+                href={`/api/meetings/${meeting.id}/join`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition font-medium whitespace-nowrap shadow-sm"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Join Meeting
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Details */}
         <div className="lg:col-span-2 space-y-6">
@@ -143,41 +192,36 @@ export default function StudentMeetingDetailPage() {
             </div>
           </div>
 
-          {/* Teacher Info */}
+          {/* Class Info */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">Teacher</h3>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#c1121f] text-white flex items-center justify-center font-semibold">
-                {meeting.teacher?.name?.charAt(0)}
-              </div>
+            <h3 className="font-semibold text-gray-900 mb-4">Class Details</h3>
+            {meeting.class ? (
               <div>
-                <p className="font-medium text-gray-900">{meeting.teacher?.name}</p>
-                <p className="text-sm text-gray-500">{meeting.teacher?.email}</p>
+                <h4 className="font-medium text-lg text-[#c1121f] mb-1">{meeting.class.title}</h4>
+                {meeting.class.description && (
+                  <p className="text-sm text-gray-600 mb-4 pb-4 border-b border-gray-100">
+                    {meeting.class.description}
+                  </p>
+                )}
+                <div className="mt-4">
+                  <p className="text-sm font-semibold text-gray-900 mb-3">Teacher</p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#c1121f] text-white flex items-center justify-center font-semibold text-sm">
+                      {meeting.teacher?.name?.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 text-sm">{meeting.teacher?.name}</p>
+                      <p className="text-xs text-gray-500">{meeting.teacher?.email}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <p className="text-gray-500 italic">No class information available.</p>
+            )}
           </div>
 
-          {/* Meeting URL */}
-          {meeting.joinUrl && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Video Meeting</h3>
-              <div className="mb-3">
-                <p className="text-sm text-gray-500 mb-1">Access</p>
-                <p className="text-gray-700 text-sm">Click below to enter the meeting room.</p>
-              </div>
-              <a
-                href={`/api/meetings/${meeting.id}/join`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition"
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-                Join Meeting
-              </a>
-            </div>
-          )}
+          {/* Video Meeting section was moved to the top */}
         </div>
 
         {/* Quick Info Sidebar */}

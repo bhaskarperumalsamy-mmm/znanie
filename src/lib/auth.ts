@@ -51,6 +51,9 @@ export async function getCurrentUser() {
       language: true,
       profilePhoto: true,
       teacherProfile: true,
+      enrolledClasses: {
+        select: { id: true, title: true }
+      }
     },
   });
 

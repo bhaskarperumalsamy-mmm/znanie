@@ -116,6 +116,20 @@ export default function StudentLayout({
           ))}
         </nav>
 
+        {!collapsed && user?.enrolledClasses && user.enrolledClasses.length > 0 && (
+          <div className="p-4 mt-2">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-2">My Classes</p>
+            <div className="space-y-1">
+              {user.enrolledClasses.map((cls: any) => (
+                <div key={cls.id} className="flex items-center gap-2 px-2 py-1.5 text-sm text-gray-600">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#c1121f]"></div>
+                  <span className="truncate">{cls.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-gray-100">
           <Link
             href="/"

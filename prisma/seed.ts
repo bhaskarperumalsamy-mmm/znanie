@@ -13,6 +13,7 @@ async function main() {
   await prisma.actionItem.deleteMany();
   await prisma.meetingNote.deleteMany();
   await prisma.meeting.deleteMany();
+  await prisma.class.deleteMany();
   await prisma.availability.deleteMany();
   await prisma.notification.deleteMany();
   await prisma.teacherProfile.deleteMany();
@@ -200,6 +201,69 @@ async function main() {
   }
 
   console.log('   ✅ Created availability slots');
+
+  // Create Classes
+  console.log('🏫 Creating classes...');
+
+  const class1 = await prisma.class.create({
+    data: {
+      title: 'Beginner Russian A1',
+      description: 'Introduction to Russian alphabet and basic phrases.',
+      teacherId: teacher1.id,
+      students: {
+        connect: [{ id: student1.id }, { id: student2.id }],
+      },
+    },
+  });
+
+  const class2 = await prisma.class.create({
+    data: {
+      title: 'Conversational Practice B1',
+      description: 'Weekly speaking practice on various topics.',
+      teacherId: teacher2.id,
+      students: {
+        connect: [{ id: student2.id }, { id: student3.id }],
+      },
+    },
+  });
+
+  console.log('   ✅ Created classes with enrolled students');
+
+  // Create Meetings
+  console.log('🗓️ Creating meetings...');
+  const now = new Date();
+  
+  await prisma.meeting.create({
+    data: {
+      title: 'First Day of Russian A1',
+      description: 'Orientation and alphabet overview',
+      startTime: new Date(now.getTime() + 24 * 60 * 60 * 1000), // Tomorrow
+      endTime: new Date(now.getTime() + 25 * 60 * 60 * 1000),
+      teacherId: teacher1.id,
+      classId: class1.id,
+      status: 'CONFIRMED',
+      joinUrl: 'http://localhost:3002/meet/znanie-seed-meeting-1',
+      conferenceId: 'znanie-seed-meeting-1',
+      meetingType: 'GROUP'
+    }
+  });
+
+  await prisma.meeting.create({
+    data: {
+      title: 'B1 Speaking Exam Prep',
+      description: 'Practice for the speaking exam',
+      startTime: new Date(now.getTime() + 48 * 60 * 60 * 1000), // Day after tomorrow
+      endTime: new Date(now.getTime() + 49 * 60 * 60 * 1000),
+      teacherId: teacher2.id,
+      classId: class2.id,
+      status: 'CONFIRMED',
+      joinUrl: 'http://localhost:3002/meet/znanie-seed-meeting-2',
+      conferenceId: 'znanie-seed-meeting-2',
+      meetingType: 'GROUP'
+    }
+  });
+
+  console.log('   ✅ Created sample class meetings');
 
   // Summary
   console.log('');

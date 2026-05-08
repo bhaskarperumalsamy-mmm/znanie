@@ -9,7 +9,7 @@ interface Meeting {
   title: string;
   startTime: string;
   status: string;
-  student: { name: string };
+  class?: { title: string };
 }
 
 interface Stats {
@@ -252,7 +252,7 @@ export default function TeacherDashboard() {
                 <div>
                   <h3 className="font-medium text-gray-900">{meeting.title}</h3>
                   <p className="text-gray-500 text-sm mt-1">
-                    {meeting.student.name} • {formatDate(meeting.startTime)}
+                    {meeting.class?.title || 'No Class'} • {formatDate(meeting.startTime)}
                   </p>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(meeting.status)}`}>

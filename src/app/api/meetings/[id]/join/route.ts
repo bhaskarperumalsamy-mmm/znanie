@@ -17,7 +17,14 @@ export async function GET(
     }
     
     const meeting = await prisma.meeting.findUnique({
-      where: { id: meetingId }
+      where: { id: meetingId },
+      include: {
+        class: {
+          include: {
+            students: true
+          }
+        }
+      }
     });
 
     if (!meeting) {
@@ -26,7 +33,7 @@ export async function GET(
 
     // Verify user is authorized to join
     const isTeacher = meeting.teacherId === user.id;
-    const isStudent = meeting.studentId === user.id;
+    const isStudent = meeting.class.students.some((s: any) => s.id === user.id);
     
     if (!isTeacher && !isStudent && user.role !== 'ADMIN') {
       return NextResponse.json({ error: 'Unauthorized to join this meeting' }, { status: 403 });

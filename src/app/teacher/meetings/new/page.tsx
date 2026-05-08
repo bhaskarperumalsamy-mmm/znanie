@@ -3,19 +3,19 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-interface Student {
+interface Class {
   id: string;
-  name: string;
-  email: string;
+  title: string;
+  students: { name: string }[];
 }
 
 export default function TeacherCreateMeetingPage() {
   const router = useRouter();
-  const [students, setStudents] = useState<Student[]>([]);
+  const [classes, setClasses] = useState<Class[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    studentId: '',
+    classId: '',
     title: '',
     description: '',
     date: '',
@@ -45,19 +45,19 @@ export default function TeacherCreateMeetingPage() {
         return;
       }
       
-      fetchStudents();
+      fetchClasses();
     } catch (error) {
       router.push('/login');
     }
   };
 
-  const fetchStudents = async () => {
+  const fetchClasses = async () => {
     try {
-      const res = await fetch('/api/students');
+      const res = await fetch('/api/classes');
       const data = await res.json();
-      setStudents(data.students || []);
+      setClasses(data.classes || []);
     } catch (error) {
-      console.error('Error fetching students:', error);
+      console.error('Error fetching classes:', error);
     } finally {
       setLoading(false);
     }
@@ -77,7 +77,7 @@ export default function TeacherCreateMeetingPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          studentId: formData.studentId,
+          classId: formData.classId,
           title: formData.title,
           description: formData.description,
           startTime: startTime.toISOString(),
@@ -117,7 +117,7 @@ export default function TeacherCreateMeetingPage() {
     <div className="max-w-2xl">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Create Meeting</h1>
-        <p className="text-gray-500 mt-1">Schedule a meeting for a student</p>
+        <p className="text-gray-500 mt-1">Schedule a meeting for a class</p>
       </div>
 
       <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-5">
@@ -133,17 +133,19 @@ export default function TeacherCreateMeetingPage() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">
-            Select Student
+            Select Class
           </label>
           <select
-            value={formData.studentId}
-            onChange={(e) => setFormData({ ...formData, studentId: e.target.value })}
+            value={formData.classId}
+            onChange={(e) => setFormData({ ...formData, classId: e.target.value })}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition bg-white"
             required
           >
-            <option value="">Choose a student...</option>
-            {students.map(s => (
-              <option key={s.id} value={s.id}>{s.name} ({s.email})</option>
+            <option value="">Choose a class...</option>
+            {classes.map(c => (
+              <option key={c.id} value={c.id}>
+                {c.title} ({c.students.length} student{c.students.length !== 1 && 's'})
+              </option>
             ))}
           </select>
         </div>

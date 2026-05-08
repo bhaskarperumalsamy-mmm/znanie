@@ -18,7 +18,14 @@ export async function GET(request: NextRequest) {
     const where: any = {};
 
     if (role === 'STUDENT') {
-      where.studentId = user.id;
+      where.class = {
+        students: {
+          some: { id: user.id }
+        }
+      };
+      where.status = {
+        in: ['CONFIRMED', 'COMPLETED', 'IN_PROGRESS']
+      };
     } else if (['TEACHER', 'COUNSELOR', 'MENTOR'].includes(role)) {
       where.teacherId = user.id;
     } else if (role === 'ADMIN') {
@@ -32,8 +39,10 @@ export async function GET(request: NextRequest) {
     const meetings = await prisma.meeting.findMany({
       where,
       include: {
-        student: {
-          select: { id: true, name: true, email: true, profilePhoto: true },
+        class: {
+          include: {
+            students: { select: { id: true, name: true, email: true } }
+          }
         },
         teacher: {
           select: { id: true, name: true, email: true, profilePhoto: true },
@@ -59,7 +68,7 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const { 
-      studentId: bodyStudentId,
+      classId: bodyClassId,
       teacherId: bodyTeacherId, 
       title, 
       description, 
@@ -123,31 +132,26 @@ export async function POST(request: NextRequest) {
       endDate = new Date(startDate.getTime() + duration * 60 * 1000);
     }
 
-    // Determine studentId and teacherId based on user role
-    let finalStudentId: string;
+    // Determine classId and teacherId based on user role
+    let finalClassId: string;
     let finalTeacherId: string;
 
     if (user.role === 'STUDENT') {
-      // Student creating meeting - they are the student
-      finalStudentId = user.id;
-      if (!bodyTeacherId) {
-        return NextResponse.json({ error: 'teacherId is required' }, { status: 400 });
-      }
-      finalTeacherId = bodyTeacherId;
+      return NextResponse.json({ error: 'Students cannot create meetings directly' }, { status: 403 });
     } else if (['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role)) {
-      // Teacher creating meeting - they are the teacher
+      // Teacher creating meeting
       finalTeacherId = user.id;
-      if (!bodyStudentId) {
-        return NextResponse.json({ error: 'studentId is required' }, { status: 400 });
+      if (!bodyClassId) {
+        return NextResponse.json({ error: 'classId is required' }, { status: 400 });
       }
-      finalStudentId = bodyStudentId;
+      finalClassId = bodyClassId;
     } else {
-      // Admin - need both
-      if (!bodyTeacherId || !bodyStudentId) {
-        return NextResponse.json({ error: 'teacherId and studentId are required' }, { status: 400 });
+      // Admin
+      if (!bodyTeacherId || !bodyClassId) {
+        return NextResponse.json({ error: 'teacherId and classId are required' }, { status: 400 });
       }
       finalTeacherId = bodyTeacherId;
-      finalStudentId = bodyStudentId;
+      finalClassId = bodyClassId;
     }
 
     const meeting = await prisma.meeting.create({
@@ -161,13 +165,11 @@ export async function POST(request: NextRequest) {
         joinUrl,
         conferenceId,
         status: 'REQUESTED',
-        studentId: finalStudentId,
+        classId: finalClassId,
         teacherId: finalTeacherId,
       },
       include: {
-        student: {
-          select: { id: true, name: true, email: true },
-        },
+        class: true,
         teacher: {
           select: { id: true, name: true, email: true },
         },

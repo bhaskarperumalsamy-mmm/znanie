@@ -19,8 +19,10 @@ export async function GET(
     const meeting = await prisma.meeting.findUnique({
       where: { id },
       include: {
-        student: {
-          select: { id: true, name: true, email: true, profilePhoto: true },
+        class: {
+          include: {
+            students: { select: { id: true, name: true, email: true, profilePhoto: true } }
+          }
         },
         teacher: {
           select: { id: true, name: true, email: true, profilePhoto: true },
@@ -47,8 +49,9 @@ export async function GET(
     }
 
     // Check access
+    const isStudentEnrolled = meeting.class?.students.some((s: any) => s.id === user.id);
     if (
-      meeting.studentId !== user.id &&
+      !isStudentEnrolled &&
       meeting.teacherId !== user.id &&
       user.role !== 'ADMIN'
     ) {
@@ -79,6 +82,7 @@ export async function PATCH(
 
     const meeting = await prisma.meeting.findUnique({
       where: { id },
+      include: { class: { include: { students: true } } }
     });
 
     if (!meeting) {
@@ -86,8 +90,9 @@ export async function PATCH(
     }
 
     // Check access
+    const isStudentEnrolled = meeting.class?.students.some((s: any) => s.id === user.id);
     if (
-      meeting.studentId !== user.id &&
+      !isStudentEnrolled &&
       meeting.teacherId !== user.id &&
       user.role !== 'ADMIN'
     ) {
@@ -128,6 +133,7 @@ export async function DELETE(
 
     const meeting = await prisma.meeting.findUnique({
       where: { id },
+      include: { class: { include: { students: true } } }
     });
 
     if (!meeting) {
@@ -135,8 +141,9 @@ export async function DELETE(
     }
 
     // Check access
+    const isStudentEnrolled = meeting.class?.students.some((s: any) => s.id === user.id);
     if (
-      meeting.studentId !== user.id &&
+      !isStudentEnrolled &&
       meeting.teacherId !== user.id &&
       user.role !== 'ADMIN'
     ) {
