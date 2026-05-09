@@ -15,7 +15,13 @@ export async function GET(request: NextRequest) {
 
     if (type === 'student') {
       const meetings = await prisma.meeting.findMany({
-        where: { studentId: user.id },
+        where: {
+          class: {
+            students: {
+              some: { id: user.id }
+            }
+          }
+        },
         orderBy: { createdAt: 'desc' },
       });
 

@@ -62,9 +62,12 @@ export async function POST(request: NextRequest) {
 
     const meeting = await prisma.meeting.findUnique({
       where: { id: meetingId },
+      include: { class: { include: { students: { select: { id: true } } } } }
     });
 
-    if (!meeting || meeting.studentId !== user.id) {
+    const isStudentInClass = meeting?.class?.students.some(s => s.id === user.id);
+
+    if (!meeting || !isStudentInClass) {
       return NextResponse.json(
         { error: 'You can only review meetings you attended' },
         { status: 403 }

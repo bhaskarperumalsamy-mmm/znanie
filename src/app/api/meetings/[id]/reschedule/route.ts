@@ -19,9 +19,12 @@ export async function POST(
 
     const meeting = await prisma.meeting.findUnique({
       where: { id },
+      include: { class: { include: { students: { select: { id: true } } } } }
     });
 
-    if (!meeting || (meeting.studentId !== user.id && meeting.teacherId !== user.id && user.role !== 'ADMIN')) {
+    const isStudentInClass = meeting?.class?.students.some(s => s.id === user.id);
+
+    if (!meeting || (!isStudentInClass && meeting.teacherId !== user.id && user.role !== 'ADMIN')) {
       return NextResponse.json({ error: 'Access denied' }, { status: 403 });
     }
 
