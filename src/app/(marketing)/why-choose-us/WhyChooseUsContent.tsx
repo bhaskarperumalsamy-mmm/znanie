@@ -27,7 +27,7 @@ export default function WhyChooseUsContent() {
 
   const fadeUp: any = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } },
   };
 
   const staggerContainer: any = {
@@ -76,7 +76,7 @@ export default function WhyChooseUsContent() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <span className={styles.heroTag}>guide for learners</span>
           </motion.div>
@@ -85,7 +85,7 @@ export default function WhyChooseUsContent() {
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Your Gateway to<br />World-Class <span className="rt-text-yellow">Education</span>
           </motion.h1>
@@ -94,7 +94,7 @@ export default function WhyChooseUsContent() {
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Premium global education at a fraction of Western costs. Degrees recognized in Medicine, Aerospace, and Theoretical Physics.
           </motion.p>
@@ -697,11 +697,7 @@ export default function WhyChooseUsContent() {
                 title: "ALL-INDIA ICT WING COORDINATOR",
                 image: "/images/team/bhaskar.jpg"
               },
-              {
-                name: "DR. P. RAAJAN",
-                title: "All-India Chief Operating officer",
-                image: "/images/team/raajan.jpg"
-              },
+
               {
                 name: "DR. M. SANTHALAKSHMI",
                 title: "All India People & Culture Director",

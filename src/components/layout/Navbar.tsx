@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
     { name: 'Home', path: '/home' },
     { name: 'About Us', path: '/about-us' },
     { name: 'Why Choose Us', path: '/why-choose-us' },
-    { name: 'Teachers', path: '/teachers' },
+    { name: 'Gallery', path: '/gallery' },
     { 
       name: 'Study in Russia', 
       path: '#',

@@ -40,7 +40,7 @@ export const LinguisticScaling: React.FC = () => {
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } 
+      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } 
     }
   };
 
@@ -65,7 +65,7 @@ export const LinguisticScaling: React.FC = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <div className={styles.imageWrapper}>
               <Image

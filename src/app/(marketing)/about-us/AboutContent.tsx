@@ -144,7 +144,7 @@ const decadesBullets = [
    ─────────────────────────────────────────── */
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } },
 }
 
 const staggerContainer: Variants = {
@@ -210,7 +210,7 @@ export default function AboutContent() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <span className={styles.heroTag}>OUR MISSION & HERITAGE</span>
           </motion.div>
@@ -219,7 +219,7 @@ export default function AboutContent() {
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Bridging Cultures<br />Building <span className="rt-text-yellow">future</span>
           </motion.h1>
@@ -228,7 +228,7 @@ export default function AboutContent() {
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
           >
             A vibrant, inclusive society that acts as a global melting pot. Join our community of dreamers and doers.
           </motion.p>
@@ -248,7 +248,7 @@ export default function AboutContent() {
           >
             <span className={styles.sectionTag}>ESTABLISHED. DEDICATED. EXPANDING.</span>
             <h2 className={styles.sectionTitle}>
-              Our Journey
+              Our Foundation
             </h2>
           </motion.div>
 
@@ -297,6 +297,40 @@ export default function AboutContent() {
             </motion.div>
           </motion.div>
         </div>
+      </section>
+
+      {/* ════════ SECTION 2.5 — LEADERSHIP & GOVERNANCE — FULL WIDTH REDESIGN ════════ */}
+      <section className={styles.leadershipSection}>
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+        >
+          <div className={styles.leadershipGrid}>
+            <div className={styles.leadershipVisual}>
+              <div className={styles.leadershipIcon}>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L15 8H9L12 2Z" fill="currentColor"/>
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.477 2 12C2 17.523 6.477 22 12 22ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div className={styles.leadershipVerticalText}>GOVERNANCE</div>
+            </div>
+
+            <div className={styles.leadershipTextContent}>
+              <span className={styles.sectionTag}>STRATEGIC OVERSIGHT</span>
+              <h2 className={styles.leadershipTitle}>Leadership & Governance</h2>
+              <div className={styles.leadershipMainText}>
+                Guided by experienced professionals and visionaries, our leadership team is committed to promoting the Russian language, education, and global cultural integration with integrity, excellence, and a deep sense of patriotic pride.
+              </div>
+              <div className={styles.leadershipDivider} />
+              <p className={styles.leadershipSubText}>
+                Honoring the rich heritage, values, and contributions of Russia while fostering international understanding and unity, our team ensures every initiative reflects our mission to build bridges through education.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* ════════ SECTION 3 — THREE DECADES: Where We Are Today ════════ */}

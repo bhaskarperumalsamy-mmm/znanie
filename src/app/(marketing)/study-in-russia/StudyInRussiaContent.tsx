@@ -49,7 +49,7 @@ export default function StudyInRussiaContent() {
           <motion.div
             variants={{
               hidden: { opacity: 0, x: -30 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
+              visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as any } }
             }}
           >
             <span className={styles.heroTag}>Discover</span>
@@ -59,7 +59,7 @@ export default function StudyInRussiaContent() {
             className={styles.heroTitle}
             variants={{
               hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.33, 1, 0.68, 1] } }
+              visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.33, 1, 0.68, 1] as any } }
             }}
           >
             World-Class Education <br />in <span className="rt-text-yellow">Russia</span>
@@ -69,7 +69,7 @@ export default function StudyInRussiaContent() {
             className={styles.heroDesc}
             variants={{
               hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.33, 1, 0.68, 1] } }
+              visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.33, 1, 0.68, 1] as any } }
             }}
           >
             Russia, the largest nation in the world, spans two continents and offers a transcontinental gateway to academic excellence and cultural depth.

@@ -32,7 +32,7 @@ export const FeaturedUniversities = () => {
           className="fu-header"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           viewport={{ once: true }}
         >
           <span className="fu-tag">INSTITUTIONAL ARCHIVE</span>
@@ -53,7 +53,7 @@ export const FeaturedUniversities = () => {
                 initial={{ opacity: 0, scale: 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+                transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] as any }}
               >
                 <Image src={uni.image} alt={uni.name} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" priority />
                 <div className="fu-hero-overlay" />
@@ -70,7 +70,7 @@ export const FeaturedUniversities = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
+                transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
               >
                 <span className="fu-info-loc">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>

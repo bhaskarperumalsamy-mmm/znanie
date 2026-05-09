@@ -1,6 +1,6 @@
 "use client";
 
-import { HeroSectionThree } from '@/components/sections/HeroSectionThree';
+import { HeroSlider } from '@/components/sections/HeroSlider';
 import { IndiaRussiaEnter } from '@/components/sections/IndiaRussiaEnter';
 import { PreservingKnowledge } from '@/components/sections/PreservingKnowledge';
 import { PartnershipBorders } from '@/components/sections/PartnershipBorders';
@@ -21,7 +21,7 @@ const ScrollReveal = ({ children }: { children: React.ReactNode }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+      transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
     >
       {children}
     </motion.div>
@@ -31,11 +31,7 @@ const ScrollReveal = ({ children }: { children: React.ReactNode }) => {
 export default function HomeContent() {
   return (
     <>
-      <HeroSectionThree
-        title={<>Grow your skills <br />build your <span className="rt-text-yellow">future</span></>}
-        description="Start your learning path with expert-led programs designed to elevate skills and accelerate success."
-        imageSrc="/images/startup-stock.jpg"
-      />
+      <HeroSlider />
 
       <IndiaRussiaEnter />
 

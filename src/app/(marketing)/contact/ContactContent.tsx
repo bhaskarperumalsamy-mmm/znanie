@@ -59,7 +59,7 @@ export default function ContactContent() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           >
             <span className={styles.heroTag}>Connect With Us</span>
           </motion.div>
@@ -68,16 +68,16 @@ export default function ContactContent() {
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] as any }}
           >
-            Get in touch <br />with <span className="rt-text-yellow">us</span>
+            We welcom <br />your <span className="rt-text-yellow">inquiries</span>
           </motion.h1>
 
           <motion.p
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.33, 1, 0.68, 1] as any }}
           >
             Have questions about studying in Russia? We&apos;re here to help you every step of the way.    </motion.p>
         </div>

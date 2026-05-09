@@ -3,22 +3,22 @@
 import { motion } from 'framer-motion'
 
 export const IndiaRussiaEnter = () => {
-    
+
   return (
     <section className="axis-horizon">
       <div className="container-large">
         <div className="horizon-layout">
-          
+
           {/* Left: Strategic Quote (Confirmed by user) */}
           <div className="quote-col">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
               <span className="horizon-tag">India-Russia Axis</span>
               <h2 className="horizon-quote">
-                "The most enduring bilateral partnership in modern <span className="text-crimson">geopolitical history</span>."
+                "To build a world united through language, knowledge, and cultural <span className="text-crimson">harmony</span>"
               </h2>
             </motion.div>
           </div>
@@ -26,8 +26,8 @@ export const IndiaRussiaEnter = () => {
           {/* Right: Redesigned Metrics Pillar */}
           <div className="metrics-pillar-col">
             <div className="kinetic-axis-wrapper">
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -45,7 +45,7 @@ export const IndiaRussiaEnter = () => {
 
               <div className="k-axis-line" />
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}

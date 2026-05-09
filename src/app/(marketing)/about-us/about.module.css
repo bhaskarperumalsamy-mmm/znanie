@@ -1633,3 +1633,98 @@
   margin: 0;
   transition: color 400ms ease;
 }
+
+/* ─── Section 2.5: LEADERSHIP & GOVERNANCE — FULL WIDTH ─── */
+.leadershipSection {
+  position: relative;
+  width: 100%;
+  padding: 100px 5%;
+  background-color: #fff;
+  overflow: hidden;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.leadershipGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .leadershipGrid {
+    grid-template-columns: 10% 1fr;
+    gap: 60px;
+  }
+}
+
+.leadershipVisual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.leadershipIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--_color---crimson-red, #dc2525);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -5px rgba(220, 37, 37, 0.3);
+}
+
+.leadershipVerticalText {
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #bbb;
+  transform: rotate(180deg);
+}
+
+.leadershipTextContent {
+  width: 100%;
+}
+
+.leadershipTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 30px;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.leadershipMainText {
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.6;
+  color: #111;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-weight: 400;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.leadershipDivider {
+  width: 100%;
+  height: 1px;
+  background: #eee;
+  margin-bottom: 50px;
+}
+
+.leadershipSubText {
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.7;
+  color: #555;
+  font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
+  font-weight: 300;
+  width: 100%;
+}

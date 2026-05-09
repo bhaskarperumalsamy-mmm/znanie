@@ -56,7 +56,7 @@ export const StrategicCards = () => {
           className="sc-header"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] as any }}
           viewport={{ once: true }}
         >
           <span className="sc-tag">SPANNING THE GLOBE</span>
@@ -75,7 +75,7 @@ export const StrategicCards = () => {
               className="sc-card"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.33, 1, 0.68, 1] }}
+              transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.33, 1, 0.68, 1] as any }}
               viewport={{ once: true }}
             >
               {/* Floating circle icon — overlapping top edge */}

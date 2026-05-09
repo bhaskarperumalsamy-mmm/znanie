@@ -47,7 +47,7 @@ export const RussiaEducationBenefits: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
+              transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] as any }}
             >
               <Image
                 src="/images/friends-cheering-world.jpg"
