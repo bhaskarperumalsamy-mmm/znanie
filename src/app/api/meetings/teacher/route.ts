@@ -13,19 +13,19 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const { 
-      studentId, 
+      classId, 
       title, 
       description, 
       startTime, 
       endTime, 
-      meetingType = 'ONE_ON_ONE',
+      meetingType = 'GROUP',
       maxParticipants = 10,
       groupCode 
     } = body;
 
-    if (!studentId || !title || !startTime || !endTime) {
+    if (!classId || !title || !startTime || !endTime) {
       return NextResponse.json(
-        { error: 'studentId, title, startTime, and endTime are required' },
+        { error: 'classId, title, startTime, and endTime are required' },
         { status: 400 }
       );
     }
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     // Create meeting in database
     const meeting = await prisma.meeting.create({
       data: {
-        studentId,
+        classId,
         teacherId: user.id,
         title,
         description,
@@ -60,9 +60,7 @@ export async function POST(request: NextRequest) {
         groupCode,
       },
       include: {
-        student: {
-          select: { id: true, name: true, email: true },
-        },
+        class: true,
         teacher: {
           select: { id: true, name: true, email: true },
         },

@@ -13,6 +13,7 @@ interface Meeting {
   status: string;
   meetingType: string;
   joinUrl: string | null;
+  class?: { title: string };
   teacher: { id: string; name: string; email: string };
 }
 
@@ -120,7 +121,7 @@ export default function StudentMeetingsPage() {
 
       {/* Filters */}
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-        {['all', 'CONFIRMED', 'REQUESTED', 'COMPLETED', 'CANCELLED'].map((status) => (
+        {['all', 'CONFIRMED', 'IN_PROGRESS', 'COMPLETED'].map((status) => (
           <button
             key={status}
             onClick={() => setFilter(status)}
@@ -163,6 +164,9 @@ export default function StudentMeetingsPage() {
                   </div>
                   
                   <p className="text-gray-500 text-sm mb-1">
+                    Class: <span className="font-medium text-gray-900">{meeting.class?.title || 'No Class'}</span>
+                  </p>
+                  <p className="text-gray-500 text-sm mb-1">
                     Teacher: <strong>{meeting.teacher.name}</strong>
                   </p>
                   
@@ -178,7 +182,7 @@ export default function StudentMeetingsPage() {
                 <div className="flex items-center gap-3">
                   {canJoin(meeting) && (
                     <a
-                      href={meeting.joinUrl || '#'}
+                      href={`/api/meetings/${meeting.id}/join`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition"

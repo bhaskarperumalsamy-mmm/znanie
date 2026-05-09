@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface Student {
   id: string;
@@ -100,9 +101,9 @@ export default function TeacherStudentsPage() {
                     {new Date(student.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-6 py-4">
-                    <button className="text-[#c1121f] hover:text-[#b5110a] font-medium">
+                    <Link href={`/teacher/students/${student.id}`} className="text-[#c1121f] hover:text-[#b5110a] font-medium">
                       View Details →
-                    </button>
+                    </Link>
                   </td>
                 </tr>
               ))}
