@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    let classes = [];
+    let classes: any[] = [];
 
     if (user.role === 'TEACHER') {
       classes = await prisma.class.findMany({

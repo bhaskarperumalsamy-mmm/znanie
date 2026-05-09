@@ -53,12 +53,13 @@ export async function POST(request: NextRequest) {
       endTime, 
       maxParticipants = 10,
       isPublic = true,
-      timezone = 'Asia/Kolkata'
+      timezone = 'Asia/Kolkata',
+      classId
     } = body;
 
-    if (!title || !startTime || !endTime) {
+    if (!title || !startTime || !endTime || !classId) {
       return NextResponse.json(
-        { error: 'title, startTime, and endTime are required' },
+        { error: 'title, startTime, endTime, and classId are required' },
         { status: 400 }
       );
     }
@@ -66,7 +67,7 @@ export async function POST(request: NextRequest) {
     const groupSession = await prisma.meeting.create({
       data: {
         teacherId: user.id,
-        studentId: user.id, // Teacher is also participant
+        classId,
         title,
         description,
         startTime: new Date(startTime),
