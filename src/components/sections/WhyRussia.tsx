@@ -7,22 +7,22 @@ const reasons = [
   {
     title: 'Learn Russian, Experience Culture',
     description: ' Our initiative delivers free access to Russian language and cultural education for all, nurturing cross-cultural understanding, global collaboration, and inclusive academic advancement.',
-    image: '/images/study-work.jpg'
+    image: '/images/zn_alina_grubnyak.jpg'
   },
   {
     title: 'Cultural Harmonization',
     description: 'A vibrant, inclusive society that acts as a global melting pot. International diplomats and students converge through shared intellectual pursuit.',
-    image: '/images/elly-fairytale.jpg'
+    image: '/images/zn_cultural.jpg'
   },
   {
     title: 'Global Credentialing',
     description: 'Degrees universally recognized for fundamental scientific rigor, setting the standard particularly in Medicine, Aerospace, and Theoretical Physics.',
-    image: '/images/annika-gordon.jpg'
+    image: '/images/zn_credentialing.jpg'
   },
   {
     title: 'Career Gateway',
     description: 'Direct integration into the robust bilateral economic bridge between India and Russia, opening exclusive structural avenues in tech and trade.',
-    image: '/images/mimi-thian.jpg'
+    image: '/images/zn_career.jpg'
   }
 ]
 

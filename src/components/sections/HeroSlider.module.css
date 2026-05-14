@@ -35,13 +35,31 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+  filter: brightness(0.4) contrast(1.1);
 }
 
-.overlay {
+.heroGridOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
   z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.heroOverlayGradient {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 16, 16, 0.4) 0%,
+    rgba(14, 16, 16, 0.2) 50%,
+    rgba(14, 16, 16, 0.8) 100%
+  );
+  pointer-events: none;
 }
 
 /* ── Orbital decoration (same as HeroSectionThree) ───────────── */

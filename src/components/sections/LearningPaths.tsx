@@ -77,7 +77,7 @@ export const LearningPaths: React.FC = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <SectionHeader 
+        <SectionHeader
           tagline="MISSION ORIENTED"
           titleBase="Learning paths built"
           titleAccent="for your success"
@@ -122,7 +122,7 @@ export const LearningPaths: React.FC = () => {
           >
             <div className={styles.portraitImage}>
               <Image
-                src="/images/girl-writing-notebook.jpg"
+                src="/images/zn_learning_paths.jpg"
                 alt="Intensive Focus"
                 fill
                 className="object-cover"
@@ -132,7 +132,7 @@ export const LearningPaths: React.FC = () => {
 
             <div className={styles.landscapeImage}>
               <Image
-                src="/images/cottonbro.jpg"
+                src="/images/zn_learning_success.jpg"
                 alt="Digital Collaboration"
                 fill
                 className="object-cover"

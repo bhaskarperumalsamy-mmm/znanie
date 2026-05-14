@@ -29,7 +29,7 @@ const curriculum: Module[] = [
     badge: '30 LESSONS',
     features: 'Alphabet & Sounds, Zero Copula, Survival Vocab.',
     outcome: 'Navigate Cities',
-    image: '/images/friends-cheering-world.jpg',
+    image: '/images/zn_breakthrough.jpg',
     duration: '4 Weeks',
     level: 'Beginner',
     details: 'Master the basic building blocks of the Russian language, focusing on phonetic accuracy and survival communication.',
@@ -94,7 +94,7 @@ const curriculum: Module[] = [
     badge: 'BESTSELLER',
     features: 'Business Etiquette, CV Writing, Industry Vocab.',
     outcome: 'Elite Leader',
-    image: '/images/akinyemi-gbadamosi.jpg',
+    image: '/images/zn_specialized.jpg',
     duration: '8 Weeks',
     level: 'Professional',
     details: 'Specialized language training for corporate, medical, or diplomatic careers in Russia and CIS countries.',
@@ -154,6 +154,7 @@ export const CurriculumGrid: React.FC = () => {
                   alt={module.name}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: 'top' }}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 {module.badge && (

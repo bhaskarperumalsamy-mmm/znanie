@@ -50,7 +50,7 @@ export const CareerHubInternships: React.FC = () => {
             <div className={styles.imageSection}>
               <div className={styles.circleMask}>
                 <Image
-                  src="/images/study-work.jpg"
+                  src="/images/zn_study-work.jpg"
                   alt="Career Growth"
                   fill
                   className={styles.image}
@@ -82,7 +82,7 @@ export const CareerHubInternships: React.FC = () => {
             <div className={styles.imageSection}>
               <div className={styles.rectMask}>
                 <Image
-                  src="/images/thisisengineering.jpg"
+                  src="/images/zn_thisisengineering.jpg"
                   alt="Industry Partners"
                   fill
                   className={styles.imageGrayscale}

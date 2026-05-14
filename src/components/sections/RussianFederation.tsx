@@ -91,7 +91,7 @@ export const RussianFederation: React.FC = () => {
               className={styles.landscapeWrapper}
             >
               <Image
-                src="/images/charlotte-may.jpg"
+                src="/images/zn_environment.jpg"
                 alt="Modern Russia"
                 fill
                 style={{ objectFit: 'cover' }}

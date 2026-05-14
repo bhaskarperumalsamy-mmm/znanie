@@ -24,14 +24,14 @@ const LifeCard: React.FC<LifeCardProps> = ({ image, category, title, badgeText, 
       transition={{ duration: 0.8, delay, ease: [0.33, 1, 0.68, 1] as any }}
     >
       <div className={styles.imageWrapper}>
-        <Image 
-          src={image} 
-          alt={title} 
-          fill 
+        <Image
+          src={image}
+          alt={title}
+          fill
           className={styles.bgImage}
         />
         <div className={styles.overlay} />
-        
+
         {/* Floating Red Badge */}
         <div className={styles.redBadge}>
           <span className={styles.badgeVal}>{badgeText}</span>
@@ -51,21 +51,22 @@ const LifeCard: React.FC<LifeCardProps> = ({ image, category, title, badgeText, 
 export const StudentLifeRussia: React.FC = () => {
   const data = [
     {
-      image: '/images/fortress_derbent.jpg',
-      category: 'CULTURAL HERITAGE',
-      title: 'Architectural Legacies',
-      badgeText: 'UNESCO',
-      detailText: 'Explore 30+ World Heritage sites from Red Square to the Citadels of Derbent.'
-    },
-    {
-      image: '/images/vlad-deep.jpg',
+      image: '/images/zn_majestic_landscapes.jpg',
       category: 'OUTDOOR ADVENTURE',
       title: 'Majestic Landscapes',
       badgeText: '11 TZ',
       detailText: 'From the Siberian Taiga to the Caucasus mountains across eleven time zones.'
     },
     {
-      image: '/images/friends-cheering-world.jpg',
+      image: '/images/zn_fortress_derbent.jpg',
+      category: 'CULTURAL HERITAGE',
+      title: 'Architectural Legacies',
+      badgeText: 'UNESCO',
+      detailText: 'Explore 30+ World Heritage sites from Red Square to the Citadels of Derbent.'
+    },
+
+    {
+      image: '/images/zn_communities.jpg',
       category: 'SOCIAL SPIRIT',
       title: 'Modern Communities',
       badgeText: '800k+',
@@ -88,7 +89,7 @@ export const StudentLifeRussia: React.FC = () => {
               Student <span>Life in Russia</span>
             </h2>
             <p className={styles.subTitle}>
-               Beyond the classroom: exploring the vast geographic beauty and deep historical heartbeat of a transcontinental giant.
+              Beyond the classroom: exploring the vast geographic beauty and deep historical heartbeat of a transcontinental giant.
             </p>
           </motion.div>
         </div>

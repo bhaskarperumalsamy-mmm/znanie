@@ -301,7 +301,7 @@ export default function AboutContent() {
 
       {/* ════════ SECTION 2.5 — LEADERSHIP & GOVERNANCE — FULL WIDTH REDESIGN ════════ */}
       <section className={styles.leadershipSection}>
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -311,8 +311,8 @@ export default function AboutContent() {
             <div className={styles.leadershipVisual}>
               <div className={styles.leadershipIcon}>
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L15 8H9L12 2Z" fill="currentColor"/>
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.477 2 12C2 17.523 6.477 22 12 22ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20Z" fill="currentColor"/>
+                  <path d="M12 2L15 8H9L12 2Z" fill="currentColor" />
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.477 2 12C2 17.523 6.477 22 12 22ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20Z" fill="currentColor" />
                 </svg>
               </div>
               <div className={styles.leadershipVerticalText}>GOVERNANCE</div>
@@ -358,7 +358,7 @@ export default function AboutContent() {
             <motion.div variants={fadeUp} className={styles.decadesImageCol}>
               <div className={styles.decadesImageWrapper}>
                 <Image
-                  src="/images/jarmoluk-library.jpg"
+                  src="/images/zn_where_we_are.jpg"
                   alt="Library heritage"
                   fill
                   className="object-cover"
@@ -495,7 +495,7 @@ export default function AboutContent() {
       <section className={styles.impactSection}>
         <div className={styles.impactBg}>
           <Image
-            src="/images/students-studying.jpg"
+            src="/images/zn_greg-rosenke.jpg"
             alt="Impact background"
             fill
             className={styles.impactBgImage}
@@ -633,7 +633,7 @@ export default function AboutContent() {
             <div className={styles.visionImageCol}>
               <motion.div variants={fadeUp} className={styles.visionImageWrapper}>
                 <Image
-                  src="/images/girl-writing-notebook.jpg"
+                  src="/images/zn_bigger_picture.jpg"
                   alt="Vision pillar"
                   fill
                   className="object-cover"

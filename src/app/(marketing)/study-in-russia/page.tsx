@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: "/study-in-russia",
     images: [
       {
-        url: "/images/jarmoluk-library.jpg",
+        url: "/images/zn_class_education.jpg",
         width: 1200,
         height: 630,
         alt: "Study in Russia with ZNANIE",

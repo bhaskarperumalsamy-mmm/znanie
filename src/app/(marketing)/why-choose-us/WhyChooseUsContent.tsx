@@ -196,13 +196,13 @@ export default function WhyChooseUsContent() {
               transition={{ duration: 0.8 }}
             >
               <div className={styles.imageLarge}>
-                <Image src="/images/learning_woman.jpg" alt="Focus" fill className="object-cover" />
+                <Image src="/images/zn_scholarships.jpg" alt="Focus" fill className="object-cover" />
               </div>
               <div className={styles.imageSmall}>
-                <Image src="/images/annika-gordon.jpg" alt="Library" fill className="object-cover" />
+                <Image src="/images/zn_online.jpg" alt="Library" fill className="object-cover" />
               </div>
               <div className={styles.imageSmall}>
-                <Image src="/images/yogpeeth.jpg" alt="Notes" fill className="object-cover" />
+                <Image src="/images/zn_choose.jpg" alt="Notes" fill className="object-cover" />
               </div>
             </motion.div>
 
@@ -277,7 +277,7 @@ export default function WhyChooseUsContent() {
                 title: 'India–Russia Focused Educational Mission',
                 tagline: 'ONE MISSION. TWO NATIONS. UNLIMITED POTENTIAL.',
                 desc: 'Strengthening the educational and cultural bridge between India and Russia.',
-                image: '/images/studying.jpg',
+                image: '/images/zn_educational_mssion.jpg',
                 tag: 'Mission Pillar',
                 points: [
                   'Deep expertise in academic pathways',
@@ -291,7 +291,7 @@ export default function WhyChooseUsContent() {
                 title: 'Certified and Experienced Trainers',
                 tagline: 'EXPERT GUIDANCE FROM FIELD VETERANS.',
                 desc: 'Passionate educators with real-world experience and recognized certifications.',
-                image: '/images/eliason.jpg',
+                image: '/images/zn_trainers.jpg',
                 tag: 'Faculty Pillar',
                 points: [
                   'Certified international instructors',
@@ -305,7 +305,7 @@ export default function WhyChooseUsContent() {
                 title: 'University & Employer Guidance',
                 tagline: 'BEYOND ADMISSIONS. TOWARDS SUCCESS.',
                 desc: 'End-to-end guidance from selecting the institution to final career placement.',
-                image: '/images/mimi-thian.jpg',
+                image: '/images/zn_university.jpg',
                 tag: 'Success Pillar',
                 points: [
                   'Personalized university selection',
@@ -319,7 +319,7 @@ export default function WhyChooseUsContent() {
                 title: 'Transparent and Ethical Non-Profit',
                 tagline: 'ETHICS OVER PROFITS. EVERY TIME.',
                 desc: 'A registered non-profit where every decision is guided by ethics, not margins.',
-                image: '/images/stocksnap-people.jpg',
+                image: '/images/zn_non_profit.jpg',
                 tag: 'Ethics Pillar',
                 points: [
                   '100% financial transparency',

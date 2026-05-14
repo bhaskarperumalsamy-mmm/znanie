@@ -8,37 +8,37 @@ const services = [
     num: '01',
     title: 'Learning for Life',
     description: 'Comprehensive educational programs designed to empower students with world-class knowledge and practical skills for lifelong success.',
-    image: '/images/element5.jpg',
+    image: '/images/zn_learning_life.jpg',
   },
   {
     num: '02',
     title: 'Nurturing Talent',
     description: 'Identifying and cultivating exceptional potential through scholarships, mentorship programs, and hands-on research opportunities.',
-    image: '/images/avi-richard.jpg',
+    image: '/images/zn_nurturing_talent.jpg',
   },
   {
     num: '03',
     title: 'Advancing Innovation',
     description: 'Fostering cutting-edge research and technological breakthroughs by connecting brilliant minds across borders.',
-    image: '/images/women-pointing.jpg',
+    image: '/images/zn_advancing_innovation.jpg',
   },
   {
     num: '04',
     title: 'Strengthening Communities',
     description: 'Building resilient partnerships between Indian and Russian academic communities through shared values and mutual growth.',
-    image: '/images/stocksnap-people.jpg',
+    image: '/images/zn_strengthening.jpg',
   },
   {
     num: '05',
     title: 'Building Bridges',
     description: 'Creating lasting diplomatic and cultural connections that unite India and Russia through education and shared aspirations.',
-    image: '/images/friends-cheering-world.jpg',
+    image: '/images/zn_building_bridges.jpg',
   },
   {
     num: '06',
     title: 'Protecting Our Future',
     description: 'Safeguarding the next generation through sustainable development initiatives and responsible global citizenship programs.',
-    image: '/images/katerina-holmes.jpg',
+    image: '/images/zn_protecting.jpg',
   },
 ]
 

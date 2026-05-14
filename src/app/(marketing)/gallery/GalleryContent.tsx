@@ -144,7 +144,7 @@ export default function GalleryContent() {
       <section className={styles.heroSection}>
         <div className={styles.heroBg}>
           <Image
-            src="/images/students-studying.jpg"
+            src="/images/zn_gallery.jpg"
             alt="Gallery Hero"
             fill
             className={styles.heroBgImage}
@@ -233,15 +233,15 @@ export default function GalleryContent() {
               className={styles.gridItem}
               variants={{
                 hidden: { opacity: 0, x: 30, y: 30, scale: 0.95 },
-                visible: { 
-                  opacity: 1, 
-                  x: 0, 
-                  y: 0, 
-                  scale: 1, 
-                  transition: { 
-                    duration: 0.9, 
-                    ease: [0.33, 1, 0.68, 1] as any 
-                  } 
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  scale: 1,
+                  transition: {
+                    duration: 0.9,
+                    ease: [0.33, 1, 0.68, 1] as any
+                  }
                 },
               }}
               onClick={() => openLightbox(index)}

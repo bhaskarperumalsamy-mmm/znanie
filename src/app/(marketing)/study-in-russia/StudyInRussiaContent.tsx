@@ -24,7 +24,7 @@ export default function StudyInRussiaContent() {
       <section className={styles.heroSection}>
         <div className={styles.heroBg}>
           <Image
-            src="/images/jarmoluk-library.jpg"
+            src="/images/zn_class_education.jpg"
             alt="Heritage"
             fill
             className={styles.heroBgImage}

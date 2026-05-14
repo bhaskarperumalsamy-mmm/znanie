@@ -20,10 +20,6 @@ const SLIDES = [
     ),
     description:
       "Empowering Minds Through Russian Language and Education — Bridging Nations for a Peaceful and Prosperous World Inspired by Russian Culture.",
-    primaryCtaText: "Explore Programs",
-    primaryCtaHref: "/study-in-russia",
-    secondaryCtaText: "About Us",
-    secondaryCtaHref: "/about-us",
     imageSrc: "/images/zn_teaching.jpg",
   },
   {
@@ -38,11 +34,7 @@ const SLIDES = [
     ),
     description:
       "Discover top-ranked Russian universities offering internationally recognised degrees across medicine, engineering, science and the humanities — at unmatched value.",
-    primaryCtaText: "View Universities",
-    primaryCtaHref: "/study-in-russia",
-    secondaryCtaText: "Why Russia?",
-    secondaryCtaHref: "/why-choose-us",
-    imageSrc: "/images/zn_student.JPG",
+    imageSrc: "/images/zn_znanie_rss.jpg",
   },
   {
     id: 3,
@@ -56,10 +48,6 @@ const SLIDES = [
     ),
     description:
       "Our structured language mastery programmes take you from beginner to fluent — giving you the cultural and academic edge to thrive in Russia and beyond.",
-    primaryCtaText: "Start Learning",
-    primaryCtaHref: "/russian-language-courses",
-    secondaryCtaText: "Get in Touch",
-    secondaryCtaHref: "/contact",
     imageSrc: "/images/zn_language.jpg",
   },
 ];
@@ -82,12 +70,12 @@ const ChevRight = () => (
 
 /* ── Framer variants ─────────────────────────────────────────── */
 const wrapVariants = {
-  hidden:  { opacity: 0 },
+  hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.13, delayChildren: 0.1 } },
-  exit:    { opacity: 0, transition: { duration: 0.35 } },
+  exit: { opacity: 0, transition: { duration: 0.35 } },
 };
 const itemVariants = {
-  hidden:  { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1] as any } },
 };
 
@@ -114,7 +102,7 @@ export const HeroSlider: React.FC = () => {
   /* Keyboard */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft")  prev();
+      if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
     };
     window.addEventListener("keydown", onKey);
@@ -142,35 +130,36 @@ export const HeroSlider: React.FC = () => {
               className={styles.bgImage}
               style={{ objectFit: "cover" }}
             />
-            <div className={styles.overlay} />
+            <div className={styles.heroGridOverlay} />
+            <div className={styles.heroOverlayGradient} />
 
             {/* Orbital decoration */}
             {s.id === 1 && (
               <div className={styles.orbitalContainer}>
-              <div className={styles.orbitalGlow} />
-              <div className={styles.orbitalRings}>
-                <div className={styles.orbitalRingInner} />
-                <div className={styles.orbitalRingOuter}>
-                  <div className={styles.iconWrapperPos1}>
-                    <Image src="/images/uae-icon.png"      alt="UAE"       width={48} height={48} className="object-contain" />
-                  </div>
-                  <div className={styles.iconWrapperPos2}>
-                    <Image src="/images/russia_icon.png"   alt="Russia"    width={60} height={60} className="object-contain" />
-                  </div>
-                  <div className={styles.iconWrapperPos3}>
-                    <Image src="/images/srilanka-icon.png" alt="Sri Lanka" width={48} height={48} className="object-contain" />
-                  </div>
-                  <div className={styles.iconWrapperPos4}>
-                    <Image src="/images/indian_icon.png"   alt="India"     width={60} height={60} className="object-contain" />
-                  </div>
-                  <div className={styles.iconWrapperPos5}>
-                    <Image src="/images/nepal-icon.png"    alt="Nepal"     width={48} height={48} className="object-contain" />
+                <div className={styles.orbitalGlow} />
+                <div className={styles.orbitalRings}>
+                  <div className={styles.orbitalRingInner} />
+                  <div className={styles.orbitalRingOuter}>
+                    <div className={styles.iconWrapperPos1}>
+                      <Image src="/images/uae-icon.png" alt="UAE" width={48} height={48} className="object-contain" />
+                    </div>
+                    <div className={styles.iconWrapperPos2}>
+                      <Image src="/images/russia_icon.png" alt="Russia" width={60} height={60} className="object-contain" />
+                    </div>
+                    <div className={styles.iconWrapperPos3}>
+                      <Image src="/images/srilanka-icon.png" alt="Sri Lanka" width={48} height={48} className="object-contain" />
+                    </div>
+                    <div className={styles.iconWrapperPos4}>
+                      <Image src="/images/indian_icon.png" alt="India" width={60} height={60} className="object-contain" />
+                    </div>
+                    <div className={styles.iconWrapperPos5}>
+                      <Image src="/images/nepal-icon.png" alt="Nepal" width={48} height={48} className="object-contain" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className={styles.centerTextWrapper}>
-                <h2 className={styles.centerText}>ZNANIE</h2>
-              </div>
+                <div className={styles.centerTextWrapper}>
+                  <h2 className={styles.centerText}>ZNANIE</h2>
+                </div>
               </div>
             )}
           </div>
