@@ -322,7 +322,7 @@
       rgba(15, 37, 42, 0.5) 100%
     );
   }
-  .orbitalContainer { top: auto; bottom: -5%; right: -30%; transform: scale(0.4); }
+  .orbitalContainer { display: none; }
   .slideTitle { font-size: clamp(1.75rem, 8vw, 2.5rem); margin-bottom: 16px; }
   .arrowBtn   { display: none; }
   .dots       { bottom: 24px; }

@@ -6,8 +6,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../ui/Button";
 import styles from "./HeroSlider.module.css";
 
+interface Slide {
+  id: number;
+  heroTag: string;
+  title: React.ReactNode;
+  description: string;
+  imageSrc: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+}
+
 /* ── Slide definitions ──────────────────────────────────────── */
-const SLIDES = [
+const SLIDES: Slide[] = [
   {
     id: 1,
     heroTag: "REGIONAL PUBLIC CHARITY FOUNDATION",
@@ -21,6 +33,10 @@ const SLIDES = [
     description:
       "Empowering Minds Through Russian Language and Education — Bridging Nations for a Peaceful and Prosperous World Inspired by Russian Culture.",
     imageSrc: "/images/zn_teaching.jpg",
+    primaryCtaText: "Learn More",
+    primaryCtaHref: "/about-us",
+    secondaryCtaText: "Contact Us",
+    secondaryCtaHref: "/contact",
   },
   {
     id: 2,
@@ -35,6 +51,10 @@ const SLIDES = [
     description:
       "Discover top-ranked Russian universities offering internationally recognised degrees across medicine, engineering, science and the humanities — at unmatched value.",
     imageSrc: "/images/zn_znanie_rss.jpg",
+    primaryCtaText: "Study in Russia",
+    primaryCtaHref: "/study-in-russia",
+    secondaryCtaText: "Why Choose Us",
+    secondaryCtaHref: "/why-choose-us",
   },
   {
     id: 3,
@@ -49,6 +69,10 @@ const SLIDES = [
     description:
       "Our structured language mastery programmes take you from beginner to fluent — giving you the cultural and academic edge to thrive in Russia and beyond.",
     imageSrc: "/images/zn_language.jpg",
+    primaryCtaText: "Language Courses",
+    primaryCtaHref: "/russian-language-courses",
+    secondaryCtaText: "Get in Touch",
+    secondaryCtaHref: "/contact",
   },
 ];
 
