@@ -12,7 +12,7 @@ const reasons = [
   {
     title: 'Cultural Harmonization',
     description: 'A vibrant, inclusive society that acts as a global melting pot. International diplomats and students converge through shared intellectual pursuit.',
-    image: '/images/zn_cultural.jpg'
+    image: '/images/zn_cultural_harmo.jpg'
   },
   {
     title: 'Global Credentialing',

@@ -14,7 +14,7 @@ const services = [
     num: '02',
     title: 'Nurturing Talent',
     description: 'Identifying and cultivating exceptional potential through scholarships, mentorship programs, and hands-on research opportunities.',
-    image: '/images/zn_nurturing_talent.jpg',
+    image: '/images/zn_st_nurturing_talent.jpg',
   },
   {
     num: '03',
