@@ -46,8 +46,36 @@
   z-index: 1001; /* Above mobile menu */
 }
 
+.logoLinkWrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  gap: 8px;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--_color---crimson-red);
+  letter-spacing: 0.05em;
+  font-family: var(--font-lexend, sans-serif);
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .logoText {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logoText {
+    font-size: 28px;
+  }
+}
+
 .logoImg {
-  height: 42px;
+  height: 32px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -108,6 +136,7 @@
 .signUpLink,
 .dashboardLink,
 .logoutLink {
+  display: none;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -115,6 +144,15 @@
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
   white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .loginLink,
+  .signUpLink,
+  .dashboardLink,
+  .logoutLink {
+    display: inline-flex;
+  }
 }
 
 .loginLink {
@@ -307,6 +345,19 @@
   .nav.mobileOpen .dropdownLink:hover {
     padding-left: 0;
     color: var(--_color---crimson-red);
+  }
+
+  .mobileOnlyAuth {
+    display: block;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobileOnlyAuth {
+    display: none;
   }
 }
 

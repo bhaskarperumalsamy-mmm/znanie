@@ -94,15 +94,16 @@ export const Navbar: React.FC = () => {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.container}`}>
         <div className={styles.logoContainer}>
-          <Link href="/home">
+          <Link href="/home" className={styles.logoLinkWrapper}>
             <Image
               src="/images/znaine-logo.png"
-              alt="Znaine Logo"
+              alt="Znanie Logo"
               width={320}
               height={100}
               className={styles.logoImg}
               priority
             />
+            <span className={styles.logoText}>Znanie</span>
           </Link>
         </div>
 
@@ -140,6 +141,27 @@ export const Navbar: React.FC = () => {
                 )}
               </li>
             ))}
+            {!loading && (
+              <li className={styles.mobileOnlyAuth}>
+                {user ? (
+                  <Link 
+                    href={['TEACHER', 'COUNSELOR', 'MENTOR'].includes(user.role) ? '/teacher' : user.role === 'ADMIN' ? '/admin' : '/student'}
+                    className={styles.navLink}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                ) : (
+                  <Link 
+                    href="/login" 
+                    className={styles.navLink}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                )}
+              </li>
+            )}
           </ul>
         </nav>
 
