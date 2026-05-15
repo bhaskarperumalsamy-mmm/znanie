@@ -40,7 +40,7 @@
   margin-bottom: 16px;
 }
 .title {
-  font-size: var(--_typhography---font-size--h2);
+  font-size: clamp(1.5rem, 5vw, var(--_typhography---font-size--h2));
   font-weight: 700;
   color: #1f2937;
   font-family: var(--font-lexend);

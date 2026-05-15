@@ -1,4 +1,4 @@
-# Znanie Website   
+# Znanie Website  
 
 A modern, responsive Next.js application designed to facilitate educational connections, language courses, and study opportunities between India and Russia.
 

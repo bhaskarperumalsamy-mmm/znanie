@@ -60,7 +60,7 @@
 }
 
 .title {
-  font-size: var(--_typhography---font-size--h2);
+  font-size: clamp(1.5rem, 5vw, var(--_typhography---font-size--h2));
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 24px;

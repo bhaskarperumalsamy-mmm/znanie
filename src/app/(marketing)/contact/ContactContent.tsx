@@ -70,7 +70,7 @@ export default function ContactContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] as any }}
           >
-            We welcom <br />your <span className="rt-text-yellow">inquiries</span>
+            We welcome <br />your <span className="rt-text-yellow">inquiries</span>
           </motion.h1>
 
           <motion.p

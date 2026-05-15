@@ -53,7 +53,7 @@
 }
 
 .title {
-  font-size: var(--_typhography---font-size--h2);
+  font-size: clamp(1.5rem, 5vw, var(--_typhography---font-size--h2));
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 16px;
@@ -81,11 +81,17 @@
 }
 
 .description {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.6;
   color: #4a5568;
   margin-bottom: 24px;
   max-width: 650px;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 18px;
+  }
 }
 
 .valuesGrid {
@@ -116,10 +122,16 @@
 }
 
 .valueText {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 600;
   color: #0f252a;
   font-family: var(--font-lexend);
+}
+
+@media (min-width: 768px) {
+  .valueText {
+    font-size: 17px;
+  }
 }
 
 .rightContent {
@@ -135,7 +147,7 @@
 .identityCard {
   position: relative;
   background-color: #0f252a;
-  border-radius: 48px;
+  border-radius: 24px;
   padding: 24px;
   height: 100%;
   overflow: hidden;
@@ -145,8 +157,15 @@
   box-shadow: 0 30px 60px rgba(15, 37, 42, 0.15);
 }
 
+@media (min-width: 768px) {
+  .identityCard {
+    border-radius: 36px;
+  }
+}
+
 @media (min-width: 1024px) {
   .identityCard {
+    border-radius: 48px;
     padding: 56px;
   }
 }

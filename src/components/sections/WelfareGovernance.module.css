@@ -70,7 +70,7 @@
 
 .promiseTitle {
   font-family: var(--_font-family---lexend);
-  font-size: var(--_typhography---font-size--h2);
+  font-size: clamp(1.5rem, 5vw, var(--_typhography---font-size--h2));
   font-weight: var(--_typhography---font-weight--h2);
   line-height: var(--_typhography---font-line-height--h2);
   color: #ffffff;

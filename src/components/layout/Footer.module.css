@@ -58,11 +58,11 @@
 }
 
 .logoImg {
-  height: 50px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
@@ -73,11 +73,17 @@
 
 .desc {
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0; /* Removed bottom margin */
+  margin-bottom: 0;
   line-height: 1.8;
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   max-width: 360px;
   font-family: var(--font-body);
+}
+
+@media (min-width: 768px) {
+  .desc {
+    font-size: 1.0625rem;
+  }
 }
 
 .contactLink {
@@ -147,7 +153,13 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .linkList {
+    gap: 18px;
+  }
 }
 
 .linkList a {

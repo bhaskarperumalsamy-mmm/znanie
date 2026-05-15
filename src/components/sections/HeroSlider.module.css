@@ -152,19 +152,34 @@
 
 .contentInner {
   max-width: 800px;
+  padding: 0 4px;
+}
+
+@media (max-width: 640px) {
+  .contentInner {
+    padding: 0;
+  }
 }
 
 .heroTag {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-family: var(--_font-family---lexend), 'Lexend', sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--_color---golden-amber);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  .heroTag {
+    font-size: 0.8125rem;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
 }
 
 .heroTag::before {
@@ -187,18 +202,32 @@
 
 .slideDescription {
   color: rgba(255, 255, 255, 0.7);
-  font-size: var(--_typhography---font-size--body-font);
-  line-height: var(--_typhography---font-line-height--body-font);
-  margin-bottom: 48px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
   max-width: 600px;
   font-family: var(--font-body);
   font-weight: var(--_typhography---font-weight--body-font);
 }
 
+@media (min-width: 640px) {
+  .slideDescription {
+    font-size: var(--_typhography---font-size--body-font);
+    line-height: var(--_typhography---font-line-height--body-font);
+    margin-bottom: 48px;
+  }
+}
+
 .slideActions {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .slideActions {
+    gap: 16px;
+  }
 }
 
 /* ── Navigation arrows ───────────────────────────────────────── */
@@ -285,7 +314,7 @@
 
 @media (max-width: 640px) {
   .sliderRoot { height: auto; min-height: 100svh; }
-  .slide      { height: auto; min-height: 100svh; padding: 70px 0 100px; }
+  .slide      { height: auto; min-height: 100svh; padding: 80px 0 100px; }
   .overlay {
     background: linear-gradient(
       to top,
@@ -293,7 +322,8 @@
       rgba(15, 37, 42, 0.5) 100%
     );
   }
-  .orbitalContainer { top: auto; bottom: -5%; right: -30%; transform: scale(0.5); }
-  .slideTitle { font-size: clamp(2rem, 10vw, 3rem); margin-bottom: 16px; }
+  .orbitalContainer { top: auto; bottom: -5%; right: -30%; transform: scale(0.4); }
+  .slideTitle { font-size: clamp(1.75rem, 8vw, 2.5rem); margin-bottom: 16px; }
   .arrowBtn   { display: none; }
+  .dots       { bottom: 24px; }
 }

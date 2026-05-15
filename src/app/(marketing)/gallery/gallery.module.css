@@ -187,45 +187,51 @@
   border-radius: 2px;
 }
 
-/* ─── Masonry Grid ─── */
-.masonryGrid {
-  columns: 1;
-  column-gap: 24px;
+/* ─── Gallery Grid (CSS Grid — row-based order) ─── */
+.galleryGrid {
   position: relative;
   z-index: 2;
   padding: 60px 5% 100px;
 }
 
+/* Each row is a flex row that fills evenly */
+.galleryRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
 @media (min-width: 640px) {
-  .masonryGrid {
-    columns: 2;
+  .galleryRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .galleryRow {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .masonryGrid {
-    columns: 3;
-    column-gap: 32px;
+  .galleryRow {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
   }
 }
 
 @media (min-width: 1440px) {
-  .masonryGrid {
-    columns: 4;
+  .galleryRow {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 /* ─── Grid Item ─── */
 .gridItem {
-  break-inside: avoid;
-  margin-bottom: 24px;
   cursor: pointer;
-}
-
-@media (min-width: 1024px) {
-  .gridItem {
-    margin-bottom: 32px;
-  }
+  will-change: transform, opacity;
 }
 
 .imageWrapper {
@@ -233,7 +239,7 @@
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
-  background: #fdfdfd;
+  background: #f5f5f5;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 
     0 10px 30px -10px rgba(0, 0, 0, 0.1),
@@ -246,31 +252,6 @@
     0 30px 60px -12px rgba(0, 0, 0, 0.15),
     0 18px 36px -18px rgba(0, 0, 0, 0.1);
   transform: translateY(-8px) scale(1.02);
-}
-
-/* Alternate heights for masonry feel */
-.gridItem:nth-child(6n+1) .imageWrapper {
-  aspect-ratio: 4 / 5;
-}
-
-.gridItem:nth-child(6n+2) .imageWrapper {
-  aspect-ratio: 3 / 2;
-}
-
-.gridItem:nth-child(6n+3) .imageWrapper {
-  aspect-ratio: 1 / 1;
-}
-
-.gridItem:nth-child(6n+4) .imageWrapper {
-  aspect-ratio: 3 / 4;
-}
-
-.gridItem:nth-child(6n+5) .imageWrapper {
-  aspect-ratio: 16 / 9;
-}
-
-.gridItem:nth-child(6n+6) .imageWrapper {
-  aspect-ratio: 5 / 4;
 }
 
 .galleryImage {
@@ -339,6 +320,37 @@
   background: #ffffff;
   transform: scale(1.1) !important;
   color: var(--_color---crimson-red, #C8102E);
+}
+
+/* ─── Mobile Touch — show expand icon on tap ─── */
+@media (hover: none) {
+  .imageOverlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.25) 0%,
+      transparent 50%
+    );
+    backdrop-filter: none;
+  }
+
+  .expandIcon {
+    transform: scale(1);
+    opacity: 0.85;
+    width: 44px;
+    height: 44px;
+  }
+
+  .imageWrapper:hover {
+    transform: none;
+    box-shadow: 
+      0 10px 30px -10px rgba(0, 0, 0, 0.1),
+      0 4px 10px -5px rgba(0, 0, 0, 0.05);
+  }
+
+  .imageWrapper:hover .galleryImage {
+    transform: none;
+  }
 }
 
 /* ═══════════════════════════════════

@@ -81,7 +81,7 @@ const curriculum: Module[] = [
     badge: '50 LESSONS',
     features: 'Stylistics, Cultural Context, Literary Analysis.',
     outcome: 'Dostoevsky Ready',
-    image: '/images/cinematic.jpg',
+    image: '/images/zn_proficiency.jpg',
     duration: '12 Weeks',
     level: 'Advanced',
     details: 'Hone your stylistic range and cultural intuition. Participate in high-level literary analysis and complex academic discussion.',

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./gallery.module.css";
@@ -99,8 +99,151 @@ const galleryImages = [
   { src: "/images/gallery/znanie_092.jpg", alt: "ZNANIE Gallery Image 90", category: "Gallery" }
 ];
 
+/* ─── Row aspect ratio patterns for visual variety ─── */
+const rowAspectPatterns = [
+  "4 / 3",   // landscape row
+  "3 / 4",   // portrait row
+  "1 / 1",   // square row
+  "3 / 2",   // wide landscape row
+  "4 / 5",   // tall portrait row
+  "16 / 9",  // cinematic row
+];
+
+function getRowAspectRatio(rowIndex: number): string {
+  return rowAspectPatterns[rowIndex % rowAspectPatterns.length];
+}
+
+/* ─── Determine column count at breakpoints ─── */
+function getColumnsForWidth(): number {
+  if (typeof window === "undefined") return 3;
+  const w = window.innerWidth;
+  if (w < 640) return 1;
+  if (w < 768) return 2;
+  if (w < 1024) return 2;
+  if (w < 1440) return 3;
+  return 4;
+}
+
+/* ─── Group images into rows based on column count ─── */
+function groupIntoRows<T>(items: T[], cols: number): T[][] {
+  const rows: T[][] = [];
+  for (let i = 0; i < items.length; i += cols) {
+    rows.push(items.slice(i, i + cols));
+  }
+  return rows;
+}
+
+/* ─── Row Component: animates a row of images together ─── */
+function GalleryRow({
+  images,
+  startIndex,
+  rowIndex,
+  onImageClick,
+}: {
+  images: typeof galleryImages;
+  startIndex: number;
+  rowIndex: number;
+  onImageClick: (index: number) => void;
+}) {
+  const rowRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = rowRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: "100px 0px", threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <motion.div
+      ref={rowRef}
+      className={styles.galleryRow}
+      initial="hidden"
+      animate={isVisible ? "visible" : "hidden"}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+        },
+      }}
+    >
+      {images.map((img, i) => {
+        const globalIndex = startIndex + i;
+        return (
+          <motion.div
+            key={img.src}
+            className={styles.gridItem}
+            variants={{
+              hidden: { opacity: 0, y: 40, scale: 0.96 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.33, 1, 0.68, 1],
+                },
+              },
+            }}
+            onClick={() => onImageClick(globalIndex)}
+          >
+            <div
+              className={styles.imageWrapper}
+              style={{ aspectRatio: getRowAspectRatio(rowIndex) }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, (max-width: 1440px) 33vw, 25vw"
+                className={styles.galleryImage}
+                loading={rowIndex < 2 ? "eager" : "lazy"}
+              />
+              <div className={styles.imageOverlay}>
+                <div className={styles.imageCaption}>
+                  <span className={styles.expandIcon}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 3 21 3 21 9" />
+                      <polyline points="9 21 3 21 3 15" />
+                      <line x1="21" y1="3" x2="14" y2="10" />
+                      <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  );
+}
+
 export default function GalleryContent() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [columns, setColumns] = useState(3);
+
+  // Track column count on resize
+  useEffect(() => {
+    const updateColumns = () => setColumns(getColumnsForWidth());
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
+
+  const rows = groupIntoRows(galleryImages, columns);
 
   const openLightbox = useCallback((index: number) => {
     setLightboxIndex(index);
@@ -127,7 +270,7 @@ export default function GalleryContent() {
   }, []);
 
   // Keyboard navigation for lightbox
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
       if (e.key === "Escape") closeLightbox();
@@ -148,7 +291,7 @@ export default function GalleryContent() {
             alt="Gallery Hero"
             fill
             className={styles.heroBgImage}
-            priority
+            loading="eager"
           />
           <div className={styles.heroGridOverlay} />
           <div className={styles.heroOverlayGradient} />
@@ -216,60 +359,21 @@ export default function GalleryContent() {
           <div className={styles.sectionDivider} />
         </motion.div>
 
-        {/* Masonry Grid */}
-        <motion.div
-          className={styles.masonryGrid}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.18 } },
-          }}
-        >
-          {galleryImages.map((img, index) => (
-            <motion.div
-              key={img.src}
-              className={styles.gridItem}
-              variants={{
-                hidden: { opacity: 0, x: 30, y: 30, scale: 0.95 },
-                visible: {
-                  opacity: 1,
-                  x: 0,
-                  y: 0,
-                  scale: 1,
-                  transition: {
-                    duration: 0.9,
-                    ease: [0.33, 1, 0.68, 1] as any
-                  }
-                },
-              }}
-              onClick={() => openLightbox(index)}
-            >
-              <div className={styles.imageWrapper}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className={styles.galleryImage}
-                />
-                <div className={styles.imageOverlay}>
-                  <div className={styles.imageCaption}>
-                    <span className={styles.expandIcon}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="15 3 21 3 21 9" />
-                        <polyline points="9 21 3 21 3 15" />
-                        <line x1="21" y1="3" x2="14" y2="10" />
-                        <line x1="3" y1="21" x2="10" y2="14" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Row-based Grid */}
+        <div className={styles.galleryGrid}>
+          {rows.map((rowImages, rowIndex) => {
+            const startIndex = rowIndex * columns;
+            return (
+              <GalleryRow
+                key={`row-${rowIndex}`}
+                images={rowImages}
+                startIndex={startIndex}
+                rowIndex={rowIndex}
+                onImageClick={openLightbox}
+              />
+            );
+          })}
+        </div>
       </section>
 
       {/* ─── Lightbox ─── */}
@@ -297,7 +401,7 @@ export default function GalleryContent() {
                 fill
                 sizes="90vw"
                 className={styles.lightboxImage}
-                priority
+                loading="eager"
               />
             </motion.div>
 

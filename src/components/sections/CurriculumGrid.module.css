@@ -23,7 +23,13 @@
 
 .header {
   text-align: left;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 64px;
+  }
 }
 
 .overline {
@@ -39,7 +45,7 @@
 
 .title {
   font-family: var(--_font-family---lexend);
-  font-size: var(--_typhography---font-size--h2);
+  font-size: clamp(1.5rem, 5vw, var(--_typhography---font-size--h2));
   font-weight: var(--_typhography---font-weight--h2);
   line-height: var(--_typhography---font-line-height--h2);
   color: var(--_color---charcoal-black);
@@ -116,10 +122,16 @@
 }
 
 .contentArea {
-  padding: 32px 24px;
+  padding: 24px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .contentArea {
+    padding: 32px 24px;
+  }
 }
 
 .tagsRow {
@@ -257,4 +269,30 @@
 .checkIcon {
   color: var(--_color---crimson-red);
   flex-shrink: 0;
+}
+
+/* ─── Touch Device Fixes ─── */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card:active {
+    transform: scale(0.98);
+  }
+
+  .hoverOverlay {
+    /* On touch devices, show a subtle indicator instead of hover overlay */
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cardFooter::after {
+    content: 'Tap for details →';
+    font-size: 0.75rem;
+    color: var(--_color---crimson-red);
+    font-weight: 600;
+    margin-left: auto;
+  }
 }

@@ -5,15 +5,33 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: var(--_color---white); /* Fixed variable name */
+  background-color: var(--_color---white);
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
-  padding: 16px 0;
+  padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 14px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 16px 0;
+  }
 }
 
 .scrolled {
-  padding: 12px 0;
+  padding: 8px 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+@media (min-width: 1024px) {
+  .scrolled {
+    padding: 12px 0;
+  }
 }
 
 .container {
@@ -25,10 +43,11 @@
 .logoContainer {
   display: flex;
   align-items: center;
+  z-index: 1001; /* Above mobile menu */
 }
 
 .logoImg {
-  height: 50px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -37,7 +56,7 @@
 
 @media (min-width: 768px) {
   .logoImg {
-    height: 70px;
+    height: 60px;
   }
 }
 
@@ -65,7 +84,7 @@
   color: var(--_color---charcoal-black);
   position: relative;
   transition: color 0.3s ease;
-  text-decoration: none !important; /* Removes active/hover underlines */
+  text-decoration: none !important;
 }
 
 .navLink:hover {
@@ -81,7 +100,8 @@
 .rightSection {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  z-index: 1001;
 }
 
 .loginLink,
@@ -94,6 +114,7 @@
   padding: 8px 16px;
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .loginLink {
@@ -139,17 +160,25 @@
   display: none;
 }
 
+/* ─── Mobile Hamburger ─── */
 .mobileToggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px; /* Ensure 44px minimum touch target */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .hamburger {
   display: block;
-  width: 24px;
+  width: 22px;
   height: 2px;
   background-color: var(--_color---charcoal-black);
   position: relative;
@@ -168,11 +197,11 @@
 }
 
 .hamburger::before {
-  top: -8px;
+  top: -7px;
 }
 
 .hamburger::after {
-  bottom: -8px;
+  bottom: -7px;
 }
 
 .hamburgerActive {
@@ -203,30 +232,56 @@
   }
 }
 
-/* Mobile Menu Opened State */
+/* ─── Mobile Menu ─── */
 @media (max-width: 1023px) {
   .nav.mobileOpen {
-    display: block;
-    position: absolute;
-    top: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
+    height: 100dvh;
     background-color: var(--_color---white);
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 100px 24px 40px;
+    z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    animation: mobileMenuSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes mobileMenuSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nav.mobileOpen .navList {
     flex-direction: column;
-    gap: 24px;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav.mobileOpen .navItem {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
   }
 
   .nav.mobileOpen .navLink {
-    display: block;
-    padding: 16px 0;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    font-size: 17px;
+    font-weight: 600;
+    border-bottom: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .nav.mobileOpen .dropdown {
@@ -234,12 +289,28 @@
     opacity: 1;
     visibility: visible;
     box-shadow: none;
-    padding: 10px 0 10px 20px;
+    padding: 0 0 12px 20px;
     display: block;
+    border: none;
+    border-radius: 0;
+    transform: none;
+    min-width: unset;
+  }
+
+  .nav.mobileOpen .dropdownLink {
+    padding: 14px 0;
+    font-size: 15px;
+    color: var(--_color---shadow-gray);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .nav.mobileOpen .dropdownLink:hover {
+    padding-left: 0;
+    color: var(--_color---crimson-red);
   }
 }
 
-/* ─── Dropdown Styling ─── */
+/* ─── Dropdown Styling (Desktop) ─── */
 .hasDropdown {
   position: relative;
 }
@@ -295,4 +366,11 @@
   background-color: rgba(220, 37, 37, 0.05);
   color: var(--_color---crimson-red);
   padding-left: 28px;
+}
+
+/* ─── Safe area for notched devices ─── */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .header {
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
 }
