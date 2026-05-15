@@ -702,6 +702,11 @@ export default function WhyChooseUsContent() {
                 name: "DR. M. SANTHALAKSHMI",
                 title: "All India People & Culture Director",
                 image: "/images/team/Santhalakshmi.jpg"
+              },
+              {
+                name: "MR. ARUN HENDRIX",
+                title: "KERALA STATE REPRESENTATIVE",
+                image: "/images/team/arun.jpg"
               }
             ].map((member, i) => (
               <motion.div
