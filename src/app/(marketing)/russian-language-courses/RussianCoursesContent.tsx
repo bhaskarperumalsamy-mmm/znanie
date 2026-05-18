@@ -18,7 +18,7 @@ export default function RussianCoursesContent() {
       <section className={styles.heroSection}>
         <div className={styles.heroBg}>
           <Image
-            src="/images/freestocks.jpg"
+            src="/images/zn_new_journey.jpg"
             alt="Master Russian"
             fill
             className={styles.heroBgImage}

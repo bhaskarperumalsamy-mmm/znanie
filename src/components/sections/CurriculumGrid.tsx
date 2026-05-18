@@ -55,7 +55,7 @@ const curriculum: Module[] = [
     badge: '40 LESSONS',
     features: 'The Cases (P2), Verb Aspects, Opinion & Debate.',
     outcome: 'Functional Independence',
-    image: '/images/aejaz-memon.jpg',
+    image: '/images/zn_Intermediate.jpg',
     duration: '8 Weeks',
     level: 'Intermediate',
     details: 'Achieve functional independence in most travel and professional situations. Express opinions and engage in structured debate.',

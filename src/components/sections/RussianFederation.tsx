@@ -41,7 +41,7 @@ export const RussianFederation: React.FC = () => {
           >
             <div className={styles.portraitWrapper}>
               <Image
-                src="/images/daniil-smetanin.jpg"
+                src="/images/alina-makhatyrova.jpg"
                 alt="Russian Academic Heritage"
                 fill
                 style={{ objectFit: 'cover' }}
