@@ -41,7 +41,7 @@ const SLIDES: Slide[] = [
     heroTag: "WORLD-CLASS RUSSIAN UNIVERSITIES",
     title: (
       <>
-        Shape Your Future with
+        Shape Your Future with{" "}
         <br />
         <span className="rt-text-yellow">Russian Education</span>
       </>
@@ -57,7 +57,7 @@ const SLIDES: Slide[] = [
     heroTag: "MASTER THE LANGUAGE OF KNOWLEDGE",
     title: (
       <>
-        Unlock the Power of
+        Unlock the Power of{" "}
         <br />
         <span className="rt-text-yellow">Russian Language</span>
       </>
@@ -214,7 +214,7 @@ export const HeroSlider: React.FC = () => {
                 </Button>
               )}
               {slide.secondaryCtaText && slide.secondaryCtaHref && (
-                <Button variant="dark" href={slide.secondaryCtaHref}>
+                <Button variant="primary" href={slide.secondaryCtaHref}>
                   {slide.secondaryCtaText} &rarr;
                 </Button>
               )}

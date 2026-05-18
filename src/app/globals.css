@@ -103,7 +103,9 @@
   --color-primary-hover: #b5110a;
   --color-secondary: var(--_color---golden-amber);
   --color-dark: var(--_color---charcoal-black);
+  --color-dark-text: var(--_color---charcoal-black);
   --color-body: var(--_color---shadow-gray);
+  --color-white: #ffffff;
   --color-background: var(--_color---white);
   --color-soft-gray: var(--_color---soft-gray);
   --color-midnight-teal: var(--_color---midnight-teal);
