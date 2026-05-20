@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import DeleteModal from '@/components/admin/DeleteModal';
 
 interface User {
   id: string;
@@ -12,16 +14,25 @@ interface User {
   createdAt: string;
 }
 
+interface Pagination {
+  page: number;
+  limit: number;
+  total: number;
+  pages: number;
+}
+
 export default function AdminUsersPage() {
   const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [roleFilter, setRoleFilter] = useState('');
-  const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', password: '', role: 'STUDENT' });
-  const [saving, setSaving] = useState(false);
-  const [error, setError] = useState('');
+  const [pagination, setPagination] = useState<Pagination>({ page: 1, limit: 20, total: 0, pages: 0 });
+  
+  // Delete modal
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteUserId, setDeleteUserId] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     checkAuth();
@@ -31,7 +42,7 @@ export default function AdminUsersPage() {
     if (!loading) {
       fetchUsers();
     }
-  }, [search, roleFilter]);
+  }, [search, roleFilter, pagination.page]);
 
   const checkAuth = async () => {
     try {
@@ -52,6 +63,8 @@ export default function AdminUsersPage() {
   const fetchUsers = async () => {
     try {
       const params = new URLSearchParams();
+      params.set('page', pagination.page.toString());
+      params.set('limit', '20');
       if (search) params.set('search', search);
       if (roleFilter) params.set('role', roleFilter);
       
@@ -59,6 +72,9 @@ export default function AdminUsersPage() {
       const data = await res.json();
       
       setUsers(data.users || []);
+      if (data.pagination) {
+        setPagination(data.pagination);
+      }
     } catch (err) {
       console.error('Error fetching users:', err);
     } finally {
@@ -66,40 +82,17 @@ export default function AdminUsersPage() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSaving(true);
-    setError('');
-
-    try {
-      const res = await fetch('/api/admin/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      
-      const data = await res.json();
-      
-      if (!res.ok) {
-        setError(data.error || 'Failed to create user');
-        return;
-      }
-      
-      setShowModal(false);
-      setFormData({ name: '', email: '', password: '', role: 'STUDENT' });
-      fetchUsers();
-    } catch (err) {
-      setError('Something went wrong');
-    } finally {
-      setSaving(false);
-    }
+  const handleDeleteClick = (userId: string) => {
+    setDeleteUserId(userId);
+    setShowDeleteModal(true);
   };
 
-  const handleDelete = async (userId: string) => {
-    if (!confirm('Are you sure you want to delete this user?')) return;
+  const handleDeleteConfirm = async () => {
+    if (!deleteUserId) return;
     
+    setDeleting(true);
     try {
-      const res = await fetch(`/api/admin/users/${userId}`, {
+      const res = await fetch(`/api/admin/users/${deleteUserId}`, {
         method: 'DELETE',
       });
       
@@ -109,7 +102,32 @@ export default function AdminUsersPage() {
         return;
       }
       
+      setShowDeleteModal(false);
+      setDeleteUserId(null);
       fetchUsers();
+    } catch (err) {
+      alert('Something went wrong');
+    } finally {
+      setDeleting(false);
+    }
+  };
+
+  const handleSendInvitation = async (userId: string) => {
+    if (!confirm('Send password setup invitation to this user?')) return;
+    
+    try {
+      const res = await fetch(`/api/admin/users/${userId}/invite`, {
+        method: 'POST',
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        alert(data.error || 'Failed to send invitation');
+        return;
+      }
+      
+      alert('Invitation sent successfully!');
     } catch (err) {
       alert('Something went wrong');
     }
@@ -141,12 +159,12 @@ export default function AdminUsersPage() {
           <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
           <p className="text-gray-500 mt-1">Create and manage platform users</p>
         </div>
-        <button
-          onClick={() => setShowModal(true)}
+        <Link
+          href="/admin/users/new"
           className="px-4 py-2 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition"
         >
-          Add User
-        </button>
+          + Create User
+        </Link>
       </div>
 
       <div className="flex gap-4 mb-6">
@@ -154,12 +172,12 @@ export default function AdminUsersPage() {
           type="text"
           placeholder="Search by name or email..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => { setSearch(e.target.value); setPagination(p => ({ ...p, page: 1 })); }}
           className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c1121f] focus:border-transparent"
         />
         <select
           value={roleFilter}
-          onChange={(e) => setRoleFilter(e.target.value)}
+          onChange={(e) => { setRoleFilter(e.target.value); setPagination(p => ({ ...p, page: 1 })); }}
           className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c1121f] focus:border-transparent"
         >
           <option value="">All Roles</option>
@@ -178,6 +196,7 @@ export default function AdminUsersPage() {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Verified</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
             </tr>
@@ -185,7 +204,7 @@ export default function AdminUsersPage() {
           <tbody className="divide-y divide-gray-200">
             {users.length === 0 ? (
               <tr>
-                <td colSpan={5} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
                   No users found
                 </td>
               </tr>
@@ -199,16 +218,47 @@ export default function AdminUsersPage() {
                       {user.role}
                     </span>
                   </td>
+                  <td className="px-6 py-4">
+                    {user.isVerified ? (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Verified
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        Pending
+                      </span>
+                    )}
+                  </td>
                   <td className="px-6 py-4 text-gray-500 text-sm">
                     {new Date(user.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <button
-                      onClick={() => handleDelete(user.id)}
-                      className="text-red-600 hover:text-red-800 text-sm"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex justify-end gap-3">
+                      <Link
+                        href={`/admin/users/${user.id}`}
+                        className="text-gray-600 hover:text-gray-800 text-sm"
+                      >
+                        View
+                      </Link>
+                      <Link
+                        href={`/admin/users/${user.id}/edit`}
+                        className="text-blue-600 hover:text-blue-800 text-sm"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        onClick={() => handleSendInvitation(user.id)}
+                        className="text-green-600 hover:text-green-800 text-sm"
+                      >
+                        Invite
+                      </button>
+                      <button
+                        onClick={() => handleDeleteClick(user.id)}
+                        className="text-red-600 hover:text-red-800 text-sm"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))
@@ -217,86 +267,38 @@ export default function AdminUsersPage() {
         </table>
       </div>
 
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Create New User</h2>
-            
-            {error && (
-              <div className="mb-4 bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
-                {error}
-              </div>
-            )}
-            
-            <form onSubmit={handleSubmit}>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c1121f] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c1121f] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                  <input
-                    type="password"
-                    required
-                    value={formData.password}
-                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c1121f] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
-                  <select
-                    required
-                    value={formData.role}
-                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c1121f] focus:border-transparent"
-                  >
-                    <option value="TEACHER">Teacher</option>
-                    <option value="COUNSELOR">Counselor</option>
-                    <option value="MENTOR">Mentor</option>
-                    <option value="STUDENT">Student</option>
-                    <option value="ADMIN">Admin</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div className="flex gap-3 mt-6">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={saving}
-                  className="flex-1 px-4 py-2 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition disabled:opacity-50"
-                >
-                  {saving ? 'Creating...' : 'Create User'}
-                </button>
-              </div>
-            </form>
-          </div>
+      {/* Pagination */}
+      {pagination.pages > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-6">
+          <button
+            onClick={() => setPagination(p => ({ ...p, page: p.page - 1 }))}
+            disabled={pagination.page === 1}
+            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Previous
+          </button>
+          <span className="text-gray-600">
+            Page {pagination.page} of {pagination.pages} ({pagination.total} users)
+          </span>
+          <button
+            onClick={() => setPagination(p => ({ ...p, page: p.page + 1 }))}
+            disabled={pagination.page === pagination.pages}
+            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Next
+          </button>
         </div>
       )}
+
+      {/* Delete Modal */}
+      <DeleteModal
+        isOpen={showDeleteModal}
+        title="Delete User"
+        message="Are you sure you want to delete this user? This action cannot be undone."
+        onConfirm={handleDeleteConfirm}
+        onCancel={() => { setShowDeleteModal(false); setDeleteUserId(null); }}
+        loading={deleting}
+      />
     </div>
   );
 }

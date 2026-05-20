@@ -9,6 +9,10 @@ interface Stats {
   totalTeachers: number;
   totalStudents: number;
   totalMeetings: number;
+  totalClasses: number;
+  activeMeetings: number;
+  pendingReviews: number;
+  thisWeekMeetings: number;
 }
 
 export default function AdminDashboardPage() {
@@ -18,6 +22,10 @@ export default function AdminDashboardPage() {
     totalTeachers: 0,
     totalStudents: 0,
     totalMeetings: 0,
+    totalClasses: 0,
+    activeMeetings: 0,
+    pendingReviews: 0,
+    thisWeekMeetings: 0,
   });
   const [loading, setLoading] = useState(true);
 
@@ -55,6 +63,10 @@ export default function AdminDashboardPage() {
         totalTeachers: 0,
         totalStudents: 0,
         totalMeetings: 0,
+        totalClasses: 0,
+        activeMeetings: 0,
+        pendingReviews: 0,
+        thisWeekMeetings: 0,
       });
     } catch (err) {
       console.error('Error fetching stats:', err);
@@ -67,7 +79,11 @@ export default function AdminDashboardPage() {
     { label: 'Total Users', value: stats.totalUsers, color: 'blue', href: '/admin/users' },
     { label: 'Teachers', value: stats.totalTeachers, color: 'purple', href: '/admin/users?role=TEACHER' },
     { label: 'Students', value: stats.totalStudents, color: 'green', href: '/admin/users?role=STUDENT' },
-    { label: 'Meetings', value: stats.totalMeetings, color: 'orange', href: '/admin/meetings' },
+    { label: 'Total Meetings', value: stats.totalMeetings, color: 'orange', href: '/admin/meetings' },
+    { label: 'Total Classes', value: stats.totalClasses, color: 'teal', href: '/admin/classes' },
+    { label: 'Active Meetings', value: stats.activeMeetings, color: 'red', href: '/admin/meetings?status=IN_PROGRESS' },
+    { label: 'This Week', value: stats.thisWeekMeetings, color: 'yellow', href: '/admin/meetings' },
+    { label: 'Pending Reviews', value: stats.pendingReviews, color: 'pink', href: '/admin/reviews' },
   ];
 
   const colorClasses: Record<string, string> = {
@@ -75,6 +91,10 @@ export default function AdminDashboardPage() {
     green: 'bg-green-50 text-green-600',
     purple: 'bg-purple-50 text-purple-600',
     orange: 'bg-orange-50 text-orange-600',
+    teal: 'bg-teal-50 text-teal-600',
+    red: 'bg-red-50 text-red-600',
+    yellow: 'bg-yellow-50 text-yellow-600',
+    pink: 'bg-pink-50 text-pink-600',
   };
 
   if (loading) {
@@ -122,6 +142,24 @@ export default function AdminDashboardPage() {
             className="px-4 py-2 bg-[#c1121f] text-white rounded-lg hover:bg-[#b5110a] transition"
           >
             Manage Users
+          </Link>
+          <Link
+            href="/admin/classes"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          >
+            Manage Classes
+          </Link>
+          <Link
+            href="/admin/meetings"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+          >
+            Manage Meetings
+          </Link>
+          <Link
+            href="/admin/reviews"
+            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+          >
+            Manage Reviews
           </Link>
         </div>
       </div>

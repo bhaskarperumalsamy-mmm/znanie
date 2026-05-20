@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/lib/auth';
 import { hashPassword } from '@/lib/auth';
+import crypto from 'crypto';
 
 export async function GET(request: NextRequest) {
   try {
@@ -70,10 +71,10 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { name, email, password, role } = body;
+    const { name, email, role, bio, specializations, languages, sendInvitation } = body;
 
-    if (!name || !email || !password || !role) {
-      return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+    if (!name || !email || !role) {
+      return NextResponse.json({ error: 'Name, email, and role are required' }, { status: 400 });
     }
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -81,7 +82,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email already exists' }, { status: 400 });
     }
 
-    const hashedPassword = await hashPassword(password);
+    // Generate temporary password (user will need to reset)
+    const tempPassword = crypto.randomBytes(16).toString('hex');
+    const hashedPassword = await hashPassword(tempPassword);
+
+    // Generate verification token
+    const verificationToken = crypto.randomBytes(32).toString('hex');
 
     const newUser = await prisma.user.create({
       data: {
@@ -89,18 +95,36 @@ export async function POST(request: NextRequest) {
         email,
         password: hashedPassword,
         role,
-        isVerified: true,
+        isVerified: sendInvitation ? false : true,
+        verificationToken: sendInvitation ? verificationToken : null,
+        teacherProfile: ['TEACHER', 'COUNSELOR', 'MENTOR'].includes(role) ? {
+          create: {
+            bio: bio || null,
+            specializations: specializations ? specializations.split(',').map((s: string) => s.trim()) : [],
+            languages: languages ? languages.split(',').map((l: string) => l.trim()) : [],
+          }
+        } : undefined,
       },
       select: {
         id: true,
         name: true,
         email: true,
         role: true,
+        isVerified: true,
         createdAt: true,
       },
     });
 
-    return NextResponse.json({ user: newUser });
+    // TODO: Send invitation email if sendInvitation is true
+    if (sendInvitation) {
+      console.log(`[EMAIL] Would send invitation to ${email} with token ${verificationToken}`);
+      // In production, integrate with email service here
+    }
+
+    return NextResponse.json({ 
+      user: newUser,
+      message: sendInvitation ? 'User created. Invitation will be sent.' : 'User created successfully.'
+    });
   } catch (error) {
     console.error('Create user error:', error);
     return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });
